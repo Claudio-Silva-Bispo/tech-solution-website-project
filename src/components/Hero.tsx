@@ -79,7 +79,7 @@ const Hero: React.FC = () => {
                   onClick={() => scrollToSection('contact')}
                   className="bg-gradient-to-r from-blue-500 to-blue-700 hover:from-blue-600 hover:to-blue-800 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-blue-500/25 flex items-center gap-2"
                 >
-                  🚀 Explore seus Projetos
+                  🚀 Explore Projetos
                 </button>
                 <button 
                   onClick={() => scrollToSection('portfolio')}
@@ -225,10 +225,11 @@ const Hero: React.FC = () => {
                   {/* Code */}
                   <div className="text-sm leading-relaxed space-y-1 text-gray-300">
                     <div>&lt;header&gt;</div>
-                    <div className="pl-4">&lt;nav class="navbar"&gt; Sua Empresa &lt;/nav&gt;</div>
+                    <div className="pl-4">&lt;nav class="navbar"&gt; Crie o site da sua Empresa &lt;/nav&gt;</div>
                     <div>&lt;/header&gt;</div>
                     <div>&lt;main class="hero"&gt;</div>
                     <div className="pl-4">&lt;h1&gt;Bem-vindos&lt;/h1&gt;</div>
+                    <div className="pl-4">&lt;h1&gt;ao novo e faça tudo diferente utilizando a internet para alavancar seus negócios&lt;/h1&gt;</div>
                     <div>&lt;/main&gt;</div>
                   </div>
 
@@ -308,7 +309,7 @@ const Hero: React.FC = () => {
         }
         
         .animate-fadeInRight {
-          animation: fadeInRight 1s ease 0.3s both;
+          animation: fadeInRight 1s ease 0.5s both;
         }
       `}</style>
     </div>
