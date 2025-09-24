@@ -24,7 +24,28 @@ export default function WebDevelopmentSection() {
           <h3 className="text-2xl font-bold text-blue-400 text-center mb-10">
             🎯 Tipos de Sites que Desenvolvo
           </h3>
-          <div className="grid lg:grid-cols-3 gap-8">
+          <div className="grid lg:grid-cols-3 gap-6">
+
+            {/* Landing Page */}
+            <div className="bg-white/5 ring-1 border-white/10 rounded-lg p-6 hover:translate-y-[-4px] hover:shadow-lg hover:border-blue-400/30 transition">
+              <div className="grid xl:flex items-center justify-between mb-4">
+                <div className="text-3xl">🎯</div>
+                <div className="font-bold text-gray-200 ml-2 flex-1">Landing Page</div>
+                <div className="bg-blue-500/20 text-blue-400 px-3 py-1 rounded-full text-sm font-semibold">
+                  A partir de R$ 499,00
+                </div>
+              </div>
+              <p className="text-gray-400 mb-4">Página focada em divulgar seu trabalho</p>
+              <ul className="space-y-2 text-gray-300 text-sm">
+                <li>📈 Divulgação do Produto ou Serviço</li>
+                <li>⚡ Carregamento Ultra-Rápido</li>
+                <li>🎨 Design Impactante</li>
+                <li>📊 Portal Adm</li>
+                <li>🔑 Simples e Direto</li>
+                <li>👉 Entrega em até quatro dias</li>
+              </ul>
+            </div>
+
             {/* Institucional */}
             <div className="bg-white/5 ring-1 border-white/10 rounded-lg p-6 hover:translate-y-[-4px] hover:shadow-lg hover:border-blue-400/30 transition">
               <div className="grid xl:flex items-center justify-between mb-4">
@@ -63,26 +84,6 @@ export default function WebDevelopmentSection() {
                 <li>📊 Dashboard Admin</li>
                 <li>🛢️Conexão com Banco de Dados</li>
                 <li>👉 Entrega conforme o fluxo do Processo de desenvolvimento logo abaixo</li>
-              </ul>
-            </div>
-
-            {/* Landing Page */}
-            <div className="bg-white/5 ring-1 border-white/10 rounded-lg p-6 hover:translate-y-[-4px] hover:shadow-lg hover:border-blue-400/30 transition">
-              <div className="grid xl:flex items-center justify-between mb-4">
-                <div className="text-3xl">🎯</div>
-                <div className="font-bold text-gray-200 ml-2 flex-1">Landing Page</div>
-                <div className="bg-blue-500/20 text-blue-400 px-3 py-1 rounded-full text-sm font-semibold">
-                  A partir de R$ 499,00
-                </div>
-              </div>
-              <p className="text-gray-400 mb-4">Página focada em divulgar seu trabalho</p>
-              <ul className="space-y-2 text-gray-300 text-sm">
-                <li>📈 Divulgação do Produto ou Serviço</li>
-                <li>⚡ Carregamento Ultra-Rápido</li>
-                <li>🎨 Design Impactante</li>
-                <li>📊 Portal Adm</li>
-                <li>🔑 Simples e Direto</li>
-                <li>👉 Entrega em até quatro dias</li>
               </ul>
             </div>
           </div>
