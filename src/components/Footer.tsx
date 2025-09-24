@@ -107,22 +107,6 @@ const Footer = () => {
                   Desenvolvimento Web
                 </a>
               </li>
-              <li>
-                <a 
-                  href="#consulting" 
-                  className="text-gray-400 hover:text-blue-400 text-sm lg:text-base transition-colors duration-300 block"
-                >
-                  Consultoria BI
-                </a>
-              </li>
-              <li>
-                <a 
-                  href="#training" 
-                  className="text-gray-400 hover:text-blue-400 text-sm lg:text-base transition-colors duration-300 block"
-                >
-                  Treinamentos
-                </a>
-              </li>
             </ul>
           </div>
 
@@ -142,7 +126,9 @@ const Footer = () => {
               </li>
               <li>
                 <a 
-                  href="#portfolio" 
+                  href="https://github.com/Claudio-Silva-Bispo" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
                   className="text-gray-400 hover:text-blue-400 text-sm lg:text-base transition-colors duration-300 block"
                 >
                   Portfolio
@@ -151,7 +137,9 @@ const Footer = () => {
              
               <li>
                 <a 
-                  href="#career" 
+                  href="https://www.linkedin.com/in/claudiosbispo/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
                   className="text-gray-400 hover:text-blue-400 text-sm lg:text-base transition-colors duration-300 block"
                 >
                   Linkedin
@@ -160,7 +148,9 @@ const Footer = () => {
 
               <li>
                 <a 
-                  href="#career" 
+                  href="https://github.com/Claudio-Silva-Bispo" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
                   className="text-gray-400 hover:text-blue-400 text-sm lg:text-base transition-colors duration-300 block"
                 >
                   GitHub
