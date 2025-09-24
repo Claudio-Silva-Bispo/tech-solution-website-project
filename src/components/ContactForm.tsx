@@ -50,13 +50,13 @@ export default function ContactForm() {
                 </div>
 
                 {/* Data + Hora */}
-                <div className="flex w-full">
+                <div className="w-full">
                     <div>
                         <label htmlFor="date" className="text-sm font-medium">Data para contato</label>
                         <input
                         id="date"
                         type="date"
-                        className="w-full p-3 mt-1 rounded-lg bg-white/10 ring-1 border-white/20 focus:ring-2 focus:ring-orange-400 outline-none"
+                        className="w-full p-3 mt-1 rounded-lg bg-white/10 ring-1 border-white/20 placeholder-gray-300 focus:ring-2 focus:ring-orange-400 outline-none"
                         />
                     </div>
                 </div>
