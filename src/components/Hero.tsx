@@ -217,7 +217,7 @@ const Hero: React.FC = () => {
 
               {/* Pipeline Panel */}
               {activePanel === "pipeline" && (
-                <div className="transition-all duration-500 flex flex-col min-h-[80vh] md:min-h-[60vh]">
+                <div className="transition-all duration-500 flex flex-col min-h-[60vh]">
                   {[
                     { icon: "📥", title: "Extração das Informações", desc: "Informações salvas em Excel, APIs ou Bancos de Dados" },
                     { icon: "⚙️", title: "Transformação dos Dados", desc: "Limpeza e Padronização dos dados" },
