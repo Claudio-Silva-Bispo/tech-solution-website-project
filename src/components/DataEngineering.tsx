@@ -60,7 +60,7 @@ const DataEngineering = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center mb-16 lg:mb-20">
-          <div className="inline-flex items-center justify-center gap-2 bg-blue-500/10 border border-blue-500/30 rounded-full text-sm text-blue-400 font-medium mb-6 min-w-full md:min-w-sm">
+          <div className="inline-flex items-center justify-center gap-2 bg-blue-500/10 border border-blue-500/30 rounded-full text-lg text-blue-400 font-medium mb-6 min-w-full md:min-w-sm">
                 <span className='p-3'>☁️</span> <p className='p-3'>Engenharia de Dados</p>
           </div>
           

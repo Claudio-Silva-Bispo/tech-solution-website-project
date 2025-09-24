@@ -25,22 +25,22 @@ const Footer = () => {
           <div className="lg:col-span-2">
             {/* Logo */}
             <div className="flex items-center gap-4 mb-6">
-              <div className="w-14 h-14 lg:w-16 lg:h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center text-lg lg:text-xl font-bold text-white">
-                TD
+              <div className="w-24 h-24 lg:w-16 lg:h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center text-lg lg:text-xl font-bold text-white">
+                <img src="/logo/logo-principal/transparent-logo-icone.png" alt="" />
               </div>
               <div className="text-xl lg:text-2xl font-bold text-blue-400">
-                TechData Solutions
+                BC Tech Solutions & Advisory
               </div>
             </div>
             
             {/* Tagline */}
             <p className="text-gray-400 mb-6 text-base lg:text-lg font-medium">
-              Transformando dados em decisões estratégicas
+              Transformando dados em decisões estratégicas e Criação de soluções digitais simples e eficazes.
             </p>
             
             {/* Description */}
             <p className="text-gray-300 text-sm lg:text-base leading-relaxed mb-6 max-w-md">
-              Especialista em Engenharia de Dados, Power BI e desenvolvimento web 
+              Experiência em Engenharia de Dados, Power BI e desenvolvimento web 
               para pequenas empresas que querem crescer com inteligência.
             </p>
             
@@ -148,28 +148,22 @@ const Footer = () => {
                   Portfolio
                 </a>
               </li>
-              <li>
-                <a 
-                  href="#testimonials" 
-                  className="text-gray-400 hover:text-blue-400 text-sm lg:text-base transition-colors duration-300 block"
-                >
-                  Depoimentos
-                </a>
-              </li>
-              <li>
-                <a 
-                  href="#blog" 
-                  className="text-gray-400 hover:text-blue-400 text-sm lg:text-base transition-colors duration-300 block"
-                >
-                  Blog
-                </a>
-              </li>
+             
               <li>
                 <a 
                   href="#career" 
                   className="text-gray-400 hover:text-blue-400 text-sm lg:text-base transition-colors duration-300 block"
                 >
-                  Carreiras
+                  Linkedin
+                </a>
+              </li>
+
+              <li>
+                <a 
+                  href="#career" 
+                  className="text-gray-400 hover:text-blue-400 text-sm lg:text-base transition-colors duration-300 block"
+                >
+                  GitHub
                 </a>
               </li>
             </ul>
@@ -191,7 +185,7 @@ const Footer = () => {
                   href="mailto:contato@techdatasolutions.com.br" 
                   className="text-gray-200 text-sm lg:text-base hover:text-blue-400 transition-colors duration-300 break-all"
                 >
-                  contato@techdatasolutions.com.br
+                  bctechsolutionsadvisory@gmail.com
                 </a>
               </div>
             </div>
@@ -219,35 +213,6 @@ const Footer = () => {
                   São Paulo, SP
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Newsletter */}
-        <div className="bg-blue-500/5 border border-blue-500/20 rounded-xl lg:rounded-2xl p-6 lg:p-8 mb-8 lg:mb-12">
-          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 lg:gap-8">
-            <div className="lg:max-w-md">
-              <h3 className="text-lg lg:text-2xl font-bold text-gray-200 mb-2 lg:mb-3">
-                📊 Newsletter Tech
-              </h3>
-              <p className="text-gray-400 text-sm lg:text-base">
-                Receba dicas exclusivas sobre BI, dados e tecnologia para pequenas empresas
-              </p>
-            </div>
-            <div className="flex flex-col sm:flex-row gap-3 lg:gap-4 lg:min-w-80">
-              <input
-                type="email"
-                placeholder="Seu melhor e-mail"
-                className="flex-1 px-4 py-3 lg:px-5 lg:py-4 bg-white/5 border border-white/10 rounded-lg lg:rounded-xl text-white text-sm lg:text-base placeholder-gray-400 focus:outline-none focus:border-blue-500/50 focus:bg-white/10 transition-all duration-300"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
-              <button 
-                onClick={handleNewsletterSubmit}
-                className="px-6 py-3 lg:px-8 lg:py-4 bg-gradient-to-r from-blue-500 to-blue-600 text-white font-semibold rounded-lg lg:rounded-xl hover:-translate-y-1 hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 text-sm lg:text-base whitespace-nowrap"
-              >
-                Inscrever-se
-              </button>
             </div>
           </div>
         </div>

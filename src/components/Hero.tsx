@@ -79,13 +79,13 @@ const Hero: React.FC = () => {
                   onClick={() => scrollToSection('contact')}
                   className="bg-gradient-to-r from-blue-500 to-blue-700 hover:from-blue-600 hover:to-blue-800 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-blue-500/25 flex items-center gap-2"
                 >
-                  🚀 Explore Projetos
+                  🚀 Faça um orçamento
                 </button>
                 <button 
                   onClick={() => scrollToSection('portfolio')}
                   className="text-gray-300 font-semibold flex items-center gap-2 hover:text-blue-500 transition-colors duration-300"
                 >
-                  Método →
+                  Métodos →
                 </button>
               </div>
             </div>
@@ -161,35 +161,63 @@ const Hero: React.FC = () => {
                 </div>
 
                 {/* Chart */}
-                <div className="bg-white/5 border border-white/10 rounded-lg p-4">
-                  <div className="text-gray-300 text-sm font-medium mb-4 p-10">
+                <div className="bg-white/5 ring-1 border-white/10 rounded-lg p-4">
+                  <div className="text-gray-300 text-sm font-medium mb-4">
                     Vendas Mensais
                   </div>
-                  <div className="flex items-end justify-between gap-2 h-48 sm:h-64 p-5">
+                  <div className="flex items-end justify-between gap-2 h-64 px-2">
                     {[
-                      { value: 40, label: "Jan" },
-                      { value: 70, label: "Fev" },
-                      { value: 55, label: "Mar" },
-                      { value: 85, label: "Abr" },
-                      { value: 62, label: "Mai" },
-                      { value: 90, label: "Jun" },
+                      { value: 40, label: "Jan", amount: "R$ 120K" },
+                      { value: 70, label: "Fev", amount: "R$ 210K" },
+                      { value: 55, label: "Mar", amount: "R$ 165K" },
+                      { value: 85, label: "Abr", amount: "R$ 255K" },
+                      { value: 62, label: "Mai", amount: "R$ 186K" },
+                      { value: 90, label: "Jun", amount: "R$ 270K" },
                     ].map((bar, index) => (
-                      <div key={index} className="flex flex-col items-center flex-1">
-                        <div
-                          className="w-full bg-gradient-to-t from-blue-600 to-blue-400 rounded opacity-80 transition-all duration-700 ease-out"
-                          style={{ height: `${bar.value}%` }}
-                        />
-                        <div className="text-gray-400 text-xs mt-1">{bar.label}</div>
+                      <div key={index} className="flex flex-col items-center flex-1 group relative h-full">
+                        {/* Tooltip */}
+                        <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-500 whitespace-nowrap z-10">
+                          {bar.amount}
+                        </div>
+                        
+                         {/* Espaço do gráfico */}
+                        <div className="flex-1 flex items-end w-full">
+
+                            {/* Barra do gráfico */}
+                            <div
+                              className="w-full bg-gradient-to-t from-orange-600 via-orange-500 to-orange-400 rounded-sm shadow-lg hover:from-orange-500 hover:to-orange-300 transition-all duration-1000 transform hover:scale-105"
+                              style={{ 
+                                height: `${bar.value}%`,
+                                minWidth: '12px'
+                              }}
+                            />
+                        </div>
+                        
+                        {/* Label do mês */}
+                        <div className="text-gray-400 text-xs mt-2 font-medium">{bar.label}</div>
                       </div>
                     ))}
                   </div>
+                  
+                  {/* Legenda */}
+                  <div className="flex justify-between items-center mt-4 pt-4 border-t border-white/10">
+                    <div className="flex items-center gap-2">
+                      <div className="w-3 h-3 bg-gradient-to-r from-orange-600 to-orange-400 rounded-sm"></div>
+                      <span className="text-gray-400 text-xs">Vendas</span>
+                    </div>
+                    <div className="text-gray-400 text-xs">
+                      Período: Jan - Jun 2024
+                    </div>
+                  </div>
                 </div>
+
+
               </div>
             )}
 
             {/* Pipeline Panel */}
             {activePanel === "pipeline" && (
-              <div className="transition-all duration-500 flex flex-col">
+              <div className="transition-all duration-1000 flex flex-col">
                 {[
                   { icon: "📥", title: "Extração das Informações", desc: "Informações salvas em Excel, APIs ou Bancos de Dados" },
                   { icon: "⚙️", title: "Transformação dos Dados", desc: "Limpeza e Padronização dos dados" },
@@ -213,7 +241,7 @@ const Hero: React.FC = () => {
 
             {/* Website Panel */}
             {activePanel === "website" && (
-              <div className="transition-all duration-500 p-5">
+              <div className="transition-all duration-1000 p-5">
                 <div className="bg-slate-900 rounded-lg p-4 font-mono h-[60vh]">
                   {/* Terminal Header */}
                   <div className="flex gap-2 mb-4 pb-2 border-b border-blue-500/20">
@@ -225,11 +253,11 @@ const Hero: React.FC = () => {
                   {/* Code */}
                   <div className="text-sm leading-relaxed space-y-1 text-gray-300">
                     <div>&lt;header&gt;</div>
-                    <div className="pl-4">&lt;nav class="navbar"&gt; Crie o site da sua Empresa &lt;/nav&gt;</div>
+                    <div className="pl-4">&lt;nav class="navbar"&gt; <p className='text-orange-400 pl-10'>Crie o site da sua Empresa</p> &lt;/nav&gt;</div>
                     <div>&lt;/header&gt;</div>
                     <div>&lt;main class="hero"&gt;</div>
-                    <div className="pl-4">&lt;h1&gt;Bem-vindos&lt;/h1&gt;</div>
-                    <div className="pl-4">&lt;h1&gt;ao novo e faça tudo diferente utilizando a internet para alavancar seus negócios&lt;/h1&gt;</div>
+                    <div className="pl-4">&lt;h1&gt;<p className='text-orange-400 pl-10'>Bem-vindos</p>&lt;/h1&gt;</div>
+                    <div className="pl-4">&lt;h1&gt;<p className='text-orange-400 pl-10'>ao novo e faça tudo diferente utilizando a internet para alavancar seus negócios</p>&lt;/h1&gt;</div>
                     <div>&lt;/main&gt;</div>
                   </div>
 
@@ -309,7 +337,7 @@ const Hero: React.FC = () => {
         }
         
         .animate-fadeInRight {
-          animation: fadeInRight 1s ease 0.5s both;
+          animation: fadeInRight 1s ease 0.8s both;
         }
       `}</style>
     </div>
