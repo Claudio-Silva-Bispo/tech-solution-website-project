@@ -1,6 +1,7 @@
 import Hero from '../components/Hero'
 import DataEngineering from '../components/DataEngineering'
 import PowerBIArchitecture from '../components/PowerBIArchitecture'
+import WebDevelopmentSection from '../components/WebDevelopment'
 
 export default function Home() {
 
@@ -9,6 +10,7 @@ export default function Home() {
       <Hero/>
       <DataEngineering/>
       <PowerBIArchitecture/>
+      <WebDevelopmentSection/>
     </div>
     
   )
