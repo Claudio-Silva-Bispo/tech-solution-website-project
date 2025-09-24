@@ -224,9 +224,9 @@ const Hero: React.FC = () => {
                         { icon: "⚙️", title: "Transformação dos Dados", desc: "Limpeza e Padronização dos dados" },
                         { icon: "📤", title: "Carregar os dados", desc: "Criação de bancos estruturados e de fácil uso pelo usuário" },
                       ].map((step, index) => (
-                        <div key={index} className="w-full max-w-md p-5 md:p-0">
-                          <div className="bg-blue-500/10 ring-1 border-blue-500/20 rounded-lg lg:p-6 text-center">
-                            <div className="flex items-center justify-center gap-3 mb-3">
+                        <div key={index} className="w-full max-w-md p-2 md:p-0">
+                          <div className="bg-blue-500/10 ring-1 border-blue-500/20 rounded-lg lg:p-3 text-center">
+                            <div className="flex items-center justify-center   p-3">
                               <span className="text-2xl">{step.icon}</span>
                               <span className="text-gray-300 font-semibold">{step.title}</span>
                             </div>

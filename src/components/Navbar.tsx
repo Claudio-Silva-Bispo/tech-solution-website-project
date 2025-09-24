@@ -5,7 +5,7 @@ import { useRouter, usePathname } from 'next/navigation';
 npm install @fortawesome/react-fontawesome @fortawesome/fontawesome-svg-core @fortawesome/free-solid-svg-icons
  */
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars, faHome, faBuilding, faPhone, faCalendarAlt, faCalendarTimes, faUsers, faThumbsUp, faShareAlt, faEnvelope, faGlobe } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faHome, faBuilding, faPhone, faCalendarAlt, faUsers, faThumbsUp, faShareAlt, faEnvelope, faGlobe,faUserTie,faDatabase,faChartBar,faLaptopCode,faQuestionCircle, } from '@fortawesome/free-solid-svg-icons';
 import Image from 'next/image';
 
 export default function Navbar() {
@@ -18,12 +18,13 @@ export default function Navbar() {
   const pathname = usePathname();
 
   const menuItems: Array<{ item: string, path: string, icon: any, type: 'page' | 'section' }> = [
-    { item: 'Home', path: '/', icon: faHome, type: 'page' },
-    { item: 'Sobre', path: '#about', icon: faBuilding, type: 'section' },
-    { item: 'Contato', path: '#contact', icon: faPhone, type: 'section' },
-    { item: 'Orçamento', path: '#quote', icon: faCalendarAlt, type: 'section' },
-    { item: 'Serviços', path: '#services', icon: faCalendarTimes, type: 'section' },
-  
+    { item: 'Início', path: '/', icon: faHome, type: 'page' },
+    { item: 'Sobre', path: '#about', icon: faUserTie, type: 'section' },
+    { item: 'Contato', path: '#contact', icon: faEnvelope, type: 'section' },
+    { item: 'Engenharia de Dados', path: '#data-engineering', icon: faDatabase, type: 'section' },
+    { item: 'Power BI', path: '#bi-architecture', icon: faChartBar, type: 'section' },
+    { item: 'Desenvolvimento de Sites', path: '#web-development', icon: faLaptopCode, type: 'section' },
+    { item: 'Principais Dúvidas', path: '#tips', icon: faQuestionCircle, type: 'section' },
   ];
 
   const sections: Array<{
