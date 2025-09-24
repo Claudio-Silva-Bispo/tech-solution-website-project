@@ -90,201 +90,203 @@ const Hero: React.FC = () => {
               </div>
             </div>
             
-      
-      <div className="animate-fadeInRight w-full mb-20">
-        <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-4 lg:p-8 shadow-2xl relative overflow-hidden">
-          
-          {/* Tabs */}
-          <div className="flex gap-2 lg:gap-3 justify-center flex-wrap pt-6 min-w-full h-24 md:h-16 xl:h-16 md:mb-8 lg:mb-5 xl:mb-5">
-            {[
-              { key: "powerbi", label: "📊 Power BI" },
-              { key: "pipeline", label: "🔧 ETL" },
-              { key: "website", label: "🌐 Sites" },
-            ].map((tab) => (
-              <button
-                key={tab.key}
-                onClick={() => setActivePanel(tab.key as typeof activePanel)}
-                className={`px-4 py-2 lg:px-10 lg:py-3 rounded-full text-sm lg:text-xl font-medium transition-all duration-300 border w-[15vh] md:w-[20vh] ${
-                  activePanel === tab.key
-                    ? "bg-blue-500/30 border-blue-500/50 text-white"
-                    : "bg-blue-500/10 border-blue-500/20 text-blue-400 hover:bg-blue-500/20"
-                }`}
-              >
-                {tab.label}
-              </button>
-            ))}
-          </div>
+            {/* Hero Visual - ALTURA FIXA */}
+            <div className="animate-fadeInRight w-full mb-20">
+              <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-4 lg:p-8 shadow-2xl relative overflow-hidden">
+                
+                {/* Tabs */}
+                <div className="flex gap-2 lg:gap-3 justify-center flex-wrap pt-6 h-24 md:h-16 xl:h-16 mb-4">
+                  {[
+                    { key: "powerbi", label: "📊 Power BI" },
+                    { key: "pipeline", label: "🔧 ETL" },
+                    { key: "website", label: "🌐 Sites" },
+                  ].map((tab) => (
+                    <button
+                      key={tab.key}
+                      onClick={() => setActivePanel(tab.key as typeof activePanel)}
+                      className={`px-4 py-2 lg:px-10 lg:py-3 rounded-full text-sm lg:text-xl font-medium transition-all duration-300 border w-[15vh] md:w-[20vh] ${
+                        activePanel === tab.key
+                          ? "bg-blue-500/30 border-blue-500/50 text-white"
+                          : "bg-blue-500/10 border-blue-500/20 text-blue-400 hover:bg-blue-500/20"
+                      }`}
+                    >
+                      {tab.label}
+                    </button>
+                  ))}
+                </div>
 
-            {/* Panels */}
-            <div className="min-h-[60vh] relative w-full">
-              
-              {/* Power BI Panel */}
-              {activePanel === "powerbi" && (
-                <div className="transition-all duration-500 p-4 space-y-6">
-                  {/* Header */}
-                  <div className="flex flex-col sm:flex-row justify-between items-center gap-3 border-b border-blue-500/20 pb-3">
-                    <div className="text-gray-300 font-semibold text-base lg:text-lg">
-                      Dashboard Executivo
-                    </div>
-                    <div className="flex items-center gap-2 text-green-400 text-sm">
-                      <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                      <span>Online</span>
+                {/* CONTAINER COM ALTURA FIXA - Esta é a correção principal */}
+                <div className="relative w-full" style={{ height: '550px' }}>
+                  
+                  {/* Power BI Panel */}
+                  <div className={`absolute inset-0 transition-opacity duration-500 overflow-y-auto ${
+                    activePanel === "powerbi" ? 'opacity-100' : 'opacity-0 pointer-events-none'
+                  }`}>
+                    <div className="p-4 space-y-6">
+                      {/* Header */}
+                      <div className="flex flex-col sm:flex-row justify-between items-center gap-3 border-b border-blue-500/20 pb-3">
+                        <div className="text-gray-300 font-semibold text-base lg:text-lg">
+                          Dashboard Executivo
+                        </div>
+                        <div className="flex items-center gap-2 text-green-400 text-sm">
+                          <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                          <span>Online</span>
+                        </div>
+                      </div>
+
+                      {/* Metrics */}
+                      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                        <div className="bg-blue-500/10 border border-blue-500/20 rounded-lg p-4 text-center">
+                          <div className="text-blue-400 text-xl lg:text-2xl font-bold mb-1">
+                            R$ 2.5M
+                          </div>
+                          <div className="text-gray-400 text-xs">Faturamento</div>
+                        </div>
+                        <div className="bg-blue-500/10 border border-blue-500/20 rounded-lg p-4 text-center">
+                          <div className="text-blue-400 text-xl lg:text-2xl font-bold mb-1">
+                            +35%
+                          </div>
+                          <div className="text-gray-400 text-xs">Crescimento</div>
+                        </div>
+                        <div className="bg-blue-500/10 border border-blue-500/20 rounded-lg p-4 text-center">
+                          <div className="text-blue-400 text-xl lg:text-2xl font-bold mb-1">
+                            120k
+                          </div>
+                          <div className="text-gray-400 text-xs">Clientes</div>
+                        </div>
+                        <div className="bg-blue-500/10 border border-blue-500/20 rounded-lg p-4 text-center">
+                          <div className="text-blue-400 text-xl lg:text-2xl font-bold mb-1">
+                            98%
+                          </div>
+                          <div className="text-gray-400 text-xs">Satisfação</div>
+                        </div>
+                      </div>
+
+                      {/* Chart */}
+                      <div className="bg-white/5 rounded-lg p-4">
+                        <div className="text-gray-300 text-sm font-medium mb-4">
+                          Vendas Mensais
+                        </div>
+                        <div className="flex items-end justify-between gap-2 h-32 px-2">
+                          {[
+                            { value: 40, label: "Jan", amount: "R$ 120K" },
+                            { value: 70, label: "Fev", amount: "R$ 210K" },
+                            { value: 55, label: "Mar", amount: "R$ 165K" },
+                            { value: 85, label: "Abr", amount: "R$ 255K" },
+                            { value: 62, label: "Mai", amount: "R$ 186K" },
+                            { value: 90, label: "Jun", amount: "R$ 270K" },
+                          ].map((bar, index) => (
+                            <div key={index} className="flex flex-col items-center flex-1 group relative h-full">
+                              {/* Tooltip */}
+                              <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-500 whitespace-nowrap z-10">
+                                {bar.amount}
+                              </div>
+                              
+                              {/* Espaço do gráfico */}
+                              <div className="flex-1 flex items-end w-full">
+                                {/* Barra do gráfico */}
+                                <div
+                                  className="w-full bg-gradient-to-t from-orange-600 via-orange-500 to-orange-400 rounded-sm shadow-lg hover:from-orange-500 hover:to-orange-300 transition-all duration-500 transform hover:scale-105"
+                                  style={{ 
+                                    height: `${bar.value}%`,
+                                    minWidth: '12px'
+                                  }}
+                                />
+                              </div>
+                              
+                              {/* Label do mês */}
+                              <div className="text-gray-400 text-xs mt-2 font-medium">{bar.label}</div>
+                            </div>
+                          ))}
+                        </div>
+                        
+                        {/* Legenda */}
+                        <div className="flex justify-between items-center mt-4 pt-4 border-white/10">
+                          <div className="flex items-center gap-2">
+                            <div className="w-3 h-3 bg-gradient-to-r from-orange-600 to-orange-400 rounded-sm"></div>
+                            <span className="text-gray-400 text-xs">Vendas</span>
+                          </div>
+                          <div className="text-gray-400 text-xs">
+                            Período: Jan - Jun 2024
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
 
-                  {/* Metrics */}
-                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                    <div className="bg-blue-500/10 border border-blue-500/20 rounded-lg p-4 text-center">
-                      <div className="text-blue-400 text-xl lg:text-2xl font-bold mb-1">
-                        R$ 2.5M
-                      </div>
-                      <div className="text-gray-400 text-xs">Faturamento</div>
-                    </div>
-                    <div className="bg-blue-500/10 border border-blue-500/20 rounded-lg p-4 text-center">
-                      <div className="text-blue-400 text-xl lg:text-2xl font-bold mb-1">
-                        +35%
-                      </div>
-                      <div className="text-gray-400 text-xs">Crescimento</div>
-                    </div>
-                    <div className="bg-blue-500/10 border border-blue-500/20 rounded-lg p-4 text-center">
-                      <div className="text-blue-400 text-xl lg:text-2xl font-bold mb-1">
-                        120k
-                      </div>
-                      <div className="text-gray-400 text-xs">Clientes</div>
-                    </div>
-                    <div className="bg-blue-500/10 border border-blue-500/20 rounded-lg p-4 text-center">
-                      <div className="text-blue-400 text-xl lg:text-2xl font-bold mb-1">
-                        98%
-                      </div>
-                      <div className="text-gray-400 text-xs">Satisfação</div>
-                    </div>
-                  </div>
-
-                  {/* Chart */}
-                  <div className="bg-white/5 ring-1 border-white/10 rounded-lg p-4">
-                    <div className="text-gray-300 text-sm font-medium mb-4">
-                      Vendas Mensais
-                    </div>
-                    <div className="flex items-end justify-between gap-2 h-64 px-2">
+                  {/* Pipeline Panel */}
+                  <div className={`absolute inset-0 transition-opacity duration-500 overflow-y-auto ${
+                    activePanel === "pipeline" ? 'opacity-100' : 'opacity-0 pointer-events-none'
+                  }`}>
+                    <div className="flex flex-col justify-center items-center h-full space-y-6">
                       {[
-                        { value: 40, label: "Jan", amount: "R$ 120K" },
-                        { value: 70, label: "Fev", amount: "R$ 210K" },
-                        { value: 55, label: "Mar", amount: "R$ 165K" },
-                        { value: 85, label: "Abr", amount: "R$ 255K" },
-                        { value: 62, label: "Mai", amount: "R$ 186K" },
-                        { value: 90, label: "Jun", amount: "R$ 270K" },
-                      ].map((bar, index) => (
-                        <div key={index} className="flex flex-col items-center flex-1 group relative h-full">
-                          {/* Tooltip */}
-                          <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-500 whitespace-nowrap z-10">
-                            {bar.amount}
+                        { icon: "📥", title: "Extração das Informações", desc: "Informações salvas em Excel, APIs ou Bancos de Dados" },
+                        { icon: "⚙️", title: "Transformação dos Dados", desc: "Limpeza e Padronização dos dados" },
+                        { icon: "📤", title: "Carregar os dados", desc: "Criação de bancos estruturados e de fácil uso pelo usuário" },
+                      ].map((step, index) => (
+                        <div key={index} className="w-full max-w-md p-5 md:p-0">
+                          <div className="bg-blue-500/10 ring-1 border-blue-500/20 rounded-lg lg:p-6 text-center">
+                            <div className="flex items-center justify-center gap-3 mb-3">
+                              <span className="text-2xl">{step.icon}</span>
+                              <span className="text-gray-300 font-semibold">{step.title}</span>
+                            </div>
+                            <div className="text-gray-400 text-sm">{step.desc}</div>
                           </div>
-                          
-                          {/* Espaço do gráfico */}
-                          <div className="flex-1 flex items-end w-full">
-
-                              {/* Barra do gráfico */}
-                              <div
-                                className="w-full bg-gradient-to-t from-orange-600 via-orange-500 to-orange-400 rounded-sm shadow-lg hover:from-orange-500 hover:to-orange-300 transition-all duration-500 transform hover:scale-105"
-                                style={{ 
-                                  height: `${bar.value}%`,
-                                  minWidth: '12px'
-                                }}
-                              />
-                          </div>
-                          
-                          {/* Label do mês */}
-                          <div className="text-gray-400 text-xs mt-2 font-medium">{bar.label}</div>
+                          {index < 2 && (
+                            <div className="text-blue-500 text-2xl my-3 text-center animate-bounce">↓</div>
+                          )}
                         </div>
                       ))}
                     </div>
-                    
-                    {/* Legenda */}
-                    <div className="flex justify-between items-center mt-4 pt-4 border-t border-white/10">
-                      <div className="flex items-center gap-2">
-                        <div className="w-3 h-3 bg-gradient-to-r from-orange-600 to-orange-400 rounded-sm"></div>
-                        <span className="text-gray-400 text-xs">Vendas</span>
-                      </div>
-                      <div className="text-gray-400 text-xs">
-                        Período: Jan - Jun 2024
-                      </div>
-                    </div>
                   </div>
 
-
-                </div>
-              )}
-
-              {/* Pipeline Panel */}
-              {activePanel === "pipeline" && (
-                <div className="transition-all duration-500 flex flex-col min-h-[60vh]">
-                  {[
-                    { icon: "📥", title: "Extração das Informações", desc: "Informações salvas em Excel, APIs ou Bancos de Dados" },
-                    { icon: "⚙️", title: "Transformação dos Dados", desc: "Limpeza e Padronização dos dados" },
-                    { icon: "📤", title: "Carregar os dados", desc: "Criação de bancos estruturados e de fácil uso pelo usuário" },
-                  ].map((step, index) => (
-                    <div key={index} className="flex flex-col items-center text-center p-5">
-                      <div className="bg-blue-500/10 border border-blue-500/20 rounded-lg p-6 w-full mb-3">
-                        <div className="flex items-center justify-center gap-2 p-3 md:mb-2 md:p-5">
-                          <span className="text-xl">{step.icon}</span>
-                          <span className="text-gray-300 font-semibold">{step.title}</span>
+                  {/* Website Panel */}
+                  <div className={`absolute inset-0 transition-opacity duration-500 overflow-y-auto ${
+                    activePanel === "website" ? 'opacity-100' : 'opacity-0 pointer-events-none'
+                  }`}>
+                    <div className="p-4 h-full">
+                      <div className="bg-slate-900 rounded-lg p-4 font-mono h-full flex flex-col">
+                        {/* Terminal Header */}
+                        <div className="flex gap-2 mb-4 pb-2 border-b border-blue-500/20">
+                          <div className="w-3 h-3 rounded-full bg-red-500"></div>
+                          <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+                          <div className="w-3 h-3 rounded-full bg-green-500"></div>
                         </div>
-                        <div className="text-gray-400 text-sm mb-5">{step.desc}</div>
-                      </div>
-                      {index < 2 && (
-                        <div className="text-blue-500 text-xl my-2 animate-bounce">↓</div>
-                      )}
-                    </div>
-                  ))}
-                </div>
-              )}
 
-              {/* Website Panel */}
-              {activePanel === "website" && (
-                <div className="transition-all duration-500 p-5">
-                  <div className="bg-slate-900 rounded-lg p-4 font-mono h-[70vh] md:h-[50vh]">
-                    {/* Terminal Header */}
-                    <div className="flex gap-2 mb-4 pb-2 border-b border-blue-500/20">
-                      <div className="w-3 h-3 rounded-full bg-red-500"></div>
-                      <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-                      <div className="w-3 h-3 rounded-full bg-green-500"></div>
-                    </div>
-
-                    {/* Code */}
-                    <div className="text-sm leading-relaxed space-y-1 text-gray-300">
-                      <div>&lt;header&gt;</div>
-                      <div className="pl-4">&lt;nav class="navbar"&gt; <p className='text-orange-400 pl-10'>Crie o site da sua Empresa</p> &lt;/nav&gt;</div>
-                      <div>&lt;/header&gt;</div>
-                      <div>&lt;main class="hero"&gt;</div>
-                      <div className="pl-4">&lt;h1&gt;<p className='text-orange-400 pl-10'>Bem-vindos</p>&lt;/h1&gt;</div>
-                      <div className="pl-4">&lt;h1&gt;<p className='text-orange-400 pl-10'>ao novo e faça tudo diferente utilizando a internet para alavancar seus negócios</p>&lt;/h1&gt;</div>
-                      <div>&lt;/main&gt;</div>
-                    </div>
-
-                    {/* Preview */}
-                    <div className="flex justify-end mt-6">
-                      <div className="w-28 h-20 bg-white rounded shadow-lg overflow-hidden">
-                        <div className="bg-gray-100 h-5 flex items-center px-2 gap-1">
-                          <div className="w-1 h-1 rounded-full bg-gray-400"></div>
-                          <div className="w-1 h-1 rounded-full bg-gray-400"></div>
-                          <div className="w-1 h-1 rounded-full bg-gray-400"></div>
+                        {/* Code */}
+                        <div className="text-sm leading-relaxed space-y-1 text-gray-300 flex-1">
+                          <div>&lt;header&gt;</div>
+                          <div className="pl-4">&lt;nav class="navbar"&gt; <span className='text-orange-400'>Crie o site da sua Empresa</span> &lt;/nav&gt;</div>
+                          <div>&lt;/header&gt;</div>
+                          <div>&lt;main class="hero"&gt;</div>
+                          <div className="pl-4">&lt;h1&gt;<span className='text-orange-400'>Bem-vindos</span>&lt;/h1&gt;</div>
+                          <div className="pl-4">&lt;h1&gt;<span className='text-orange-400'>ao novo e faça tudo diferente utilizando a internet para alavancar seus negócios</span>&lt;/h1&gt;</div>
+                          <div>&lt;/main&gt;</div>
                         </div>
-                        <div className="p-2 text-gray-800 text-xs text-center">
-                          <strong>Sua Empresa</strong>
-                          <br />
-                          Serviços Profissionais
+
+                        {/* Preview */}
+                        <div className="flex justify-end mt-6">
+                          <div className="w-28 h-20 bg-white rounded shadow-lg overflow-hidden">
+                            <div className="bg-gray-100 h-5 flex items-center px-2 gap-1">
+                              <div className="w-1 h-1 rounded-full bg-gray-400"></div>
+                              <div className="w-1 h-1 rounded-full bg-gray-400"></div>
+                              <div className="w-1 h-1 rounded-full bg-gray-400"></div>
+                            </div>
+                            <div className="p-2 text-gray-800 text-xs text-center">
+                              <strong>Sua Empresa</strong>
+                              <br />
+                              Serviços Profissionais
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              )}
+              </div>
             </div>
-        </div>
-    </div>
           </div>
         </div>
-        
       </section>
 
       <style jsx>{`
@@ -307,28 +309,6 @@ const Hero: React.FC = () => {
           to {
             opacity: 1;
             transform: translateX(0);
-          }
-        }
-        
-        @keyframes barGrow {
-          from { 
-            height: 0;
-            opacity: 0;
-          }
-          to { 
-            height: var(--height);
-            opacity: 1;
-          }
-        }
-        
-        @keyframes typeCode {
-          from { 
-            opacity: 0; 
-            transform: translateX(-10px); 
-          }
-          to { 
-            opacity: 1; 
-            transform: translateX(0); 
           }
         }
         
