@@ -251,8 +251,8 @@ export default function Navbar() {
           <div className="flex md:hidden items-center text-center transform-translate-x-1/2">
             <button onClick={() => handleNavigation('/', 'page')} className="flex items-center">
               <Image 
-                width={35} 
-                height={35} 
+                width={120} 
+                height={120} 
                 src="/logo/logo-principal/transparent-logo-icone.png" 
                 alt="Logo da empresa"
                 className="w-24 h-24 object-contain"

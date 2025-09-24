@@ -43,17 +43,17 @@ const Hero: React.FC = () => {
         <div className="container mx-auto px-5 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             {/* Hero Text */}
-            <div className="animate-fadeInUp pt-10 md:pt-0">
+            <div className="animate-fadeInUp pt-10 xl:pt-0">
               <div className="inline-flex items-center gap-2 bg-blue-500/10 border border-blue-500/30 rounded-full text-sm text-blue-400 font-medium mb-6 min-w-full md:min-w-sm">
                 <span className='p-3'>⚡</span> <p className='p-3'>Tecnologia para Pequenos Negócios</p>
               </div>
               
-              <h1 className="text-3xl md:text-4xl lg:text-6xl font-extrabold mb-6 leading-tight bg-gradient-to-r from-white to-blue-400 bg-clip-text text-transparent pt-5 md:pt-0">
+              <h1 className="text-3xl md:text-5xl lg:text-4xl xl:text-5xl font-extrabold mb-6 leading-tight bg-gradient-to-r from-white to-blue-400 bg-clip-text text-transparent pt-5 xl:pt-0">
                 Soluções para Pequenas Empresas que podem ajudar seu Negócio
               </h1>
               
               <p className="md:text-xl text-gray-400 mb-10 leading-relaxed">
-                Transformo dados em insights, crio dashboards inteligentes e desenvolvo sites profissionais para impulsionar o crescimento da sua empresa..
+                Transformo dados em insights, crio dashboards inteligentes e desenvolvo sites profissionais para impulsionar o crescimento da sua empresa.
               </p>
               
               <div className="mb-10">
@@ -79,175 +79,180 @@ const Hero: React.FC = () => {
                   onClick={() => scrollToSection('contact')}
                   className="bg-gradient-to-r from-blue-500 to-blue-700 hover:from-blue-600 hover:to-blue-800 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-blue-500/25 flex items-center gap-2"
                 >
-                  🚀 Consultoria Gratuita
+                  🚀 Explore seus Projetos
                 </button>
                 <button 
                   onClick={() => scrollToSection('portfolio')}
                   className="text-gray-300 font-semibold flex items-center gap-2 hover:text-blue-500 transition-colors duration-300"
                 >
-                  Ver Projetos →
+                  Método →
                 </button>
               </div>
             </div>
             
-            {/* Hero Visual */}
-            <div className="animate-fadeInRight">
-              <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 shadow-2xl relative overflow-hidden">
-                {/* Visual Tabs */}
-                <div className="flex gap-4 mb-8 justify-center flex-wrap">
-                  {[
-                    { key: 'powerbi', label: '📊 Power BI', index: 0 },
-                    { key: 'pipeline', label: '🔧 ETL', index: 1 },
-                    { key: 'website', label: '🌐 Sites', index: 2 }
-                  ].map((tab) => (
-                    <button
-                      key={tab.key}
-                      onClick={() => handlePanelChange(tab.key as typeof activePanel, tab.index)}
-                      className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
-                        activePanel === tab.key
-                          ? 'bg-blue-500/30 border-blue-500/50 text-white'
-                          : 'bg-blue-500/10 border-blue-500/20 text-blue-400 hover:bg-blue-500/20'
-                      } border`}
-                    >
-                      {tab.label}
-                    </button>
-                  ))}
+      
+                  <div className="animate-fadeInRight w-full">
+      <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-4 lg:p-8 shadow-2xl relative overflow-hidden">
+        
+        {/* Tabs */}
+        <div className="flex gap-2 lg:gap-3 justify-center flex-wrap pt-6 min-w-full  h-24 md:h-16 xl:h-16 md:mb-8 lg:mb-5 xl:mb-5">
+          {[
+            { key: "powerbi", label: "📊 Power BI" },
+            { key: "pipeline", label: "🔧 ETL" },
+            { key: "website", label: "🌐 Sites" },
+          ].map((tab) => (
+            <button
+              key={tab.key}
+              onClick={() => setActivePanel(tab.key as typeof activePanel)}
+              className={`px-4 py-2 lg:px-10 lg:py-3 rounded-full text-sm lg:text-xl font-medium transition-all duration-300 border w-[15vh] md:w-[20vh] ${
+                activePanel === tab.key
+                  ? "bg-blue-500/30 border-blue-500/50 text-white"
+                  : "bg-blue-500/10 border-blue-500/20 text-blue-400 hover:bg-blue-500/20"
+              }`}
+            >
+              {tab.label}
+            </button>
+          ))}
+        </div>
+
+          {/* Panels */}
+          <div className="min-h-[60vh] relative w-full">
+            
+            {/* Power BI Panel */}
+            {activePanel === "powerbi" && (
+              <div className="transition-all duration-500 p-4 space-y-6">
+                {/* Header */}
+                <div className="flex flex-col sm:flex-row justify-between items-center gap-3 border-b border-blue-500/20 pb-3">
+                  <div className="text-gray-300 font-semibold text-base lg:text-lg">
+                    Dashboard Executivo
+                  </div>
+                  <div className="flex items-center gap-2 text-green-400 text-sm">
+                    <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                    <span>Online</span>
+                  </div>
                 </div>
-                
-                <div className="h-80 relative">
-                  {/* Power BI Panel */}
-                  <div className={`absolute inset-0 transition-all duration-500 ${
-                    activePanel === 'powerbi' ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
-                  }`}>
-                    <div className="bg-white/5 border border-white/10 rounded-xl p-6 h-full">
-                      <div className="flex justify-between items-center mb-6 pb-4 border-b border-blue-500/20">
-                        <div className="text-gray-300 font-semibold text-lg">Dashboard Executivo</div>
-                        <div className="flex items-center gap-2 text-green-400 text-sm">
-                          <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                          <span>Atualizado</span>
-                        </div>
-                      </div>
-                      
-                      <div className="grid grid-cols-2 gap-4 mb-6">
-                        <div className="bg-blue-500/10 border border-blue-500/20 rounded-lg p-4 text-center">
-                          <div className="text-blue-400 text-2xl font-bold mb-1">R$ 2.5M</div>
-                          <div className="text-gray-400 text-xs">Faturamento</div>
-                        </div>
-                        <div className="bg-blue-500/10 border border-blue-500/20 rounded-lg p-4 text-center">
-                          <div className="text-blue-400 text-2xl font-bold mb-1">+35%</div>
-                          <div className="text-gray-400 text-xs">Crescimento</div>
-                        </div>
-                      </div>
-                      
-                      <div className="bg-white/5 border border-white/5 rounded-lg h-24 relative overflow-hidden">
-                        <div className="flex items-end h-full p-4 gap-1">
-                          {[40, 70, 55, 85, 62, 90].map((height, index) => (
-                            <div
-                              key={index}
-                              className="bg-gradient-to-t from-blue-500 to-blue-400 flex-1 rounded-sm opacity-80"
-                              style={{ 
-                                height: `${height}%`,
-                                animation: `barGrow 1.5s ease-in-out ${index * 0.1}s both`
-                              }}
-                            ></div>
-                          ))}
-                        </div>
-                      </div>
+
+                {/* Metrics */}
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                  <div className="bg-blue-500/10 border border-blue-500/20 rounded-lg p-4 text-center">
+                    <div className="text-blue-400 text-xl lg:text-2xl font-bold mb-1">
+                      R$ 2.5M
                     </div>
+                    <div className="text-gray-400 text-xs">Faturamento</div>
+                  </div>
+                  <div className="bg-blue-500/10 border border-blue-500/20 rounded-lg p-4 text-center">
+                    <div className="text-blue-400 text-xl lg:text-2xl font-bold mb-1">
+                      +35%
+                    </div>
+                    <div className="text-gray-400 text-xs">Crescimento</div>
+                  </div>
+                  <div className="bg-blue-500/10 border border-blue-500/20 rounded-lg p-4 text-center">
+                    <div className="text-blue-400 text-xl lg:text-2xl font-bold mb-1">
+                      120k
+                    </div>
+                    <div className="text-gray-400 text-xs">Clientes</div>
+                  </div>
+                  <div className="bg-blue-500/10 border border-blue-500/20 rounded-lg p-4 text-center">
+                    <div className="text-blue-400 text-xl lg:text-2xl font-bold mb-1">
+                      98%
+                    </div>
+                    <div className="text-gray-400 text-xs">Satisfação</div>
+                  </div>
+                </div>
+
+                {/* Chart */}
+                <div className="bg-white/5 border border-white/10 rounded-lg p-4">
+                  <div className="text-gray-300 text-sm font-medium mb-4 p-10">
+                    Vendas Mensais
+                  </div>
+                  <div className="flex items-end justify-between gap-2 h-48 sm:h-64 p-5">
+                    {[
+                      { value: 40, label: "Jan" },
+                      { value: 70, label: "Fev" },
+                      { value: 55, label: "Mar" },
+                      { value: 85, label: "Abr" },
+                      { value: 62, label: "Mai" },
+                      { value: 90, label: "Jun" },
+                    ].map((bar, index) => (
+                      <div key={index} className="flex flex-col items-center flex-1">
+                        <div
+                          className="w-full bg-gradient-to-t from-blue-600 to-blue-400 rounded opacity-80 transition-all duration-700 ease-out"
+                          style={{ height: `${bar.value}%` }}
+                        />
+                        <div className="text-gray-400 text-xs mt-1">{bar.label}</div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* Pipeline Panel */}
+            {activePanel === "pipeline" && (
+              <div className="transition-all duration-500 flex flex-col">
+                {[
+                  { icon: "📥", title: "Extração das Informações", desc: "Informações salvas em Excel, APIs ou Bancos de Dados" },
+                  { icon: "⚙️", title: "Transformação dos Dados", desc: "Limpeza e Padronização dos dados" },
+                  { icon: "📤", title: "Carregar os dados", desc: "Criação de bancos estruturados e de fácil uso pelo usuário" },
+                ].map((step, index) => (
+                  <div key={index} className="flex flex-col items-center text-center p-5">
+                    <div className="bg-blue-500/10 border border-blue-500/20 rounded-lg p-6 w-full mb-3">
+                      <div className="flex items-center justify-center gap-2 p-3 md:mb-2 md:p-5">
+                        <span className="text-xl">{step.icon}</span>
+                        <span className="text-gray-300 font-semibold">{step.title}</span>
+                      </div>
+                      <div className="text-gray-400 text-sm mb-5">{step.desc}</div>
+                    </div>
+                    {index < 2 && (
+                      <div className="text-blue-500 text-xl my-2 animate-bounce">↓</div>
+                    )}
+                  </div>
+                ))}
+              </div>
+            )}
+
+            {/* Website Panel */}
+            {activePanel === "website" && (
+              <div className="transition-all duration-500 p-5">
+                <div className="bg-slate-900 rounded-lg p-4 font-mono h-[60vh]">
+                  {/* Terminal Header */}
+                  <div className="flex gap-2 mb-4 pb-2 border-b border-blue-500/20">
+                    <div className="w-3 h-3 rounded-full bg-red-500"></div>
+                    <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+                    <div className="w-3 h-3 rounded-full bg-green-500"></div>
                   </div>
 
-                  {/* Data Pipeline Panel */}
-                  <div className={`absolute inset-0 transition-all duration-500 ${
-                    activePanel === 'pipeline' ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
-                  }`}>
-                    <div className="h-full flex flex-col justify-between">
-                      {[
-                        { icon: '📥', title: 'Extract', desc: 'Excel, APIs, Bancos' },
-                        { icon: '⚙️', title: 'Transform', desc: 'Limpeza e Padronização' },
-                        { icon: '📤', title: 'Load', desc: 'Data Warehouse' }
-                      ].map((step, index) => (
-                        <div key={index}>
-                          <div className="bg-blue-500/10 border border-blue-500/20 rounded-lg p-4 relative">
-                            <div className="flex items-center gap-2 mb-2">
-                              <div className="text-xl">{step.icon}</div>
-                              <div className="text-gray-300 font-semibold text-sm">{step.title}</div>
-                            </div>
-                            <div className="text-gray-400 text-xs">{step.desc}</div>
-                            <div className="absolute -right-2 top-1/2 transform -translate-y-1/2 text-blue-400 opacity-70">
-                              →
-                            </div>
-                          </div>
-                          {index < 2 && (
-                            <div className="text-center text-blue-500 text-xl my-2 animate-bounce">↓</div>
-                          )}
-                        </div>
-                      ))}
-                    </div>
+                  {/* Code */}
+                  <div className="text-sm leading-relaxed space-y-1 text-gray-300">
+                    <div>&lt;header&gt;</div>
+                    <div className="pl-4">&lt;nav class="navbar"&gt; Sua Empresa &lt;/nav&gt;</div>
+                    <div>&lt;/header&gt;</div>
+                    <div>&lt;main class="hero"&gt;</div>
+                    <div className="pl-4">&lt;h1&gt;Bem-vindos&lt;/h1&gt;</div>
+                    <div>&lt;/main&gt;</div>
                   </div>
 
-                  {/* Website Development Panel */}
-                  <div className={`absolute inset-0 transition-all duration-500 ${
-                    activePanel === 'website' ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
-                  }`}>
-                    <div className="h-full relative">
-                      <div className="bg-slate-900 border border-blue-500/30 rounded-lg h-full p-4 font-mono relative overflow-hidden">
-                        <div className="flex gap-2 mb-4 pb-2 border-b border-blue-500/20">
-                          <div className="w-3 h-3 rounded-full bg-red-500"></div>
-                          <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-                          <div className="w-3 h-3 rounded-full bg-green-500"></div>
-                        </div>
-                        
-                        <div className="text-xs leading-relaxed">
-                          {[
-                            '<header>',
-                            '  <nav class="navbar">',
-                            '    Sua Empresa',
-                            '  </nav>',
-                            '</header>',
-                            '<main class="hero">'
-                          ].map((line, index) => (
-                            <div 
-                              key={index}
-                              className="mb-1 opacity-0 animate-pulse"
-                              style={{ 
-                                animationDelay: `${0.2 + index * 0.2}s`,
-                                animationFillMode: 'forwards'
-                              }}
-                            >
-                              {line.includes('<') ? (
-                                <>
-                                  <span className="text-blue-400">{line.split('=')[0]}</span>
-                                  {line.includes('=') && (
-                                    <>
-                                      <span className="text-green-400">=</span>
-                                      <span className="text-yellow-400">{line.split('=')[1]}</span>
-                                    </>
-                                  )}
-                                </>
-                              ) : (
-                                <span className="text-gray-300">{line}</span>
-                              )}
-                            </div>
-                          ))}
-                        </div>
-                        
-                        <div className="absolute bottom-4 right-4 w-32 h-20 bg-white rounded shadow-lg overflow-hidden">
-                          <div className="bg-gray-100 h-5 flex items-center px-2 gap-1">
-                            <div className="w-1 h-1 rounded-full bg-gray-400"></div>
-                            <div className="w-1 h-1 rounded-full bg-gray-400"></div>
-                            <div className="w-1 h-1 rounded-full bg-gray-400"></div>
-                          </div>
-                          <div className="p-2 text-gray-800 text-xs text-center">
-                            <strong>Sua Empresa</strong><br />
-                            Serviços Profissionais
-                          </div>
-                        </div>
+                  {/* Preview */}
+                  <div className="flex justify-end mt-6">
+                    <div className="w-28 h-20 bg-white rounded shadow-lg overflow-hidden">
+                      <div className="bg-gray-100 h-5 flex items-center px-2 gap-1">
+                        <div className="w-1 h-1 rounded-full bg-gray-400"></div>
+                        <div className="w-1 h-1 rounded-full bg-gray-400"></div>
+                        <div className="w-1 h-1 rounded-full bg-gray-400"></div>
+                      </div>
+                      <div className="p-2 text-gray-800 text-xs text-center">
+                        <strong>Sua Empresa</strong>
+                        <br />
+                        Serviços Profissionais
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
+            )}
+          </div>
+      </div>
+    </div>
           </div>
         </div>
         
@@ -277,8 +282,25 @@ const Hero: React.FC = () => {
         }
         
         @keyframes barGrow {
-          from { height: 0; }
-          to { height: var(--height); }
+          from { 
+            height: 0;
+            opacity: 0;
+          }
+          to { 
+            height: var(--height);
+            opacity: 1;
+          }
+        }
+        
+        @keyframes typeCode {
+          from { 
+            opacity: 0; 
+            transform: translateX(-10px); 
+          }
+          to { 
+            opacity: 1; 
+            transform: translateX(0); 
+          }
         }
         
         .animate-fadeInUp {
