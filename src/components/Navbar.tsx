@@ -5,7 +5,7 @@ import { useRouter, usePathname } from 'next/navigation';
 npm install @fortawesome/react-fontawesome @fortawesome/fontawesome-svg-core @fortawesome/free-solid-svg-icons
  */
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars, faHome, faBuilding, faPhone, faCalendarAlt, faUsers, faThumbsUp, faShareAlt, faEnvelope, faGlobe,faUserTie,faDatabase,faChartBar,faLaptopCode,faQuestionCircle, } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faHome, faPhone, faCalendarAlt, faUsers, faStar, faShareAlt, faEnvelope,faUserTie,faDatabase,faChartBar,faLaptopCode,faQuestionCircle,faChartPie,faGlobe } from '@fortawesome/free-solid-svg-icons';
 import Image from 'next/image';
 
 export default function Navbar() {
@@ -21,61 +21,11 @@ export default function Navbar() {
     { item: 'Início', path: '/', icon: faHome, type: 'page' },
     { item: 'Sobre', path: '#about', icon: faUserTie, type: 'section' },
     { item: 'Contato', path: '#contact', icon: faEnvelope, type: 'section' },
-    { item: 'Engenharia de Dados', path: '#data-engineering', icon: faDatabase, type: 'section' },
-    { item: 'Power BI', path: '#bi-architecture', icon: faChartBar, type: 'section' },
-    { item: 'Desenvolvimento de Sites', path: '#web-development', icon: faLaptopCode, type: 'section' },
-    { item: 'Principais Dúvidas', path: '#tips', icon: faQuestionCircle, type: 'section' },
-  ];
-
-  const sections: Array<{
-    title: string;
-    icon: any;
-    description: string;
-    path: string;
-    type: 'page' | 'section';
-  }> = [
-    {
-      title: 'Sobre nós',
-      icon: faBuilding,
-      description: 'Aprenda mais sobre nós',
-      path: '#AboutCompany',
-      type: 'section'
-    },
-    {
-      title: 'Contato',
-      icon: faPhone,
-      description: 'Get in touch with us',
-      path: '#ContactSection',
-      type: 'section'
-    },
-    {
-      title: 'Testimonials',
-      icon: faThumbsUp,
-      description: 'O que nossos clientes andam falando',
-      path: '#Testimonials',
-      type: 'section'
-    },
-    {
-      title: 'Preço',
-      icon: faUsers,
-      description: 'Sessão exclusiva com os preços bases',
-      path: '#PriceTable',
-      type: 'section'
-    },
-    {
-      title: 'Serviços',
-      icon: faEnvelope,
-      description: 'serviços disponiveis',
-      path: '#Services',
-      type: 'section'
-    },
-    {
-      title: 'Galeria Personalizada',
-      icon: faGlobe,
-      description: 'Fotos dos principais serviços',
-      path: '/Gallery',
-      type: 'page'
-    },
+    { item: 'Engenharia de Dados', path: 'DataEngineering', icon: faDatabase, type: 'page' },
+    { item: 'Power BI', path: 'PowerBIArchitecture', icon: faChartBar, type: 'page' },
+    { item: 'Desenvolvimento de Sites', path: 'WebDevelopment', icon: faLaptopCode, type: 'page' },
+    { item: 'Documentação & Treinamento', path: 'DocumentationTrainingSection', icon: faQuestionCircle, type: 'page' },
+    { item: 'Feedback', path: 'FeedbackForm', icon: faStar, type: 'page' },
   ];
 
   // Função aprimorada para navegação
@@ -154,10 +104,6 @@ export default function Navbar() {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
-  const handleDropdownToggle = () => {
-    setIsDropdownOpen(!isDropdownOpen);
-  };
-
   const handleClickOutside = (event: MouseEvent) => {
     if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
       setIsDropdownOpen(false);
@@ -190,7 +136,7 @@ export default function Navbar() {
         <div className="flex justify-between items-center h-16">
           
           {/* Logo - visível apenas em desktop */}
-          <div className="hidden md:flex items-center">
+          <div className="hidden xl:flex items-center">
             <button onClick={() => handleNavigation('/', 'page')} className="flex items-center">
               <Image 
                 width={120} 
@@ -206,7 +152,7 @@ export default function Navbar() {
           <nav className="hidden lg:flex items-center space-x-1">
             <button 
               onClick={() => handleNavigation('/', 'page')} 
-              className={`px-3 py-2 text-sm hover:bg-[#9b4819] hover:text-white rounded-md flex items-center space-x-2 transition-colors ${pathname === '/' ? 'bg-[#2C394C] text-white' : 'text-gray-700'}`}
+              className={`px-3 py-2 text-sm hover:bg-[#78B2FB] hover:text-white rounded-md flex items-center space-x-2 transition-colors ${pathname === '/' ? 'bg-[#2C394C] text-white' : 'text-gray-700'}`}
             >
               <FontAwesomeIcon icon={faHome} className="w-4 h-4" />
               <span>Inicio</span>
@@ -221,25 +167,57 @@ export default function Navbar() {
             </button>
 
             <button 
-              onClick={() => handleNavigation('#data-engineering', 'section')} 
+              onClick={() => handleNavigation('DataEngineering', 'page')} 
               className={`px-3 py-2 text-sm hover:bg-[#2C394C] hover:text-white rounded-md flex items-center space-x-2 transition-colors ${activeHash === '#Service' ? 'bg-[#2C394C] text-white' : 'text-gray-700'}`}
             >
               <FontAwesomeIcon icon={faShareAlt} className="w-4 h-4" />
-              <span>Serviços</span>
+              <span>Engenaria de Dados</span>
+            </button>
+
+             <button 
+              onClick={() => handleNavigation('PowerBIArchitecture', 'page')} 
+              className={`px-3 py-2 text-sm hover:bg-[#2C394C] hover:text-white rounded-md flex items-center space-x-2 transition-colors ${activeHash === '#Service' ? 'bg-[#2C394C] text-white' : 'text-gray-700'}`}
+            >
+              <FontAwesomeIcon icon={faChartPie } className="w-4 h-4" />
+              <span>Power BI</span>
+            </button>
+
+             <button 
+              onClick={() => handleNavigation('WebDevelopment', 'page')} 
+              className={`px-3 py-2 text-sm hover:bg-[#2C394C] hover:text-white rounded-md flex items-center space-x-2 transition-colors ${activeHash === '#Service' ? 'bg-[#2C394C] text-white' : 'text-gray-700'}`}
+            >
+              <FontAwesomeIcon icon={faGlobe} className="w-4 h-4" />
+              <span>Sites</span>
+            </button>
+
+             <button 
+              onClick={() => handleNavigation('DocumentationTrainingSection', 'page')} 
+              className={`px-3 py-2 text-sm hover:bg-[#2C394C] hover:text-white rounded-md flex items-center space-x-2 transition-colors ${activeHash === '#Service' ? 'bg-[#2C394C] text-white' : 'text-gray-700'}`}
+            >
+              <FontAwesomeIcon icon={faQuestionCircle} className="w-4 h-4" />
+              <span>Documentação</span>
             </button>
 
             <button 
-              onClick={() => handleNavigation('#about', 'section')} 
+              onClick={() => handleNavigation('About', 'page')} 
               className={`px-3 py-2 text-sm hover:bg-[#2C394C] hover:text-white rounded-md flex items-center space-x-2 transition-colors ${activeHash === '#About' ? 'bg-[#2C394C] text-white' : 'text-gray-700'}`}
             >
               <FontAwesomeIcon icon={faUsers} className="w-4 h-4" />
               <span>Sobre</span>
             </button>
+
+            <button 
+              onClick={() => handleNavigation('FeedbackForm', 'page')} 
+              className={`px-3 py-2 text-sm hover:bg-[#2C394C] hover:text-white rounded-md flex items-center space-x-2 transition-colors ${activeHash === '#About' ? 'bg-[#2C394C] text-white' : 'text-gray-700'}`}
+            >
+              <FontAwesomeIcon icon={faStar} className="w-4 h-4" />
+              <span>Feedback</span>
+            </button>
             
           </nav>
           
           {/* Botão de Contato Desktop */}
-          <div className="hidden lg:flex items-center">
+          <div className="hidden xl:flex items-center">
             <a 
               href="tel:+14255886654" 
               className="px-4 py-2 bg-[#2C394C] hover:bg-[#78B2FB] text-white rounded-md transition-colors text-sm font-medium"
@@ -249,7 +227,7 @@ export default function Navbar() {
           </div>
           
           {/* Logo Mobile - centralizado */}
-          <div className="flex md:hidden items-center text-center transform-translate-x-1/2">
+          <div className="flex lg:hidden items-center text-center transform-translate-x-1/2">
             <button onClick={() => handleNavigation('/', 'page')} className="flex items-center">
               <Image 
                 width={120} 

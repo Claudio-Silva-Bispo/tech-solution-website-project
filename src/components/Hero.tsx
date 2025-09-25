@@ -104,7 +104,7 @@ const Hero: React.FC = () => {
                     <button
                       key={tab.key}
                       onClick={() => setActivePanel(tab.key as typeof activePanel)}
-                      className={`px-4 py-2 lg:px-10 lg:py-3 rounded-full text-sm lg:text-xl font-medium transition-all duration-300 border w-[15vh] md:w-[20vh] ${
+                      className={`px-4 py-2 lg:px-8 lg:py-2 rounded-full text-sm lg:text-md font-medium transition-all duration-300 border w-[15vh] md:w-[20vh] ${
                         activePanel === tab.key
                           ? "bg-blue-500/30 border-blue-500/50 text-white"
                           : "bg-blue-500/10 border-blue-500/20 text-blue-400 hover:bg-blue-500/20"

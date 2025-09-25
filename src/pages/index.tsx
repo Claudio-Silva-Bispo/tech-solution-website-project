@@ -1,11 +1,9 @@
 import Hero from '../components/Hero'
 import About from '../components/About'
+import ClientsMarquee from '../components/ClientsMarquee'
 import CompleteServicesPage from '../components/CompleteServicesPage'
-import DataEngineering from '../components/DataEngineering'
-import PowerBIArchitecture from '../components/PowerBIArchitecture'
-import WebDevelopmentSection from '../components/WebDevelopment'
 import ContactForm from '../components/ContactForm'
-import DocumentationTrainingSection from '../components/DocumentationTrainingSection'
+import TestimonialsSection from '../components/TestimonialsSection'
 
 export default function Home() {
 
@@ -14,11 +12,9 @@ export default function Home() {
       <Hero/>
       <About/>
       <CompleteServicesPage/>
-      <DataEngineering/>
-      <PowerBIArchitecture/>
-      <WebDevelopmentSection/>
       <ContactForm/>
-      <DocumentationTrainingSection/>
+      <ClientsMarquee/>
+      <TestimonialsSection/>
     </div>
     
   )

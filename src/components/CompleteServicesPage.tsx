@@ -16,7 +16,8 @@ const CompleteServicesPage = () => {
         "Governança e qualidade de dados"
       ],
       color: "from-purple-500 to-pink-500",
-      borderColor: "border-purple-500/30"
+      borderColor: "border-purple-500/30",
+      link: "/DataEngineering"
     },
     {
       icon: <BarChart3 className="w-12 h-12" />,
@@ -31,7 +32,8 @@ const CompleteServicesPage = () => {
         "Mobile-friendly e responsivo"
       ],
       color: "from-blue-500 to-cyan-500",
-      borderColor: "border-blue-500/30"
+      borderColor: "border-blue-500/30",
+      link: "/PowerBIArchitecture"
     },
     {
       icon: <Globe className="w-12 h-12" />,
@@ -46,7 +48,8 @@ const CompleteServicesPage = () => {
         "Hospedagem e manutenção"
       ],
       color: "from-green-500 to-teal-500",
-      borderColor: "border-green-500/30"
+      borderColor: "border-green-500/30",
+      link: "/WebDevelopment"
     },
     {
       icon: <BookOpen className="w-12 h-12" />,
@@ -61,7 +64,8 @@ const CompleteServicesPage = () => {
         "Planos de manutenção"
       ],
       color: "from-orange-500 to-red-500",
-      borderColor: "border-orange-500/30"
+      borderColor: "border-orange-500/30",
+      link: "/DocumentationTrainingSection"
     }
   ];
 
@@ -83,7 +87,7 @@ const CompleteServicesPage = () => {
     <div className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white min-h-screen" id='complete-service'>
       
       {/* Hero Section */}
-      <section className="relative py-20 lg:py-32 overflow-hidden">
+      {/* <section className="relative py-20 lg:py-32 overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/30 rounded-full blur-3xl"></div>
           <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/30 rounded-full blur-3xl"></div>
@@ -108,7 +112,7 @@ const CompleteServicesPage = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Main Services */}
       <section id="services" className="py-20 lg:py-32">
@@ -134,6 +138,12 @@ const CompleteServicesPage = () => {
                     <h3 className="text-3xl lg:text-4xl font-bold mb-3">{service.title}</h3>
                     <p className="text-xl text-blue-400 mb-4">{service.subtitle}</p>
                     <p className="text-gray-300 text-lg leading-relaxed">{service.description}</p>
+                    <a 
+                      href={service.link}
+                      className="text-gray-300 font-semibold flex items-center gap-2 hover:text-blue-400 transition-colors duration-300 group/btn pt-5"
+                    >
+                      Saiba mais clicando aqui <ArrowRight className="w-5 h-5 group-hover/btn:translate-x-1 transition-transform duration-300" />
+                    </a>
                   </div>
 
                   {/* Right Side - Features */}
@@ -182,27 +192,6 @@ const CompleteServicesPage = () => {
                 </div>
               ))}
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Final */}
-      <section className="py-20 lg:py-32">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-3xl p-12 lg:p-16 lg:text-center max-w-4xl mx-auto">
-            <h2 className="text-3xl lg:text-5xl font-bold mb-6">
-              Pronto para Transformar Seus Dados em Resultados?
-            </h2>
-            <p className="text-xl text-blue-100 mb-8">
-              Entre em contato e descubra como podemos ajudar sua empresa a crescer com tecnologia e dados
-            </p>
-            <a 
-              href="#contact"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-white text-blue-600 font-bold rounded-lg hover:bg-gray-100 transition-all duration-300 hover:scale-105"
-            >
-              <span>Solicitar Orçamento Gratuito</span>
-              <ArrowRight className="w-5 h-5" />
-            </a>
           </div>
         </div>
       </section>

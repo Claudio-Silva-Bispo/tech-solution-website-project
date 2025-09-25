@@ -39,7 +39,7 @@ const DocumentationTrainingSection = () => {
   ];
 
   return (
-    <section className="bg-gradient-to-br from-gray-900 to-gray-800 text-white py-20 lg:py-32">
+    <section className="bg-gradient-to-br from-gray-900 to-gray-800 text-white py-20 lg:py-32" id='document-training'>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
@@ -124,16 +124,6 @@ const DocumentationTrainingSection = () => {
           </div>
         </div>
 
-        {/* CTA */}
-        <div className="text-center mt-16">
-          <a 
-            href="#contact"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-blue-500 to-blue-600 text-white font-semibold rounded-lg hover:from-blue-600 hover:to-blue-700 hover:-translate-y-1 hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300"
-          >
-            <span>Conheça Nossos Planos</span>
-            <span>→</span>
-          </a>
-        </div>
       </div>
     </section>
   );
