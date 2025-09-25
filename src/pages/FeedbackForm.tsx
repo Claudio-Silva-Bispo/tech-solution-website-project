@@ -16,13 +16,13 @@ const FeedbackForm = () => {
     if (rating === 0 || !formData.name || !formData.role || !formData.company || !formData.message) return;
     
     try {
-      const res = await fetch('/api/sendEmail', {
+      const res = await fetch('/api/sendFeedback', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           ...formData,
           rating,
-          type: 'feedback' // Para diferenciar dos outros formulários
+          type: 'feedback' 
         })
       });
 
