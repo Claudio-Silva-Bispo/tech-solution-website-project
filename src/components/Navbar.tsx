@@ -213,7 +213,7 @@ export default function Navbar() {
             </button>
             
             <button 
-              onClick={() => handleNavigation('#FormQuote', 'section')} 
+              onClick={() => handleNavigation('#contact', 'section')} 
               className={`px-3 py-2 text-sm hover:bg-[#2C394C] hover:text-white rounded-md flex items-center space-x-2 transition-colors ${activeHash === '#FormQuote' ? 'bg-[#2C394C] text-white' : 'text-gray-700'}`}
             >
               <FontAwesomeIcon icon={faCalendarAlt} className="w-4 h-4" />
@@ -221,7 +221,7 @@ export default function Navbar() {
             </button>
 
             <button 
-              onClick={() => handleNavigation('#Service', 'section')} 
+              onClick={() => handleNavigation('#data-engineering', 'section')} 
               className={`px-3 py-2 text-sm hover:bg-[#2C394C] hover:text-white rounded-md flex items-center space-x-2 transition-colors ${activeHash === '#Service' ? 'bg-[#2C394C] text-white' : 'text-gray-700'}`}
             >
               <FontAwesomeIcon icon={faShareAlt} className="w-4 h-4" />
@@ -229,7 +229,7 @@ export default function Navbar() {
             </button>
 
             <button 
-              onClick={() => handleNavigation('#About', 'section')} 
+              onClick={() => handleNavigation('#about', 'section')} 
               className={`px-3 py-2 text-sm hover:bg-[#2C394C] hover:text-white rounded-md flex items-center space-x-2 transition-colors ${activeHash === '#About' ? 'bg-[#2C394C] text-white' : 'text-gray-700'}`}
             >
               <FontAwesomeIcon icon={faUsers} className="w-4 h-4" />

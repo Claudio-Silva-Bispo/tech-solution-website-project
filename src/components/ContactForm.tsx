@@ -28,17 +28,32 @@ const ContactForm = () => {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Dados do formulário:', formData);
-    alert('Solicitação enviada! Entraremos em contato em breve.');
-    setFormData({
-      name: '',
-      phone: '',
-      email: '',
-      date: '',
-      contactPref: 'whatsapp'
-    });
+    
+    try {
+      const res = await fetch('/api/sendEmail', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
+      });
+
+      if (res.ok) {
+        alert('Solicitação enviada com sucesso!');
+        setFormData({
+          name: '',
+          phone: '',
+          email: '',
+          date: '',
+          contactPref: 'whatsapp'
+        });
+      } else {
+        alert('Erro ao enviar o formulário. Tente novamente.');
+      }
+    } catch (err) {
+      console.error(err);
+      alert('Erro ao enviar o formulário. Tente novamente.');
+    }
   };
 
   return (

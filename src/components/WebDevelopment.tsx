@@ -11,7 +11,7 @@ export default function WebDevelopmentSection() {
             <span>🌐</span>
             <span>Desenvolvimento Web</span>
           </div>
-          <h2 className="text-3xl lg:text-5xl font-extrabold mb-6 bg-gradient-to-r from-white to-blue-400 bg-clip-text text-transparent text-start lg:text-center">
+          <h2 className="text-3xl lg:text-5xl font-extrabold pb-6 bg-gradient-to-r from-white to-blue-400 bg-clip-text text-transparent text-start lg:text-center">
             Sites Profissionais para Pequenas Empresas
           </h2>
           <p className="text-lg lg:text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed text-start lg:text-center">
