@@ -246,7 +246,7 @@ const DataEngineering = () => {
                   ].map((mart, idx) => (
                     <div key={idx} className="bg-purple-500/10 border-purple-500/30 px-6 py-4 rounded-xl text-center w-full">
                       <div className="text-2xl mb-2">{mart.icon}</div>
-                      <div className="text-purple-400 font-semibold text-sm">{mart.name}</div>
+                      <div className="text-white font-semibold text-sm">{mart.name}</div>
                     </div>
                   ))}
                 </div>

@@ -40,9 +40,13 @@ export default function WebDevelopmentSection() {
                 <li>📈 Divulgação do Produto ou Serviço</li>
                 <li>⚡ Carregamento Ultra-Rápido</li>
                 <li>🎨 Design Impactante</li>
-                <li>📊 Portal Adm</li>
+                <li>📊 Portal Adm para consultar os formulários</li>
+                <li>📄 Informações por e-mail</li>
                 <li>🔑 Simples e Direto</li>
                 <li>👉 Entrega em até quatro dias</li>
+                <li>🌐 Custo com o domínio do seu site</li>
+                <li>🔗 Manutenção simplificada</li>
+                <li>📝 Até cinco sessões para seu site</li>
               </ul>
             </div>
 
@@ -63,6 +67,8 @@ export default function WebDevelopmentSection() {
                 <li>📧 Formulário de Contato</li>
                 <li>🗺️ Integração Google Maps</li>
                 <li>👉 Entrega conforme o fluxo do Processo de desenvolvimento logo abaixo</li>
+                <li>🌐 Custo com o domínio do seu site</li>
+                <li>🔗 Manutenção simplificada</li>
               </ul>
             </div>
 
@@ -84,6 +90,8 @@ export default function WebDevelopmentSection() {
                 <li>📊 Dashboard Admin</li>
                 <li>🛢️Conexão com Banco de Dados</li>
                 <li>👉 Entrega conforme o fluxo do Processo de desenvolvimento logo abaixo</li>
+                <li>🌐 Custo com o domínio do seu site</li>
+                <li>🔗 Manutenção simplificada</li>
               </ul>
             </div>
           </div>

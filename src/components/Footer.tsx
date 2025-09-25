@@ -211,7 +211,7 @@ const Footer = () => {
         <div className="pt-6 lg:pt-8 border-t border-white/10">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 lg:gap-6">
             <div className="text-gray-400 text-sm lg:text-base text-center sm:text-left">
-              © 2025 TechData Solutions. Todos os direitos reservados.
+              © 2025 Bc Tech Solutions & Advisory. Todos os direitos reservados.
             </div>
             <div className="flex flex-wrap justify-center sm:justify-end gap-4 lg:gap-8">
               <a 

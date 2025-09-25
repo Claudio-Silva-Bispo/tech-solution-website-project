@@ -224,13 +224,13 @@ const About = () => {
             {/* Bio */}
             <div className="lg:col-span-2 space-y-4">
               <p className="text-gray-300 leading-relaxed">
-                Desenvolvedor Full Stack e Engenheiro de Dados com experiência em análise de dados e desenvolvimento web. Especializado em criar soluções end-to-end, desde ETL e processamento de dados até aplicações web completas.
+                Sou Desenvolvedor Full Stack e Engenheiro de Dados, com experiência em criar sistemas e trabalhar com dados. Transformo informações em soluções práticas, como sites, aplicativos e relatórios que ajudam empresas a tomar decisões.
               </p>
               <p className="text-gray-300 leading-relaxed">
-                Minha experiência inclui transformar dados em insights estratégicos através de análise do negócio, homologação e entrega de produtos direcionados às squads de trabalho. Trabalho com diversos sistemas, bancos de dados e integração de APIs.
+                Já trabalhei em análises de dados, integração de sistemas e desenvolvimento de aplicações completas. Tenho formação em Desenvolvimento Full Stack e especializações em Big Data, BI e Gestão Financeira, o que me permite unir conhecimento técnico com visão de negócio.
               </p>
               <p className="text-gray-300 leading-relaxed">
-                Com formação em Desenvolvimento de Sistema Full Stack na FIAP e com MBAs em Big Data/BI e Gestão Financeira, combino conhecimento técnico profundo com visão estratégica de negócios.
+                Abaixo eu conto um pouco sobre minha experiência profissional.
               </p>
             </div>
           </div>
@@ -364,7 +364,7 @@ const About = () => {
                 <h4 className="text-lg font-bold text-blue-400 mb-4">{category}</h4>
                 <div className="flex flex-wrap gap-2">
                   {technologies.map((tech, techIndex) => (
-                    <span key={techIndex} className="bg-blue-500/20 text-blue-300 px-3 py-1 rounded-full text-sm font-medium">
+                    <span key={techIndex} className="bg-blue-500/20 text-white px-3 py-1 rounded-full text-sm font-medium">
                       {tech}
                     </span>
                   ))}
