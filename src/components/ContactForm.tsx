@@ -18,7 +18,7 @@ const ContactForm = () => {
       const nextIndex = (currentPanelIndex + 1) % panels.length;
       setCurrentPanelIndex(nextIndex);
       setActivePanel(panels[nextIndex]);
-    }, 10000); // 10 segundos
+    }, 5000); // 5 segundos
 
     return () => clearInterval(interval);
   }, [currentPanelIndex]);

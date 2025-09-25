@@ -82,10 +82,10 @@ const Hero: React.FC = () => {
                   🚀 Faça um orçamento
                 </button>
                 <button 
-                  onClick={() => scrollToSection('portfolio')}
+                  onClick={() => scrollToSection('complete-service')}
                   className="text-gray-300 font-semibold flex items-center gap-2 hover:text-blue-500 transition-colors duration-300"
                 >
-                  Métodos →
+                  Saiba mais →
                 </button>
               </div>
             </div>
