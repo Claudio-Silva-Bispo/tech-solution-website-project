@@ -176,7 +176,7 @@ const CompleteServicesPage = () => {
           </div>
 
           <div className="max-w-6xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-5 gap-10">
+            <div className="grid grid-cols-1 xl:grid-cols-5 gap-10">
               {workflow.map((item, index) => (
                 <div key={index} className="relative">
                   <div className="bg-gradient-to-br from-blue-500/20 to-purple-500/20 ring-1 border-blue-500/30 rounded-2xl p-6 text-center hover:scale-105 transition-transform duration-300">

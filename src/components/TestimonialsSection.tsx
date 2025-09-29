@@ -6,9 +6,9 @@ const TestimonialsSection = () => {
 
   const testimonials = [
     {
-      role: "Coordenador",
+      role: "Gerente Geral",
       company: "Itaú",
-      text: "A solução transformou completamente nossa capacidade de análise. Processos que levavam dias agora são feitos em minutos.",
+      text: "A solução transformou completamente nossa capacidade de análise.",
       rating: 5
     },
     {
@@ -30,9 +30,9 @@ const TestimonialsSection = () => {
       rating: 5
     },
     {
-      role: "Coordenador de BI",
+      role: "Coordenador",
       company: "Mapfre Seguros",
-      text: "Superou nossas expectativas! A solução é escalável, robusta e veio muito mais rápido do que imaginávamos.",
+      text: "Superou nossas expectativas! Sempre criando soluções mais rápido do que imaginávamos.",
       rating: 5
     },
     {
@@ -68,8 +68,8 @@ const TestimonialsSection = () => {
   };
 
   return (
-    <section className="py-20 lg:py-32 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 relative overflow-hidden">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="p-5 lg:p-0 py-20 lg:py-32 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 relative overflow-hidden">
+      <div className="container mx-auto px-4 sm:px-8 lg:px-8">
         
         {/* Header */}
         <div className="lg:text-center mb-16">
