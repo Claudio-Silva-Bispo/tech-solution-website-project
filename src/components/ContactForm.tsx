@@ -76,7 +76,7 @@ const ContactForm = () => {
           <div className="space-y-8">
             {/* Header */}
             <div>
-              <h2 className="text-3xl lg:text-6xl pb-5 font-extrabold mb-6 bg-gradient-to-r from-white to-blue-400 bg-clip-text text-transparent">
+              <h2 className="text-5xl lg:text-7xl pb-5 font-extrabold mb-6 bg-gradient-to-r from-white to-blue-400 bg-clip-text text-transparent">
                 Solicite um Orçamento
               </h2>
               <p className="text-lg lg:text-xl text-gray-400 leading-relaxed">
