@@ -15,11 +15,15 @@ const ClientsMarquee = () => {
   // Criar um array maior para loop contínuo
   const repeatedClients = [...clients, ...clients, ...clients];
 
-   const scrollToSection = (sectionId: string) => {
+  const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
+  };
+
+  const navigateToAboutPage = () => {
+    window.location.href = '/About';
   };
 
   return (
@@ -76,7 +80,7 @@ const ClientsMarquee = () => {
               🚀 Faça um orçamento
             </button>
             <button 
-              onClick={() => scrollToSection('complete-service')}
+              onClick={navigateToAboutPage}
               className="text-gray-300 font-semibold flex items-center gap-2 hover:text-blue-500 transition-colors duration-300"
             >
               Saiba sobre minha trajetória →
