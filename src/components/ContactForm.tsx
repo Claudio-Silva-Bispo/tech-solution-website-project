@@ -220,15 +220,6 @@ const ContactForm = () => {
                       <div className="text-xs text-gray-400 mt-1">Criar significado e Resultado</div>
                     </div>
                     
-                    {/* Flow Arrow */}
-                    {/* <div className="text-blue-400 text-2xl animate-bounce">↓</div> */}
-                    
-                    {/* Data Warehouse
-                    <div className="bg-green-500/20 ring-1 border-green-500/30 rounded-lg p-4 w-full max-w-xs text-center">
-                      <div className="text-xl mb-2">🏢</div>
-                      <div className="text-sm font-medium text-green-300">Data Warehouse</div>
-                      <div className="text-xs text-gray-400 mt-1">Dados Estruturados</div>
-                    </div> */}
                   </div>
                 </div>
 
@@ -354,7 +345,8 @@ const ContactForm = () => {
                   type="date"
                   value={formData.date}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-3 bg-white/10 ring-1 border-white/20 rounded-lg text-white focus:border-blue-500 focus:ring-2 focus:ring-orange-500 outline-none transition-all duration-300"
+                  className="w-full px-4 py-3 bg-white/10 ring-1 border-white/20 rounded-lg text-white focus:border-blue-500 focus:ring-2 focus:ring-orange-500 outline-none transition-all duration-300 appearance-none"
+                  style={{ colorScheme: 'dark' }}
                 />
               </div>
 
@@ -387,7 +379,7 @@ const ContactForm = () => {
 
             {/* Header */}
             <div>
-              <p className="text-lg pt-5 text-gray-400 leading-relaxed">
+              <p className="lg:text-lg pt-5 text-gray-400 leading-relaxed">
                 Nosso prazo de resposta é de até 24 horas após o envio do formulário. Para agilizar a comunicação com nossa equipe, informe claramente como você prefere receber o retorno.
               </p>
             </div>
