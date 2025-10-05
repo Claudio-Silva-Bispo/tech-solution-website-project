@@ -1,300 +1,210 @@
-"use client"
-import React, { useState, useEffect, useRef } from 'react';
-import { useRouter, usePathname } from 'next/navigation';
-/* Instalar 
-npm install @fortawesome/react-fontawesome @fortawesome/fontawesome-svg-core @fortawesome/free-solid-svg-icons
- */
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars, faHome, faPhone, faCalendarAlt, faUsers, faStar, faShareAlt, faEnvelope,faUserTie,faDatabase,faChartBar,faLaptopCode,faQuestionCircle,faChartPie,faGlobe } from '@fortawesome/free-solid-svg-icons';
-import Image from 'next/image';
+import React, { useState, useEffect } from 'react';
 
 export default function Navbar() {
-  const [isHeroVisible, setIsHeroVisible] = useState(true);
+  const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const dropdownRef = useRef<HTMLDivElement>(null);
   const [activeHash, setActiveHash] = useState('');
-  const router = useRouter();
-  const pathname = usePathname();
 
-  const menuItems: Array<{ item: string, path: string, icon: any, type: 'page' | 'section' }> = [
-    { item: 'Início', path: '/', icon: faHome, type: 'page' },
-    { item: 'Sobre', path: '#about', icon: faUserTie, type: 'section' },
-    { item: 'Contato', path: '#contact', icon: faEnvelope, type: 'section' },
-    { item: 'Engenharia de Dados', path: 'DataEngineering', icon: faDatabase, type: 'page' },
-    { item: 'Power BI', path: 'PowerBIArchitecture', icon: faChartBar, type: 'page' },
-    { item: 'Desenvolvimento de Sites', path: 'WebDevelopment', icon: faLaptopCode, type: 'page' },
-    { item: 'Documentação & Treinamento', path: 'DocumentationTrainingSection', icon: faQuestionCircle, type: 'page' },
-    { item: 'Feedback', path: 'FeedbackForm', icon: faStar, type: 'page' },
+  const menuItems: { item: string; path: string; icon: string; type: 'section' | 'page' }[] = [
+    { item: 'Início', path: '/', icon: '🏠', type: 'section' },
+    { item: 'Serviços', path: '#services', icon: '✨', type: 'section' },
+    { item: 'Sobre', path: '#about', icon: '👥', type: 'section' },
+    { item: 'Orçamento', path: '#contact', icon: '📧', type: 'section' },
   ];
 
-  // Função aprimorada para navegação
-  const handleNavigation = async (path: string, type: 'page' | 'section' = 'section') => {
-    setIsMobileMenuOpen(false);
-    setIsDropdownOpen(false);
+  const servicePages = [
+    { item: 'Engenharia de Dados', path: '/DataEngineering', icon: '🔧' },
+    { item: 'Power BI', path: '/PowerBIArchitecture', icon: '📊' },
+    { item: 'Sites', path: '/WebDevelopment', icon: '🌐' },
+    { item: 'Google Meu Negócio', path: '/GoogleBusiness', icon: '📍' },
+    { item: 'Redes Sociais', path: '/SocialMedia', icon: '📱' },
+    { item: 'Documentação', path: '/DocumentationTrainingSection', icon: '📚' },
+  ];
 
-    if (type === 'page') {
-      // Navegação para páginas
-      await router.push(path);
-    } else if (type === 'section') {
-      // Navegação para seções
-      if (path.startsWith('#')) {
-        const sectionId = path.substring(1);
-        
-        if (window.location.pathname === '/') {
-          // Se já estiver na home, rola diretamente para a seção
-          scrollToSection(sectionId);
-        } else {
-          // Se não estiver na home, navega para a home primeiro
-          await router.push('/');
-          // Aguarda um pequeno delay para garantir que a página carregou
-          setTimeout(() => {
-            scrollToSection(sectionId);
-          }, 100);
-        }
+  // Detecta scroll para mostrar/ocultar navbar no mobile
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 100) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
       }
-    }
-  };
+    };
 
-  // Função para rolar até uma seção específica
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId) || document.querySelector(`[data-section="${sectionId}"]`);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const handleNavigation = (path: string, type: 'page' | 'section' = 'section') => {
+    setIsMobileMenuOpen(false);
     
-    if (element) {
-      element.scrollIntoView({ 
-        behavior: 'smooth',
-        block: 'start'
-      });
+    if (type === 'section' && path.startsWith('#')) {
+      const sectionId = path.substring(1);
+      const element = document.getElementById(sectionId);
       
-      // Atualiza o hash da URL sem recarregar a página
-      if (typeof window !== 'undefined') {
-        window.history.replaceState(null, '', `#${sectionId}`);
-        setActiveHash(`#${sectionId}`);
+      if (element) {
+        element.scrollIntoView({ 
+          behavior: 'smooth',
+          block: 'start'
+        });
+        
+        window.history.replaceState(null, '', path);
+        setActiveHash(path);
       }
     } else {
-      console.warn(`Seção com ID "${sectionId}" não encontrada`);
+      // Navegação para páginas - você pode integrar com Next.js router aqui
+      window.location.href = path;
     }
   };
-
-  // Hook para detectar mudanças no hash da URL
-  useEffect(() => {
-    const handleHashChange = () => {
-      const hash = window.location.hash;
-      setActiveHash(hash);
-      if (hash && pathname === '/') {
-        const sectionId = hash.substring(1);
-        setTimeout(() => scrollToSection(sectionId), 100);
-      }
-    };
-
-    // Detecta mudanças no hash
-    window.addEventListener('hashchange', handleHashChange);
-    
-    // Verifica o hash inicial
-    if (typeof window !== 'undefined' && window.location.hash) {
-      handleHashChange();
-    }
-
-    return () => {
-      window.removeEventListener('hashchange', handleHashChange);
-    };
-  }, [pathname, router]);
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
-  const handleClickOutside = (event: MouseEvent) => {
-    if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
-      setIsDropdownOpen(false);
-    }
-  };
-
-  useEffect(() => {
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, []);
-
-  // Fechar menu mobile ao redimensionar para desktop
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth >= 1024 && isMobileMenuOpen) {
-        setIsMobileMenuOpen(false);
-      }
-    };
-
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, [isMobileMenuOpen]);
-
   return (
-    <header className="top-0 left-0 right-0 z-50 bg-white shadow-md">
-      {/* Container principal respeitando o limite de 1280px */}
-      <div className="max-w-[1440px] mx-auto px-4">
-        <div className="flex justify-between items-center h-16">
-          
-          {/* Logo - visível apenas em desktop */}
-          <div className="hidden xl:flex items-center">
-            <button onClick={() => handleNavigation('/', 'page')} className="flex items-center">
-              <Image 
-                width={120} 
-                height={120} 
-                src="/logo/logo-principal/transparent-logo-icone.png" 
-                alt="Logo da empresa"
-                className="w-24 h-24 object-contain"
-              />
-            </button>
-          </div>
-          
-          {/* Menu Desktop - oculto em mobile */}
-          <nav className="hidden lg:flex items-center space-x-1">
-            <button 
-              onClick={() => handleNavigation('/', 'page')} 
-              className={`px-3 py-2 text-sm hover:bg-[#78B2FB] hover:text-white rounded-md flex items-center space-x-2 transition-colors ${pathname === '/' ? 'bg-[#2C394C] text-white' : 'text-gray-700'}`}
-            >
-              <FontAwesomeIcon icon={faHome} className="w-4 h-4" />
-              <span>Inicio</span>
-            </button>
+    <>
+      {/* Navbar Desktop - sempre visível */}
+      <header className="hidden lg:block fixed top-0 left-0 right-0 z-50 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 shadow-lg">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="flex justify-between items-center h-20">
             
-            <button 
-              onClick={() => handleNavigation('#contact', 'section')} 
-              className={`px-3 py-2 text-sm hover:bg-[#2C394C] hover:text-white rounded-md flex items-center space-x-2 transition-colors ${activeHash === '#FormQuote' ? 'bg-[#2C394C] text-white' : 'text-gray-700'}`}
-            >
-              <FontAwesomeIcon icon={faCalendarAlt} className="w-4 h-4" />
-              <span>Orçamento</span>
-            </button>
-
-            <button 
-              onClick={() => handleNavigation('DataEngineering', 'page')} 
-              className={`px-3 py-2 text-sm hover:bg-[#2C394C] hover:text-white rounded-md flex items-center space-x-2 transition-colors ${activeHash === '#Service' ? 'bg-[#2C394C] text-white' : 'text-gray-700'}`}
-            >
-              <FontAwesomeIcon icon={faShareAlt} className="w-4 h-4" />
-              <span>Engenaria de Dados</span>
-            </button>
-
-             <button 
-              onClick={() => handleNavigation('PowerBIArchitecture', 'page')} 
-              className={`px-3 py-2 text-sm hover:bg-[#2C394C] hover:text-white rounded-md flex items-center space-x-2 transition-colors ${activeHash === '#Service' ? 'bg-[#2C394C] text-white' : 'text-gray-700'}`}
-            >
-              <FontAwesomeIcon icon={faChartPie } className="w-4 h-4" />
-              <span>Power BI</span>
-            </button>
-
-             <button 
-              onClick={() => handleNavigation('WebDevelopment', 'page')} 
-              className={`px-3 py-2 text-sm hover:bg-[#2C394C] hover:text-white rounded-md flex items-center space-x-2 transition-colors ${activeHash === '#Service' ? 'bg-[#2C394C] text-white' : 'text-gray-700'}`}
-            >
-              <FontAwesomeIcon icon={faGlobe} className="w-4 h-4" />
-              <span>Sites</span>
-            </button>
-
-             <button 
-              onClick={() => handleNavigation('DocumentationTrainingSection', 'page')} 
-              className={`px-3 py-2 text-sm hover:bg-[#2C394C] hover:text-white rounded-md flex items-center space-x-2 transition-colors ${activeHash === '#Service' ? 'bg-[#2C394C] text-white' : 'text-gray-700'}`}
-            >
-              <FontAwesomeIcon icon={faQuestionCircle} className="w-4 h-4" />
-              <span>Documentação</span>
-            </button>
-
-            <button 
-              onClick={() => handleNavigation('About', 'page')} 
-              className={`px-3 py-2 text-sm hover:bg-[#2C394C] hover:text-white rounded-md flex items-center space-x-2 transition-colors ${activeHash === '#About' ? 'bg-[#2C394C] text-white' : 'text-gray-700'}`}
-            >
-              <FontAwesomeIcon icon={faUsers} className="w-4 h-4" />
-              <span>Sobre</span>
-            </button>
-
-            <button 
-              onClick={() => handleNavigation('FeedbackForm', 'page')} 
-              className={`px-3 py-2 text-sm hover:bg-[#2C394C] hover:text-white rounded-md flex items-center space-x-2 transition-colors ${activeHash === '#About' ? 'bg-[#2C394C] text-white' : 'text-gray-700'}`}
-            >
-              <FontAwesomeIcon icon={faStar} className="w-4 h-4" />
-              <span>Feedback</span>
-            </button>
+            {/* Logo */}
+            <div className="flex items-center">
+              <button 
+                onClick={() => handleNavigation('#home', 'section')} 
+                className="flex items-center gap-3 hover:opacity-80 transition-opacity"
+              >
+                <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center text-2xl">
+                  💼
+                </div>
+                <span className="text-xl font-bold text-blue-400">BC Tech Solutions</span>
+              </button>
+            </div>
             
-          </nav>
-          
-          {/* Botão de Contato Desktop */}
-          <div className="hidden xl:flex items-center">
-            <a 
-              href="tel:+14255886654" 
-              className="px-4 py-2 bg-[#2C394C] hover:bg-[#78B2FB] text-white rounded-md transition-colors text-sm font-medium"
-            >
-              (11) 95875-7740
-            </a>
+            {/* Menu Desktop */}
+            <nav className="flex items-center space-x-1">
+              {menuItems.map((menuItem) => (
+                <button
+                  key={menuItem.item}
+                  onClick={() => handleNavigation(menuItem.path, menuItem.type)}
+                  className={`px-4 py-2 text-sm rounded-lg flex items-center space-x-2 transition-all ${
+                    activeHash === menuItem.path 
+                      ? 'bg-blue-500/30 text-blue-400'
+                      : 'text-gray-300 hover:bg-blue-500/10 hover:text-blue-400'
+                  }`}
+                >
+                  <span>{menuItem.icon}</span>
+                  <span>{menuItem.item}</span>
+                </button>
+              ))}
+            </nav>
+            
+            {/* Botão de Contato */}
+            <div className="flex items-center gap-3">
+              <a 
+                href="tel:+5511958757740" 
+                className="bg-gradient-to-r from-blue-500 to-blue-700 hover:from-blue-600 hover:to-blue-800 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-blue-500/25 flex items-center gap-2"
+              >
+                📞 (11) 95875-7740
+              </a>
+            </div>
           </div>
-          
-          {/* Logo Mobile - centralizado */}
-          <div className="flex lg:hidden items-center text-center transform-translate-x-1/2">
-            <button onClick={() => handleNavigation('/', 'page')} className="flex items-center">
-              <Image 
-                width={120} 
-                height={120} 
-                src="/logo/logo-principal/transparent-logo-icone.png" 
-                alt="Logo da empresa"
-                className="w-24 h-24 object-contain"
-              />
-            </button>
-            <p className='text-sm'>BC Tech Solutions & Advisory</p>
-          </div>
-          
-          {/* Botão Hamburger - apenas mobile */}
-          <button 
-            onClick={toggleMobileMenu} 
-            className="lg:hidden p-2 text-gray-700 hover:text-[#9b4819] transition-colors"
-            aria-label="Abrir menu"
-          >
-            <FontAwesomeIcon icon={faBars} className="w-6 h-6" />
-          </button>
         </div>
-      </div>
+      </header>
+
+      {/* Navbar Mobile - aparece apenas ao fazer scroll */}
+      <header 
+        className={`lg:hidden fixed top-0 left-0 right-0 z-50 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 shadow-lg transition-all duration-300 ${
+          isScrolled ? 'translate-y-0' : '-translate-y-full'
+        }`}
+      >
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="flex justify-between items-center h-16">
+            
+            {/* Logo Mobile */}
+            <button 
+              onClick={() => handleNavigation('#home', 'section')} 
+              className="flex items-center gap-2"
+            >
+              <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center text-xl">
+                💼
+              </div>
+              <span className="text-lg font-bold text-blue-400">BC Tech</span>
+            </button>
+            
+            {/* Botão Hamburger */}
+            <button 
+              onClick={toggleMobileMenu} 
+              className="p-2 text-gray-400 hover:text-blue-400 transition-colors"
+              aria-label="Abrir menu"
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </header>
 
       {/* Menu Mobile Overlay */}
       {isMobileMenuOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden">
-          <div className="fixed inset-y-0 right-0 w-full max-w-full bg-[#78B2FB] shadow-xl">
+        <div className="fixed inset-0 bg-blue-900/50 backdrop-blur-sm z-50 lg:hidden">
+          <div className="fixed inset-y-0 right-0 w-full max-w-sm bg-gradient-to-br from-blue-50 via-sky-100 to-indigo-50 shadow-2xl overflow-y-auto">
             {/* Header do menu mobile */}
-            <div className="flex items-center justify-between p-4 border-b border-[#2C394C] border-opacity-20">
-              <h2 className="text-lg font-semibold text-[#2C394C]">Menu</h2>
+            <div className="flex items-center justify-between p-4 border-b border-blue-200">
+              <h2 className="text-lg font-semibold text-gray-800 flex items-center gap-2">
+                <span className="text-2xl">💼</span>
+                Menu
+              </h2>
               <button 
                 onClick={toggleMobileMenu} 
-                className="p-2 text-[#2C394C] hover:bg-[#2C394C] hover:bg-opacity-10 rounded-lg transition-colors"
+                className="p-2 text-blue-600 hover:bg-blue-100 rounded-lg transition-colors"
                 aria-label="Fechar menu"
               >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  className="w-6 h-6"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                 </svg>
               </button>
             </div>
 
             {/* Lista de menu items */}
-            <nav className="flex flex-col">
+            <nav className="flex flex-col p-4 space-y-3">
+              {/* Menu Principal */}
               {menuItems.map((menuItem) => (
                 <button
                   key={menuItem.item}
                   onClick={() => handleNavigation(menuItem.path, menuItem.type)}
-                  className="flex items-center space-x-3 px-6 py-4 text-[#2C394C] hover:bg-[#9b4819] hover:bg-opacity-10 transition-colors text-left"
+                  className="flex items-center space-x-3 px-4 py-3 rounded-lg transition-colors text-left text-gray-800 hover:bg-blue-200/50 bg-white/70 shadow-sm"
                 >
-                  <FontAwesomeIcon icon={menuItem.icon} className="w-5 h-5" />
+                  <span className="text-xl">{menuItem.icon}</span>
                   <span className="font-medium">{menuItem.item}</span>
                 </button>
               ))}
+
+              {/* Divisor */}
+              <div className="border-t border-blue-200 my-2"></div>
+              
+              {/* Serviços - Grid 2 colunas */}
+              <div className="grid grid-cols-2 gap-2">
+                {servicePages.map((page) => (
+                  <button
+                    key={page.item}
+                    onClick={() => handleNavigation(page.path, 'page')}
+                    className="flex flex-col items-center justify-center p-3 rounded-lg transition-colors text-center bg-white/70 hover:bg-blue-200/50 shadow-sm"
+                  >
+                    <span className="text-2xl mb-1">{page.icon}</span>
+                    <span className="text-xs font-medium text-gray-700">{page.item}</span>
+                  </button>
+                ))}
+              </div>
               
               {/* Botão de contato no mobile */}
-              <div className="px-6 pt-4">
+              <div className="pt-2">
                 <a 
-                  href="tel:+14255886654" 
-                  className="flex items-center justify-center w-full px-4 py-3 bg-[#2C394C] hover:bg-[#7a3614] text-white rounded-lg transition-colors font-medium"
+                  href="tel:+5511958757740" 
+                  className="flex items-center justify-center w-full px-4 py-4 bg-gradient-to-r from-blue-500 to-blue-700 hover:from-blue-600 hover:to-blue-800 text-white rounded-lg transition-all font-semibold shadow-lg"
                 >
-                  <FontAwesomeIcon icon={faPhone} className="w-4 h-4 mr-2" />
+                  <span className="mr-2">📞</span>
                   Ligar Agora
                 </a>
               </div>
@@ -302,6 +212,6 @@ export default function Navbar() {
           </div>
         </div>
       )}
-    </header>
+    </>
   );
 }

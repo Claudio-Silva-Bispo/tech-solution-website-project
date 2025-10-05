@@ -1,17 +1,20 @@
 import React, { useState, useEffect } from 'react';
+import { useTheme } from '../contexts/ThemeContext';
 
 const Hero: React.FC = () => {
-  const [activePanel, setActivePanel] = useState<'powerbi' | 'pipeline' | 'website'>('powerbi');
+  const { isDarkMode } = useTheme();
+
+  const [activePanel, setActivePanel] = useState<'powerbi' | 'pipeline' | 'website' | 'google' | 'social'>('powerbi');
   const [currentPanelIndex, setCurrentPanelIndex] = useState(0);
 
-  const panels = ['powerbi', 'pipeline', 'website'] as const;
+  const panels = ['powerbi', 'pipeline', 'website', 'google', 'social'] as const;
 
   useEffect(() => {
     const interval = setInterval(() => {
       const nextIndex = (currentPanelIndex + 1) % panels.length;
       setCurrentPanelIndex(nextIndex);
       setActivePanel(panels[nextIndex]);
-    }, 4000);
+    }, 10000);
 
     return () => clearInterval(interval);
   }, [currentPanelIndex]);
@@ -31,7 +34,11 @@ const Hero: React.FC = () => {
   return (
     <div className="relative">
       {/* Hero Section */}
-      <section id="home" className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white flex items-center relative overflow-hidden">
+      <section id="home" className={`min-h-screen flex items-center relative overflow-hidden ${
+        isDarkMode 
+          ? 'bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white'
+          : 'bg-gradient-to-br from-blue-50 via-sky-100 to-indigo-50 text-gray-900'
+      }`}>
         {/* Background Effects */}
         <div className="absolute inset-0">
           <div className="absolute top-0 left-0 w-full h-full opacity-10">
@@ -40,74 +47,106 @@ const Hero: React.FC = () => {
           </div>
         </div>
 
-        <div className="container mx-auto px-5 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div className="container mx-auto px-4 sm:px-5 lg:px-8 xl:px-12 relative z-10 py-20 lg:py-0">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 xl:gap-16 items-center max-w-7xl mx-auto">
             {/* Hero Text */}
-            <div className="animate-fadeInUp pt-10 xl:pt-0">
-              <div className="inline-flex items-center gap-2 bg-blue-500/10 border border-blue-500/30 rounded-full text-sm text-blue-400 font-medium mb-6 min-w-full md:min-w-sm">
-                <span className='p-3'>⚡</span> <p className='p-3'>Tecnologia para Pequenos Negócios</p>
+            <div className="animate-fadeInUp">
+              <div className={`inline-flex items-center gap-2 rounded-full text-xs sm:text-sm font-medium mb-4 lg:mb-6 px-4 py-2 ${
+                isDarkMode 
+                  ? 'bg-blue-500/10 ring-1 ring-blue-500/30 text-blue-400'
+                  : 'bg-blue-500/20 ring-1 ring-blue-500/40 text-blue-700'
+              }`}>
+                <span>⚡</span> <span>Tecnologia para Pequenos Negócios</span>
               </div>
               
-              <h1 className="text-3xl md:text-5xl lg:text-4xl xl:text-5xl font-extrabold mb-6 leading-tight bg-gradient-to-r from-white to-blue-400 bg-clip-text text-transparent pt-5 xl:pt-0">
+              <h1 className={`text-2xl sm:text-3xl lg:text-3xl xl:text-4xl font-extrabold mb-4 lg:mb-6 leading-tight ${
+                isDarkMode
+                  ? 'bg-gradient-to-r from-white to-blue-400 bg-clip-text text-transparent'
+                  : 'bg-gradient-to-r from-gray-900 to-blue-600 bg-clip-text text-transparent'
+              }`}>
                 Soluções para Pequenas Empresas que podem ajudar seu Negócio
               </h1>
               
-              <p className="md:text-xl text-gray-400 mb-10 leading-relaxed">
+              <p className={`text-sm lg:text-base xl:text-lg mb-6 lg:mb-8 leading-relaxed ${
+                isDarkMode ? 'text-gray-400' : 'text-gray-700'
+              }`}>
                 Transformo dados em insights, crio dashboards inteligentes e desenvolvo sites profissionais para impulsionar o crescimento da sua empresa.
               </p>
               
-              <div className="mb-10">
-                <div className="flex flex-col gap-4">
+              <div className="mb-6 lg:mb-8">
+                <div className="flex flex-col gap-2 lg:gap-3">
                   {[
                     { icon: '🔧', text: 'Engenharia de Dados - Pipeline e Arquitetura' },
-                    { icon: '📊', text: 'Power BI - Dashboards e Relatórios Inteligentes' },
-                    { icon: '🌐', text: 'Desenvolvimento Web - Sites Profissionais' }
+                    { icon: '📊', text: 'Power BI - Relatórios Inteligentes' },
+                    { icon: '🌐', text: 'Desenvolvimento de Sites' },
+                    { icon: '📍', text: 'Google Meu Negócio - Presença no Maps' },
+                    { icon: '📱', text: 'Redes Sociais - Perfis Profissionais' }
                   ].map((service, index) => (
                     <div 
                       key={index}
-                      className="flex items-center gap-4 p-3 bg-blue-500/5 border border-blue-500/20 rounded-lg transition-all duration-300 hover:bg-blue-500/10 hover:translate-x-2"
+                      className={`flex items-center gap-3 px-3 py-2 rounded-lg transition-all duration-300 hover:translate-x-2 ${
+                        isDarkMode
+                          ? 'bg-blue-500/5 ring-1 ring-blue-500/20 hover:bg-blue-500/10'
+                          : 'bg-blue-500/10 ring-1 ring-blue-500/30 hover:bg-blue-500/20'
+                      }`}
                     >
-                      <div className="text-2xl w-10 text-center p-3">{service.icon}</div>
-                      <div className="text-gray-300 font-medium">{service.text}</div>
+                      <div className="text-lg sm:text-xl">{service.icon}</div>
+                      <div className={`font-medium text-xs sm:text-sm ${
+                        isDarkMode ? 'text-gray-300' : 'text-gray-800'
+                      }`}>{service.text}</div>
                     </div>
                   ))}
                 </div>
               </div>
               
-              <div className="flex flex-col sm:flex-row gap-4 items-center">
+              <div className="flex flex-col sm:flex-row gap-3 lg:gap-4 items-center">
                 <button 
                   onClick={() => scrollToSection('contact')}
-                  className="bg-gradient-to-r from-blue-500 to-blue-700 hover:from-blue-600 hover:to-blue-800 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-blue-500/25 flex items-center gap-2"
+                  className="w-full sm:w-auto bg-gradient-to-r from-blue-500 to-blue-700 hover:from-blue-600 hover:to-blue-800 text-white px-6 lg:px-8 py-3 lg:py-4 rounded-lg font-semibold text-sm lg:text-base transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-blue-500/25 flex items-center justify-center gap-2"
                 >
                   🚀 Faça um orçamento
                 </button>
                 <button 
                   onClick={() => scrollToSection('complete-service')}
-                  className="text-gray-300 font-semibold flex items-center gap-2 hover:text-blue-500 transition-colors duration-300"
+                  className={`font-semibold flex items-center gap-2 transition-colors duration-300 text-sm lg:text-base ${
+                    isDarkMode 
+                      ? 'text-gray-300 hover:text-blue-400'
+                      : 'text-gray-700 hover:text-blue-600'
+                  }`}
                 >
                   Saiba mais →
                 </button>
               </div>
             </div>
             
-            {/* Hero Visual - ALTURA FIXA */}
-            <div className="animate-fadeInRight w-full mb-20">
-              <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-4 lg:p-8 shadow-2xl relative overflow-hidden">
+            {/* Hero Visual */}
+            <div className="animate-fadeInRight w-full">
+              <div className={`backdrop-blur-sm rounded-2xl p-3 sm:p-4 lg:p-6 shadow-2xl relative overflow-hidden ${
+                isDarkMode
+                  ? 'bg-white/5 ring-1 ring-white/10'
+                  : 'bg-white/50 ring-1 ring-blue-200/50'
+              }`}>
                 
-                {/* Tabs */}
-                <div className="flex gap-2 lg:gap-3 justify-center flex-wrap pt-6 h-24 md:h-16 xl:h-16 mb-4">
+                {/* Tabs - COMPACTAS */}
+                <div className="flex gap-1.5 sm:gap-2 justify-center flex-wrap mb-3">
                   {[
                     { key: "powerbi", label: "📊 Power BI" },
                     { key: "pipeline", label: "🔧 ETL" },
                     { key: "website", label: "🌐 Sites" },
-                  ].map((tab) => (
+                    { key: "google", label: "📍 Maps" },
+                    { key: "social", label: "📱 Social" },
+                  ].map((tab, index) => (
                     <button
                       key={tab.key}
-                      onClick={() => setActivePanel(tab.key as typeof activePanel)}
-                      className={`px-4 py-2 lg:px-8 lg:py-2 rounded-full text-sm lg:text-md font-medium transition-all duration-300 border w-[15vh] md:w-[20vh] ${
+                      onClick={() => handlePanelChange(tab.key as typeof activePanel, index)}
+                      className={`px-2 sm:px-3 lg:px-4 py-1.5 sm:py-2 rounded-full text-[10px] sm:text-xs lg:text-sm font-medium transition-all duration-300 ring-1 ${
                         activePanel === tab.key
-                          ? "bg-blue-500/30 border-blue-500/50 text-white"
-                          : "bg-blue-500/10 border-blue-500/20 text-blue-400 hover:bg-blue-500/20"
+                          ? isDarkMode
+                            ? "bg-blue-500/30 ring-blue-500/50 text-white"
+                            : "bg-blue-500/40 ring-blue-500/60 text-blue-900"
+                          : isDarkMode
+                            ? "bg-blue-500/10 ring-blue-500/20 text-blue-400 hover:bg-blue-500/20"
+                            : "bg-blue-500/20 ring-blue-500/30 text-blue-700 hover:bg-blue-500/30"
                       }`}
                     >
                       {tab.label}
@@ -115,59 +154,62 @@ const Hero: React.FC = () => {
                   ))}
                 </div>
 
-                {/* CONTAINER COM ALTURA FIXA - Esta é a correção principal */}
-                <div className="relative w-full" style={{ height: '550px' }}>
-                  
+                <div className="relative w-full h-[450px] sm:h-[550px] md:h-[600px] lg:h-[550px]">
                   {/* Power BI Panel */}
-                  <div className={`absolute inset-0 transition-opacity duration-500 overflow-y-auto ${
+                  <div className={`absolute inset-0 transition-opacity duration-500 ${
                     activePanel === "powerbi" ? 'opacity-100' : 'opacity-0 pointer-events-none'
                   }`}>
-                    <div className="p-4 space-y-6">
-                      {/* Header */}
-                      <div className="flex flex-col sm:flex-row justify-between items-center gap-3 border-b border-blue-500/20 pb-3">
-                        <div className="text-gray-300 font-semibold text-base lg:text-lg">
+                    <div className="p-2 sm:p-3 space-y-3 sm:space-y-4 h-full flex flex-col">
+                      {/* Header - COMPACTO */}
+                      <div className={`flex justify-between items-center pb-2 border-b ${
+                        isDarkMode ? 'border-blue-500/20' : 'border-blue-300/30'
+                      }`}>
+                        <div className={`font-semibold text-xs sm:text-sm ${
+                          isDarkMode ? 'text-gray-300' : 'text-gray-800'
+                        }`}>
                           Dashboard Executivo
                         </div>
-                        <div className="flex items-center gap-2 text-green-400 text-sm">
-                          <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                        <div className="flex items-center gap-1.5 text-green-500 text-[10px] sm:text-xs">
+                          <div className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse"></div>
                           <span>Online</span>
                         </div>
                       </div>
 
-                      {/* Metrics */}
-                      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                        <div className="bg-blue-500/10 border border-blue-500/20 rounded-lg p-4 text-center">
-                          <div className="text-blue-400 text-xl lg:text-2xl font-bold mb-1">
-                            R$ 2.5M
+                      {/* Metrics - COMPACTAS */}
+                      <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                        {[
+                          { value: 'R$ 2.5M', label: 'Faturamento' },
+                          { value: '+35%', label: 'Crescimento' },
+                          { value: '120k', label: 'Clientes' },
+                          { value: '98%', label: 'Satisfação' }
+                        ].map((metric, idx) => (
+                          <div key={idx} className={`rounded-lg p-2 sm:p-3 text-center ${
+                            isDarkMode
+                              ? 'bg-blue-500/10 ring-1 ring-blue-500/20'
+                              : 'bg-blue-500/20 ring-1 ring-blue-500/30'
+                          }`}>
+                            <div className={`text-sm sm:text-lg lg:text-xl font-bold mb-0.5 ${
+                              isDarkMode ? 'text-blue-400' : 'text-blue-700'
+                            }`}>
+                              {metric.value}
+                            </div>
+                            <div className={`text-[9px] sm:text-xs ${
+                              isDarkMode ? 'text-gray-400' : 'text-gray-600'
+                            }`}>{metric.label}</div>
                           </div>
-                          <div className="text-gray-400 text-xs">Faturamento</div>
-                        </div>
-                        <div className="bg-blue-500/10 border border-blue-500/20 rounded-lg p-4 text-center">
-                          <div className="text-blue-400 text-xl lg:text-2xl font-bold mb-1">
-                            +35%
-                          </div>
-                          <div className="text-gray-400 text-xs">Crescimento</div>
-                        </div>
-                        <div className="bg-blue-500/10 border border-blue-500/20 rounded-lg p-4 text-center">
-                          <div className="text-blue-400 text-xl lg:text-2xl font-bold mb-1">
-                            120k
-                          </div>
-                          <div className="text-gray-400 text-xs">Clientes</div>
-                        </div>
-                        <div className="bg-blue-500/10 border border-blue-500/20 rounded-lg p-4 text-center">
-                          <div className="text-blue-400 text-xl lg:text-2xl font-bold mb-1">
-                            98%
-                          </div>
-                          <div className="text-gray-400 text-xs">Satisfação</div>
-                        </div>
+                        ))}
                       </div>
 
-                      {/* Chart */}
-                      <div className="bg-white/5 rounded-lg p-4">
-                        <div className="text-gray-300 text-sm font-medium mb-4">
+                      {/* Chart - COMPACTO */}
+                      <div className={`rounded-lg p-2 sm:p-3 flex-1 ${
+                        isDarkMode ? 'bg-white/5' : 'bg-white/50'
+                      }`}>
+                        <div className={`text-[10px] sm:text-xs font-medium mb-2 ${
+                          isDarkMode ? 'text-gray-300' : 'text-gray-800'
+                        }`}>
                           Vendas Mensais
                         </div>
-                        <div className="flex items-end justify-between gap-2 h-32 px-2">
+                        <div className="flex items-end justify-between gap-1 sm:gap-2 h-24 sm:h-32 lg:h-36 px-1">
                           {[
                             { value: 40, label: "Jan", amount: "R$ 120K" },
                             { value: 70, label: "Fev", amount: "R$ 210K" },
@@ -177,108 +219,265 @@ const Hero: React.FC = () => {
                             { value: 90, label: "Jun", amount: "R$ 270K" },
                           ].map((bar, index) => (
                             <div key={index} className="flex flex-col items-center flex-1 group relative h-full">
-                              {/* Tooltip */}
-                              <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-500 whitespace-nowrap z-10">
+                              <div className="absolute -top-6 sm:-top-8 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white text-[9px] sm:text-xs px-1.5 sm:px-2 py-0.5 sm:py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap z-10">
                                 {bar.amount}
                               </div>
                               
-                              {/* Espaço do gráfico */}
                               <div className="flex-1 flex items-end w-full">
-                                {/* Barra do gráfico */}
                                 <div
-                                  className="w-full bg-gradient-to-t from-orange-600 via-orange-500 to-orange-400 rounded-sm shadow-lg hover:from-orange-500 hover:to-orange-300 transition-all duration-500 transform hover:scale-105"
-                                  style={{ 
-                                    height: `${bar.value}%`,
-                                    minWidth: '12px'
-                                  }}
+                                  className="w-full bg-gradient-to-t from-orange-600 via-orange-500 to-orange-400 rounded-sm shadow-lg hover:from-orange-500 hover:to-orange-300 transition-all duration-300"
+                                  style={{ height: `${bar.value}%`, minWidth: '8px' }}
                                 />
                               </div>
                               
-                              {/* Label do mês */}
-                              <div className="text-gray-400 text-xs mt-2 font-medium">{bar.label}</div>
+                              <div className={`text-[9px] sm:text-xs mt-1 font-medium ${
+                                isDarkMode ? 'text-gray-400' : 'text-gray-600'
+                              }`}>{bar.label}</div>
                             </div>
                           ))}
                         </div>
                         
-                        {/* Legenda */}
-                        <div className="flex justify-between items-center mt-4 pt-4 border-white/10">
-                          <div className="flex items-center gap-2">
-                            <div className="w-3 h-3 bg-gradient-to-r from-orange-600 to-orange-400 rounded-sm"></div>
-                            <span className="text-gray-400 text-xs">Vendas</span>
+                      </div>
+                      <div className={`rounded-lg p-2 ${
+                        isDarkMode
+                          ? 'bg-blue-500/10 ring-1 ring-blue-500/20'
+                          : 'bg-blue-500/20 ring-1 ring-blue-500/30'
+                      }`}>
+                        <div className={`font-semibold text-[10px] sm:text-xs mb-1 ${
+                          isDarkMode ? 'text-blue-400' : 'text-blue-700'
+                        }`}>✨ Te ajudo a criar</div>
+                        <ul className={`text-[9px] sm:text-xs space-y-0.5 ${
+                          isDarkMode ? 'text-gray-300' : 'text-gray-700'
+                        }`}>
+                          <li>• Crio Relatórios personalizados</li>
+                          <li>• Preencho as informações importantes</li>
+                          <li>• Layouts Profissionais</li>
+                          <li>• Crio Documentação e Conceitos</li>
+                          <li>• Aplico Treinamento para a equipe conduzir o projeto depois de pronto </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Pipeline Panel */}
+                  <div className={`absolute inset-0 transition-opacity duration-500 ${
+                    activePanel === "pipeline" ? 'opacity-100' : 'opacity-0 pointer-events-none'
+                  }`}>
+
+                  <div className="p-2 sm:p-3 space-y-3 sm:space-y-4 h-full flex flex-col">
+                    <div className="flex flex-col justify-center items-center h-full sm:space-y-4 px-2">
+                      {[
+                        { icon: "📥", title: "Extração", desc: "Excel, APIs ou Bancos de Dados" },
+                        { icon: "⚙️", title: "Transformação", desc: "Limpeza e Padronização" },
+                        { icon: "📤", title: "Carregamento", desc: "Bancos estruturados e prontos" },
+                      ].map((step, index) => (
+                        <div key={index} className="w-full max-w-md">
+                          <div className={`rounded-lg p-2 sm:p-3 text-center ${
+                            isDarkMode
+                              ? 'bg-blue-500/10 ring-1 ring-blue-500/20'
+                              : 'bg-blue-500/20 ring-1 ring-blue-500/30'
+                          }`}>
+                            <div className="flex items-center justify-center gap-2 mb-1">
+                              <span className="text-lg sm:text-xl">{step.icon}</span>
+                              <span className={`font-semibold text-xs sm:text-sm ${
+                                isDarkMode ? 'text-gray-300' : 'text-gray-800'
+                              }`}>{step.title}</span>
+                            </div>
+                            <div className={`text-[10px] sm:text-xs ${
+                              isDarkMode ? 'text-gray-400' : 'text-gray-600'
+                            }`}>{step.desc}</div>
                           </div>
-                          <div className="text-gray-400 text-xs">
-                            Período: Jan - Jun 2024
+                          {index < 2 && (
+                            <div className={`text-xl sm:text-2xl my-1.5 sm:my-2 text-center animate-bounce ${
+                              isDarkMode ? 'text-blue-400' : 'text-blue-600'
+                            }`}>↓</div>
+                          )}
+                        </div>
+                        
+                      ))}
+                      
+                    </div>
+
+                    <div className={`rounded-lg p-2 ${
+                        isDarkMode
+                          ? 'bg-blue-500/10 ring-1 ring-blue-500/20'
+                          : 'bg-blue-500/20 ring-1 ring-blue-500/30'
+                      }`}>
+                        <div className={`font-semibold text-[10px] sm:text-xs mb-1 ${
+                          isDarkMode ? 'text-blue-400' : 'text-blue-700'
+                        }`}>✨ Te ajudo a criar</div>
+                        <ul className={`text-[9px] sm:text-xs space-y-0.5 ${
+                          isDarkMode ? 'text-gray-300' : 'text-gray-700'
+                        }`}>
+                          <li>• Estruturas Simples em Bancos Locais ou na Nuvem</li>
+                          <li>• Desenho o Projeto com a equipe</li>
+                          <li>• Acessos via API ou acesso local</li>
+                          <li>• Crio Documentação e Conceitos</li>
+                          <li>• Aplico Treinamento para a equipe conduzir o projeto depois de pronto </li>
+                        </ul>
+                      </div>
+                    </div>
+                    
+                  </div>
+                  
+
+                  {/* Website Panel */}
+                  <div className={`absolute inset-0 transition-opacity duration-500 ${
+                    activePanel === "website" ? 'opacity-100' : 'opacity-0 pointer-events-none'
+                  }`}>
+                    <div className="p-2 sm:p-3 h-full">
+                      <div className={`rounded-lg p-2 sm:p-3 font-mono h-full flex flex-col ${
+                        isDarkMode ? 'bg-slate-900' : 'bg-gray-800'
+                      }`}>
+                        <div className={`flex gap-1.5 mb-2 sm:mb-3 pb-2 border-b ${
+                          isDarkMode ? 'border-blue-500/20' : 'border-gray-600'
+                        }`}>
+                          <div className="w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-red-500"></div>
+                          <div className="w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-yellow-500"></div>
+                          <div className="w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-green-500"></div>
+                        </div>
+
+                        <div className="text-[10px] sm:text-xs leading-relaxed space-y-0.5 sm:space-y-1 text-gray-300 flex-1">
+                          <div>&lt;header&gt;</div>
+                          <div className="pl-2 sm:pl-4">&lt;nav&gt; <span className='text-orange-400'>Crie o site da sua Empresa</span> &lt;/nav&gt;</div>
+                          <div>&lt;/header&gt;</div>
+                          <div>&lt;main&gt;</div>
+                          <div className="pl-2 sm:pl-4">&lt;h1&gt;<span className='text-orange-400'>Bem-vindos ao novo</span>&lt;/h1&gt;</div>
+                          <div className="pl-2 sm:pl-4"><span className='text-orange-400'>Alavanque seus negócios</span></div>
+                          <div>&lt;/main&gt;</div>
+                        </div>
+
+                        <div className="flex justify-end mt-3 sm:mt-4">
+                          <div className="w-20 sm:w-24 h-14 sm:h-16 bg-white rounded shadow-lg overflow-hidden">
+                            <div className="bg-gray-100 h-3 sm:h-4 flex items-center px-1 sm:px-2 gap-0.5 sm:gap-1">
+                              <div className="w-1 h-1 rounded-full bg-gray-400"></div>
+                              <div className="w-1 h-1 rounded-full bg-gray-400"></div>
+                              <div className="w-1 h-1 rounded-full bg-gray-400"></div>
+                            </div>
+                            <div className="p-1 sm:p-2 text-gray-800 text-[8px] sm:text-[10px] text-center">
+                              <strong>Sua Empresa</strong>
+                              <br />
+                              Serviços Pro
+                            </div>
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
 
-                  {/* Pipeline Panel */}
-                  <div className={`absolute inset-0 transition-opacity duration-500 overflow-y-auto ${
-                    activePanel === "pipeline" ? 'opacity-100' : 'opacity-0 pointer-events-none'
+                  {/* Google Meu Negócio Panel */}
+                  <div className={`absolute inset-0 transition-opacity duration-500 ${
+                    activePanel === "google" ? 'opacity-100' : 'opacity-0 pointer-events-none'
                   }`}>
-                    <div className="flex flex-col justify-center items-center h-full space-y-6">
-                      {[
-                        { icon: "📥", title: "Extração das Informações", desc: "Informações salvas em Excel, APIs ou Bancos de Dados" },
-                        { icon: "⚙️", title: "Transformação dos Dados", desc: "Limpeza e Padronização dos dados" },
-                        { icon: "📤", title: "Carregar os dados", desc: "Criação de bancos estruturados e de fácil uso pelo usuário" },
-                      ].map((step, index) => (
-                        <div key={index} className="w-full max-w-md p-2 md:p-0">
-                          <div className="bg-blue-500/10 ring-1 border-blue-500/20 rounded-lg lg:p-3 text-center">
-                            <div className="flex items-center justify-center   p-3">
-                              <span className="text-2xl">{step.icon}</span>
-                              <span className="text-gray-300 font-semibold">{step.title}</span>
-                            </div>
-                            <div className="text-gray-400 text-sm">{step.desc}</div>
-                          </div>
-                          {index < 2 && (
-                            <div className="text-blue-500 text-2xl my-3 text-center animate-bounce">↓</div>
-                          )}
+                    <div className="p-2 sm:p-3 space-y-2 sm:space-y-3 h-full overflow-y-auto">
+                      <div className="bg-white rounded-lg overflow-hidden shadow-lg">
+                        <div className="bg-white p-2 flex items-center gap-1.5 sm:gap-2">
+                          <span className="text-base sm:text-lg">📍</span>
+                          <span className="text-gray-800 font-semibold text-xs sm:text-sm">Sua Empresa no Google</span>
                         </div>
-                      ))}
+
+                        <div className="p-2 sm:p-3 bg-gray-50">
+                          <h3 className="text-gray-900 font-bold text-sm sm:text-base mb-1">Sua Empresa</h3>
+                          <div className="flex items-center gap-1 mb-2">
+                            <div className="flex text-yellow-400 text-xs sm:text-sm">★★★★★</div>
+                            <span className="text-gray-600 text-[10px] sm:text-xs">4.9 (127)</span>
+                          </div>
+
+                          <div className="space-y-1 sm:space-y-1.5 text-[10px] sm:text-xs">
+                            <div className="flex gap-1.5"><span>📍</span><span className="text-gray-700">Rua Exemplo, 123</span></div>
+                            <div className="flex gap-1.5"><span>🕐</span><span className="text-green-600 font-medium">Aberto</span></div>
+                            <div className="flex gap-1.5"><span>📞</span><span className="text-blue-600">(11) 9999-9999</span></div>
+                          </div>
+
+                          <div className="grid grid-cols-3 gap-1 sm:gap-1.5 mt-2 sm:mt-3">
+                            <div className="bg-blue-100 h-10 sm:h-12 rounded flex items-center justify-center text-base sm:text-lg">🏢</div>
+                            <div className="bg-green-100 h-10 sm:h-12 rounded flex items-center justify-center text-base sm:text-lg">✅</div>
+                            <div className="bg-orange-100 h-10 sm:h-12 rounded flex items-center justify-center text-base sm:text-lg">👥</div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className={`rounded-lg p-2 h-[20vh] ${
+                        isDarkMode
+                          ? 'bg-blue-500/10 ring-1 ring-blue-500/20'
+                          : 'bg-blue-500/20 ring-1 ring-blue-500/30'
+                      }`}>
+                        <div className={`font-semibold text-[10px] sm:text-xs mb-1 ${
+                          isDarkMode ? 'text-blue-400' : 'text-blue-700'
+                        }`}>✨ Te ajudo a cadastrar</div>
+                        <ul className={`text-[9px] sm:text-xs space-y-0.5 ${
+                          isDarkMode ? 'text-gray-300' : 'text-gray-700'
+                        }`}>
+                          <li>• Sua conta no Google de forma simples e rápida</li>
+                          <li>• Preenchimento de todas informações da empresa</li>
+                          <li>• Upload de fotos profissionais do negócio</li>
+                          <li>• Verificação da conta para aparecer no Maps</li>
+                          <li>• Configuração de horários e localização</li>
+                          <li>• Configuração de categorias e serviços</li>
+                          <li>• Deixo sua empresa visível no Google Maps</li>
+                          <li>• Perfil completo e avaliações dos clientes</li>
+                        </ul>
+                      </div>
                     </div>
                   </div>
 
-                  {/* Website Panel */}
-                  <div className={`absolute inset-0 transition-opacity duration-500 overflow-y-auto ${
-                    activePanel === "website" ? 'opacity-100' : 'opacity-0 pointer-events-none'
+                  {/* Redes Sociais Panel */}
+                  <div className={`absolute inset-0 transition-opacity duration-500 ${
+                    activePanel === "social" ? 'opacity-100' : 'opacity-0 pointer-events-none'
                   }`}>
-                    <div className="p-4 h-full">
-                      <div className="bg-slate-900 rounded-lg p-4 font-mono h-full flex flex-col">
-                        {/* Terminal Header */}
-                        <div className="flex gap-2 mb-4 pb-2 border-b border-blue-500/20">
-                          <div className="w-3 h-3 rounded-full bg-red-500"></div>
-                          <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-                          <div className="w-3 h-3 rounded-full bg-green-500"></div>
-                        </div>
-
-                        {/* Code */}
-                        <div className="text-sm leading-relaxed space-y-1 text-gray-300 flex-1">
-                          <div>&lt;header&gt;</div>
-                          <div className="pl-4">&lt;nav class="navbar"&gt; <span className='text-orange-400'>Crie o site da sua Empresa</span> &lt;/nav&gt;</div>
-                          <div>&lt;/header&gt;</div>
-                          <div>&lt;main class="hero"&gt;</div>
-                          <div className="pl-4">&lt;h1&gt;<span className='text-orange-400'>Bem-vindos</span>&lt;/h1&gt;</div>
-                          <div className="pl-4">&lt;h1&gt;<span className='text-orange-400'>ao novo e faça tudo diferente utilizando a internet para alavancar seus negócios</span>&lt;/h1&gt;</div>
-                          <div>&lt;/main&gt;</div>
-                        </div>
-
-                        {/* Preview */}
-                        <div className="flex justify-end mt-6">
-                          <div className="w-28 h-20 bg-white rounded shadow-lg overflow-hidden">
-                            <div className="bg-gray-100 h-5 flex items-center px-2 gap-1">
-                              <div className="w-1 h-1 rounded-full bg-gray-400"></div>
-                              <div className="w-1 h-1 rounded-full bg-gray-400"></div>
-                              <div className="w-1 h-1 rounded-full bg-gray-400"></div>
-                            </div>
-                            <div className="p-2 text-gray-800 text-xs text-center">
-                              <strong>Sua Empresa</strong>
-                              <br />
-                              Serviços Profissionais
-                            </div>
+                    <div className="p-2 sm:p-3 space-y-2 sm:space-y-3 h-full overflow-y-auto">
+                      <div className="bg-gradient-to-br from-purple-500 via-pink-500 to-orange-400 rounded-lg p-2 sm:p-3 text-white">
+                        <div className="flex items-center gap-2 mb-2">
+                          <div className="w-10 h-10 sm:w-12 sm:h-12 bg-white rounded-full flex items-center justify-center text-base sm:text-lg">
+                            🏢
+                          </div>
+                          <div>
+                            <div className="font-bold text-xs sm:text-sm">@suaempresa</div>
+                            <div className="text-[10px] sm:text-xs opacity-90">Oficial</div>
                           </div>
                         </div>
+                        
+                        <div className="flex gap-3 sm:gap-4 mb-2 text-[10px] sm:text-xs">
+                          <div><strong>342</strong> posts</div>
+                          <div><strong>2.8k</strong> seguidores</div>
+                        </div>
+
+                        <div className="grid grid-cols-3 gap-1">
+                          <div className="aspect-square bg-white/20 rounded"></div>
+                          <div className="aspect-square bg-white/20 rounded"></div>
+                          <div className="aspect-square bg-white/20 rounded"></div>
+                        </div>
+                      </div>
+
+                      <div className="bg-blue-600 rounded-lg p-2 sm:p-3 text-white">
+                        <div className="flex items-center gap-2 mb-2">
+                          <div className="w-8 h-8 sm:w-10 sm:h-10 bg-white rounded-lg flex items-center justify-center text-base sm:text-lg">🏢</div>
+                          <div>
+                            <div className="font-bold text-xs sm:text-sm">Sua Empresa</div>
+                            <div className="text-[10px] sm:text-xs opacity-90">Serviços</div>
+                          </div>
+                        </div>
+                        <div className="text-[10px] sm:text-xs">⭐ 4.9 • 👥 1.2k curtidas</div>
+                      </div>
+
+                      <div className={`rounded-lg p-2 ${
+                        isDarkMode
+                          ? 'bg-blue-500/10 ring-1 ring-blue-500/20'
+                          : 'bg-blue-500/20 ring-1 ring-blue-500/30'
+                      }`}>
+                        <div className={`font-semibold text-[10px] sm:text-xs mb-1 ${
+                          isDarkMode ? 'text-blue-400' : 'text-blue-700'
+                        }`}>📱 Criação de Perfis</div>
+                        <ul className={`text-[9px] sm:text-xs space-y-0.5 ${
+                          isDarkMode ? 'text-gray-300' : 'text-gray-700'
+                        }`}>
+                          <li>• Instagram e Facebook</li>
+                          <li>• Bio e fotos otimizadas</li>
+                          <li>• Estratégia inicial</li>
+                          <li>• Identidade visual da marca</li>
+                          <li>• Primeiros posts estratégicos</li>
+                          <li>• Planejamento dos conteúdos</li>
+                        </ul>
                       </div>
                     </div>
                   </div>
