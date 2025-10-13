@@ -74,9 +74,6 @@ export default function Navbar() {
                 onClick={() => handleNavigation('#home', 'section')} 
                 className="flex items-center gap-3 hover:opacity-80 transition-opacity"
               >
-                <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center text-2xl">
-                  💼
-                </div>
                 <span className="text-xl font-bold text-blue-400">BC Tech Solutions</span>
               </button>
             </div>
@@ -126,10 +123,7 @@ export default function Navbar() {
               onClick={() => handleNavigation('#home', 'section')} 
               className="flex items-center gap-2"
             >
-              <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center text-xl">
-                💼
-              </div>
-              <span className="text-lg font-bold text-blue-400">BC Tech</span>
+              <span className="text-lg font-bold text-blue-400">BC Tech Solutions & Advisory</span>
             </button>
             
             {/* Botão Hamburger */}

@@ -47,7 +47,7 @@ const Hero: React.FC = () => {
           </div>
         </div>
 
-        <div className="container mx-auto px-4 sm:px-5 lg:px-8 xl:px-12 relative z-10 py-20 lg:py-0">
+        <div className="container mx-auto px-4 sm:px-5 lg:px-8 xl:px-12 relative z-10 py-10 lg:py-0">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 xl:gap-16 items-center max-w-7xl mx-auto">
             {/* Hero Text */}
             <div className="animate-fadeInUp">
@@ -249,7 +249,7 @@ const Hero: React.FC = () => {
                         <ul className={`text-[9px] sm:text-xs space-y-0.5 ${
                           isDarkMode ? 'text-gray-300' : 'text-gray-700'
                         }`}>
-                          <li>• Crio Relatórios personalizados</li>
+                          <li>• Relatórios personalizados</li>
                           <li>• Preencho as informações importantes</li>
                           <li>• Layouts Profissionais</li>
                           <li>• Crio Documentação e Conceitos</li>

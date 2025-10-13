@@ -1,7 +1,8 @@
-
 import React, { useState } from 'react';
+import { useTheme } from '../contexts/ThemeContext';
 
 const Footer = () => {
+  const { isDarkMode } = useTheme();
   const [email, setEmail] = useState('');
 
   const handleNewsletterSubmit = () => {
@@ -12,9 +13,17 @@ const Footer = () => {
   };
 
   return (
-    <footer className="relative overflow-hidden bg-gradient-to-br from-gray-800 via-gray-900 to-gray-900 text-white">
+    <footer className={`relative overflow-hidden ${
+      isDarkMode 
+        ? 'bg-gradient-to-br from-gray-800 via-gray-900 to-gray-900 text-white' 
+        : 'bg-gradient-to-br from-gray-100 via-gray-200 to-gray-100 text-gray-900'
+    }`}>
       {/* Background overlay */}
-      <div className="absolute inset-0 bg-gradient-radial from-blue-500/5 via-transparent to-transparent"></div>
+      <div className={`absolute inset-0 ${
+        isDarkMode 
+          ? 'bg-gradient-radial from-blue-500/5 via-transparent to-transparent'
+          : 'bg-gradient-radial from-blue-500/10 via-transparent to-transparent'
+      }`}></div>
       
       <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
         
@@ -25,21 +34,24 @@ const Footer = () => {
           <div className="lg:col-span-2">
             {/* Logo */}
             <div className="flex items-center gap-4 mb-6">
-              <div className="w-24 h-24 lg:w-16 lg:h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center text-lg lg:text-xl font-bold text-white">
-                <img src="/logo/logo-principal/transparent-logo-icone.png" alt="" />
-              </div>
-              <div className="text-xl lg:text-2xl font-bold text-blue-400">
+              <div className={`text-xl lg:text-2xl font-bold ${
+                isDarkMode ? 'text-blue-400' : 'text-blue-600'
+              }`}>
                 BC Tech Solutions & Advisory
               </div>
             </div>
             
             {/* Tagline */}
-            <p className="text-gray-400 mb-6 text-base lg:text-lg font-medium">
+            <p className={`mb-6 text-base lg:text-lg font-medium ${
+              isDarkMode ? 'text-gray-400' : 'text-gray-600'
+            }`}>
               Transformando dados em decisões estratégicas e Criação de soluções digitais simples e eficazes.
             </p>
             
             {/* Description */}
-            <p className="text-gray-300 text-sm lg:text-base leading-relaxed mb-6 max-w-md">
+            <p className={`text-sm lg:text-base leading-relaxed mb-6 max-w-md ${
+              isDarkMode ? 'text-gray-300' : 'text-gray-700'
+            }`}>
               Experiência em Engenharia de Dados, Power BI e desenvolvimento web 
               para pequenas empresas que querem crescer com inteligência.
             </p>
@@ -48,28 +60,44 @@ const Footer = () => {
             <div className="flex gap-3 lg:gap-4">
               <a 
                 href="https://wa.me/5511999999999" 
-                className="w-10 h-10 lg:w-12 lg:h-12 bg-blue-500/10 border border-blue-500/20 rounded-lg flex items-center justify-center text-lg lg:text-xl hover:bg-blue-500/20 hover:border-blue-500/40 hover:-translate-y-1 transition-all duration-300"
+                className={`w-10 h-10 lg:w-12 lg:h-12 ${
+                  isDarkMode 
+                    ? 'bg-blue-500/10 border-blue-500/20 hover:bg-blue-500/20 hover:border-blue-500/40'
+                    : 'bg-blue-100 border-blue-300 hover:bg-blue-200 hover:border-blue-400'
+                } border rounded-lg flex items-center justify-center text-lg lg:text-xl hover:-translate-y-1 transition-all duration-300`}
                 aria-label="WhatsApp"
               >
                 📱
               </a>
               <a 
                 href="mailto:contato@techdatasolutions.com.br" 
-                className="w-10 h-10 lg:w-12 lg:h-12 bg-blue-500/10 border border-blue-500/20 rounded-lg flex items-center justify-center text-lg lg:text-xl hover:bg-blue-500/20 hover:border-blue-500/40 hover:-translate-y-1 transition-all duration-300"
+                className={`w-10 h-10 lg:w-12 lg:h-12 ${
+                  isDarkMode 
+                    ? 'bg-blue-500/10 border-blue-500/20 hover:bg-blue-500/20 hover:border-blue-500/40'
+                    : 'bg-blue-100 border-blue-300 hover:bg-blue-200 hover:border-blue-400'
+                } border rounded-lg flex items-center justify-center text-lg lg:text-xl hover:-translate-y-1 transition-all duration-300`}
                 aria-label="Email"
               >
                 📧
               </a>
               <a 
                 href="#" 
-                className="w-10 h-10 lg:w-12 lg:h-12 bg-blue-500/10 border border-blue-500/20 rounded-lg flex items-center justify-center text-lg lg:text-xl hover:bg-blue-500/20 hover:border-blue-500/40 hover:-translate-y-1 transition-all duration-300"
+                className={`w-10 h-10 lg:w-12 lg:h-12 ${
+                  isDarkMode 
+                    ? 'bg-blue-500/10 border-blue-500/20 hover:bg-blue-500/20 hover:border-blue-500/40'
+                    : 'bg-blue-100 border-blue-300 hover:bg-blue-200 hover:border-blue-400'
+                } border rounded-lg flex items-center justify-center text-lg lg:text-xl hover:-translate-y-1 transition-all duration-300`}
                 aria-label="LinkedIn"
               >
                 💼
               </a>
               <a 
                 href="#" 
-                className="w-10 h-10 lg:w-12 lg:h-12 bg-blue-500/10 border border-blue-500/20 rounded-lg flex items-center justify-center text-lg lg:text-xl hover:bg-blue-500/20 hover:border-blue-500/40 hover:-translate-y-1 transition-all duration-300"
+                className={`w-10 h-10 lg:w-12 lg:h-12 ${
+                  isDarkMode 
+                    ? 'bg-blue-500/10 border-blue-500/20 hover:bg-blue-500/20 hover:border-blue-500/40'
+                    : 'bg-blue-100 border-blue-300 hover:bg-blue-200 hover:border-blue-400'
+                } border rounded-lg flex items-center justify-center text-lg lg:text-xl hover:-translate-y-1 transition-all duration-300`}
                 aria-label="Instagram"
               >
                 📸
@@ -79,14 +107,20 @@ const Footer = () => {
 
           {/* Coluna 2 - Serviços */}
           <div>
-            <h3 className="text-lg lg:text-xl font-bold text-gray-200 mb-6">
+            <h3 className={`text-lg lg:text-xl font-bold mb-6 ${
+              isDarkMode ? 'text-gray-200' : 'text-gray-800'
+            }`}>
               Serviços
             </h3>
             <ul className="space-y-3 lg:space-y-4">
               <li>
                 <a 
                   href="#data-engineering" 
-                  className="text-gray-400 hover:text-blue-400 text-sm lg:text-base transition-colors duration-300 block"
+                  className={`text-sm lg:text-base transition-colors duration-300 block ${
+                    isDarkMode 
+                      ? 'text-gray-400 hover:text-blue-400' 
+                      : 'text-gray-600 hover:text-blue-600'
+                  }`}
                 >
                   Engenharia de Dados
                 </a>
@@ -94,7 +128,11 @@ const Footer = () => {
               <li>
                 <a 
                   href="#bi-architecture" 
-                  className="text-gray-400 hover:text-blue-400 text-sm lg:text-base transition-colors duration-300 block"
+                  className={`text-sm lg:text-base transition-colors duration-300 block ${
+                    isDarkMode 
+                      ? 'text-gray-400 hover:text-blue-400' 
+                      : 'text-gray-600 hover:text-blue-600'
+                  }`}
                 >
                   Power BI
                 </a>
@@ -102,7 +140,11 @@ const Footer = () => {
               <li>
                 <a 
                   href="#web-development" 
-                  className="text-gray-400 hover:text-blue-400 text-sm lg:text-base transition-colors duration-300 block"
+                  className={`text-sm lg:text-base transition-colors duration-300 block ${
+                    isDarkMode 
+                      ? 'text-gray-400 hover:text-blue-400' 
+                      : 'text-gray-600 hover:text-blue-600'
+                  }`}
                 >
                   Desenvolvimento Web
                 </a>
@@ -112,14 +154,20 @@ const Footer = () => {
 
           {/* Coluna 3 - Empresa */}
           <div>
-            <h3 className="text-lg lg:text-xl font-bold text-gray-200 mb-6">
+            <h3 className={`text-lg lg:text-xl font-bold mb-6 ${
+              isDarkMode ? 'text-gray-200' : 'text-gray-800'
+            }`}>
               Empresa
             </h3>
             <ul className="space-y-3 lg:space-y-4">
               <li>
                 <a 
                   href="#about" 
-                  className="text-gray-400 hover:text-blue-400 text-sm lg:text-base transition-colors duration-300 block"
+                  className={`text-sm lg:text-base transition-colors duration-300 block ${
+                    isDarkMode 
+                      ? 'text-gray-400 hover:text-blue-400' 
+                      : 'text-gray-600 hover:text-blue-600'
+                  }`}
                 >
                   Sobre
                 </a>
@@ -129,7 +177,11 @@ const Footer = () => {
                   href="https://github.com/Claudio-Silva-Bispo" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="text-gray-400 hover:text-blue-400 text-sm lg:text-base transition-colors duration-300 block"
+                  className={`text-sm lg:text-base transition-colors duration-300 block ${
+                    isDarkMode 
+                      ? 'text-gray-400 hover:text-blue-400' 
+                      : 'text-gray-600 hover:text-blue-600'
+                  }`}
                 >
                   Portfolio
                 </a>
@@ -140,7 +192,11 @@ const Footer = () => {
                   href="https://www.linkedin.com/in/claudiosbispo/" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="text-gray-400 hover:text-blue-400 text-sm lg:text-base transition-colors duration-300 block"
+                  className={`text-sm lg:text-base transition-colors duration-300 block ${
+                    isDarkMode 
+                      ? 'text-gray-400 hover:text-blue-400' 
+                      : 'text-gray-600 hover:text-blue-600'
+                  }`}
                 >
                   Linkedin
                 </a>
@@ -151,7 +207,11 @@ const Footer = () => {
                   href="https://github.com/Claudio-Silva-Bispo" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="text-gray-400 hover:text-blue-400 text-sm lg:text-base transition-colors duration-300 block"
+                  className={`text-sm lg:text-base transition-colors duration-300 block ${
+                    isDarkMode 
+                      ? 'text-gray-400 hover:text-blue-400' 
+                      : 'text-gray-600 hover:text-blue-600'
+                  }`}
                 >
                   GitHub
                 </a>
@@ -162,7 +222,9 @@ const Footer = () => {
 
         {/* Coluna 4 - Contato (Full width on mobile) */}
         <div className="mb-12 lg:mb-16">
-          <h3 className="text-lg lg:text-xl font-bold text-gray-200 mb-6">
+          <h3 className={`text-lg lg:text-xl font-bold mb-6 ${
+            isDarkMode ? 'text-gray-200' : 'text-gray-800'
+          }`}>
             Contato
           </h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
@@ -170,10 +232,18 @@ const Footer = () => {
             <div className="flex items-start gap-4">
               <span className="text-xl lg:text-2xl mt-1">📧</span>
               <div>
-                <div className="text-xs lg:text-sm text-gray-400 mb-1">Email</div>
+                <div className={`text-xs lg:text-sm mb-1 ${
+                  isDarkMode ? 'text-gray-400' : 'text-gray-600'
+                }`}>
+                  Email
+                </div>
                 <a 
                   href="mailto:contato@techdatasolutions.com.br" 
-                  className="text-gray-200 text-sm lg:text-base hover:text-blue-400 transition-colors duration-300 break-all"
+                  className={`text-sm lg:text-base transition-colors duration-300 break-all ${
+                    isDarkMode 
+                      ? 'text-gray-200 hover:text-blue-400' 
+                      : 'text-gray-800 hover:text-blue-600'
+                  }`}
                 >
                   bctechsolutionsadvisory@gmail.com
                 </a>
@@ -184,10 +254,18 @@ const Footer = () => {
             <div className="flex items-start gap-4">
               <span className="text-xl lg:text-2xl mt-1">📱</span>
               <div>
-                <div className="text-xs lg:text-sm text-gray-400 mb-1">WhatsApp</div>
+                <div className={`text-xs lg:text-sm mb-1 ${
+                  isDarkMode ? 'text-gray-400' : 'text-gray-600'
+                }`}>
+                  WhatsApp
+                </div>
                 <a 
                   href="https://wa.me/5511999999999" 
-                  className="text-gray-200 text-sm lg:text-base hover:text-blue-400 transition-colors duration-300"
+                  className={`text-sm lg:text-base transition-colors duration-300 ${
+                    isDarkMode 
+                      ? 'text-gray-200 hover:text-blue-400' 
+                      : 'text-gray-800 hover:text-blue-600'
+                  }`}
                 >
                   (11) 99999-9999
                 </a>
@@ -198,8 +276,14 @@ const Footer = () => {
             <div className="flex items-start gap-4">
               <span className="text-xl lg:text-2xl mt-1">📍</span>
               <div>
-                <div className="text-xs lg:text-sm text-gray-400 mb-1">Localização</div>
-                <div className="text-gray-200 text-sm lg:text-base">
+                <div className={`text-xs lg:text-sm mb-1 ${
+                  isDarkMode ? 'text-gray-400' : 'text-gray-600'
+                }`}>
+                  Localização
+                </div>
+                <div className={`text-sm lg:text-base ${
+                  isDarkMode ? 'text-gray-200' : 'text-gray-800'
+                }`}>
                   São Paulo, SP
                 </div>
               </div>
@@ -208,27 +292,43 @@ const Footer = () => {
         </div>
 
         {/* Footer Bottom */}
-        <div className="pt-6 lg:pt-8 border-t border-white/10">
+        <div className={`pt-6 lg:pt-8 border-t ${
+          isDarkMode ? 'border-white/10' : 'border-gray-300'
+        }`}>
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 lg:gap-6">
-            <div className="text-gray-400 text-sm lg:text-base text-center sm:text-left">
+            <div className={`text-sm lg:text-base text-center sm:text-left ${
+              isDarkMode ? 'text-gray-400' : 'text-gray-600'
+            }`}>
               © 2025 Bc Tech Solutions & Advisory. Todos os direitos reservados.
             </div>
             <div className="flex flex-wrap justify-center sm:justify-end gap-4 lg:gap-8">
               <a 
                 href="#privacy" 
-                className="text-gray-400 hover:text-blue-400 text-sm lg:text-base transition-colors duration-300"
+                className={`text-sm lg:text-base transition-colors duration-300 ${
+                  isDarkMode 
+                    ? 'text-gray-400 hover:text-blue-400' 
+                    : 'text-gray-600 hover:text-blue-600'
+                }`}
               >
                 Política de Privacidade
               </a>
               <a 
                 href="#terms" 
-                className="text-gray-400 hover:text-blue-400 text-sm lg:text-base transition-colors duration-300"
+                className={`text-sm lg:text-base transition-colors duration-300 ${
+                  isDarkMode 
+                    ? 'text-gray-400 hover:text-blue-400' 
+                    : 'text-gray-600 hover:text-blue-600'
+                }`}
               >
                 Termos de Uso
               </a>
               <a 
                 href="#cookies" 
-                className="text-gray-400 hover:text-blue-400 text-sm lg:text-base transition-colors duration-300"
+                className={`text-sm lg:text-base transition-colors duration-300 ${
+                  isDarkMode 
+                    ? 'text-gray-400 hover:text-blue-400' 
+                    : 'text-gray-600 hover:text-blue-600'
+                }`}
               >
                 Cookies
               </a>

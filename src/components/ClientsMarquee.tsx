@@ -1,7 +1,10 @@
 import React from 'react';
 import { Building2, Shield, Heart, Globe, Landmark, Briefcase, TrendingUp } from 'lucide-react';
+import { useTheme } from '../contexts/ThemeContext';
 
 const ClientsMarquee = () => {
+  const { isDarkMode } = useTheme();
+
   const clients = [
     { name: "Itaú", icon: Landmark, color: "text-orange-500", bgGradient: "from-orange-500/20 to-orange-600/20" },
     { name: "Banco Safra", icon: Building2, color: "text-blue-500", bgGradient: "from-blue-500/20 to-blue-600/20" },
@@ -27,13 +30,21 @@ const ClientsMarquee = () => {
   };
 
   return (
-    <section className="py-20 bg-gray-900 overflow-hidden">
+    <section className={`py-20 ${
+      isDarkMode ? 'bg-gray-900' : 'bg-gray-100'
+    } overflow-hidden`}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 mb-12">
         <div className="text-center">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 bg-gradient-to-r from-white via-blue-400 to-purple-400 bg-clip-text text-transparent">
-            Empresas que marcaram minha trajetória
+          <h2 className={`text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 ${
+            isDarkMode
+              ? 'bg-gradient-to-r from-white via-blue-400 to-purple-400'
+              : 'bg-gradient-to-r from-gray-900 via-blue-600 to-purple-600'
+          } bg-clip-text text-transparent`}>
+            Empresas que marcaram nossa trajetória
           </h2>
-          <p className="text-lg sm:text-xl text-gray-400">
+          <p className={`text-lg sm:text-xl ${
+            isDarkMode ? 'text-gray-400' : 'text-gray-600'
+          }`}>
             Experiência comprovada com grandes empresas do Brasil e exterior
           </p>
         </div>
@@ -42,8 +53,16 @@ const ClientsMarquee = () => {
       {/* Marquee Container */}
       <div className="relative">
         {/* Gradient Overlays */}
-        <div className="absolute left-0 top-0 bottom-0 w-20 sm:w-32 bg-gradient-to-r from-gray-900 to-transparent z-10 pointer-events-none"></div>
-        <div className="absolute right-0 top-0 bottom-0 w-20 sm:w-32 bg-gradient-to-l from-gray-900 to-transparent z-10 pointer-events-none"></div>
+        <div className={`absolute left-0 top-0 bottom-0 w-20 sm:w-32 ${
+          isDarkMode 
+            ? 'bg-gradient-to-r from-gray-900 to-transparent' 
+            : 'bg-gradient-to-r from-gray-100 to-transparent'
+        } z-10 pointer-events-none`}></div>
+        <div className={`absolute right-0 top-0 bottom-0 w-20 sm:w-32 ${
+          isDarkMode 
+            ? 'bg-gradient-to-l from-gray-900 to-transparent' 
+            : 'bg-gradient-to-l from-gray-100 to-transparent'
+        } z-10 pointer-events-none`}></div>
 
         {/* Animated Marquee */}
         <div className="flex gap-6 sm:gap-8 lg:gap-12 animate-marquee">
@@ -54,15 +73,25 @@ const ClientsMarquee = () => {
                 key={index}
                 className="flex-shrink-0"
               >
-                <div className={`relative bg-gradient-to-br ${client.bgGradient} backdrop-blur-sm ring-1 border-white/10 rounded-2xl px-6 py-5 sm:px-8 sm:py-6 hover:scale-105 hover:shadow-xl hover:shadow-white/5 transition-all duration-300 group cursor-pointer min-w-[200px] sm:min-w-[240px]`}>
+                <div className={`relative bg-gradient-to-br ${client.bgGradient} backdrop-blur-sm ring-1 ${
+                  isDarkMode ? 'border-white/10' : 'border-gray-300'
+                } rounded-2xl px-6 py-5 sm:px-8 sm:py-6 hover:scale-105 ${
+                  isDarkMode 
+                    ? 'hover:shadow-xl hover:shadow-white/5' 
+                    : 'hover:shadow-xl hover:shadow-gray-400/50'
+                } transition-all duration-300 group cursor-pointer min-w-[200px] sm:min-w-[240px]`}>
                   {/* Glow effect */}
                   <div className={`absolute inset-0 bg-gradient-to-r ${client.bgGradient} rounded-2xl opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-300`}></div>
                   
                   <div className="relative flex items-center gap-3 sm:gap-4">
-                    <div className={`p-2 sm:p-3 bg-white/10 rounded-xl group-hover:rotate-12 transition-transform duration-300`}>
+                    <div className={`p-2 sm:p-3 ${
+                      isDarkMode ? 'bg-white/10' : 'bg-white/50'
+                    } rounded-xl group-hover:rotate-12 transition-transform duration-300`}>
                       <Icon className={`w-6 h-6 sm:w-8 sm:h-8 ${client.color}`} />
                     </div>
-                    <span className="text-lg sm:text-xl font-semibold text-gray-200 whitespace-nowrap">
+                    <span className={`text-lg sm:text-xl font-semibold whitespace-nowrap ${
+                      isDarkMode ? 'text-gray-200' : 'text-gray-800'
+                    }`}>
                       {client.name}
                     </span>
                   </div>
@@ -81,9 +110,13 @@ const ClientsMarquee = () => {
             </button>
             <button 
               onClick={navigateToAboutPage}
-              className="text-gray-300 font-semibold flex items-center gap-2 hover:text-blue-500 transition-colors duration-300"
+              className={`font-semibold flex items-center gap-2 transition-colors duration-300 ${
+                isDarkMode 
+                  ? 'text-gray-300 hover:text-blue-400' 
+                  : 'text-gray-700 hover:text-blue-600'
+              }`}
             >
-              Saiba sobre minha trajetória →
+              Saiba sobre nossa trajetória →
             </button>
         </div>
         
