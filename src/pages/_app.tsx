@@ -60,7 +60,7 @@ function AppContent({ Component, pageProps }: AppProps) {
 
         {/* Botão WhatsApp */}
         <a
-          href="https://wa.me/+14254765411"
+          href="https://wa.me/+11958757740"
           target="_blank"
           rel="noopener noreferrer"
           className="p-3 rounded-full bg-green-500 text-white shadow-lg hover:bg-green-400 transition"
