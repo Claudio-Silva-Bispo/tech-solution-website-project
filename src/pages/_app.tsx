@@ -9,6 +9,7 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { ThemeProvider, useTheme } from '../contexts/ThemeContext';
 import { LanguageProvider, useLanguage } from '../contexts/LanguageContext';
+import Head from 'next/head';
 
 function AppContent({ Component, pageProps }: AppProps) {
   const router = useRouter();
@@ -29,58 +30,145 @@ function AppContent({ Component, pageProps }: AppProps) {
   };
 
   return (
-    <div className="flex flex-col min-h-screen relative">
-      <Navbar />
-      <main className="flex-1">
-        <Component {...pageProps} />
-      </main>
-      <Footer />
+    <>
+      <Head>
+        <title>BC Tech Solution & Adivisory</title>
+        <link rel="icon" type="image/jpeg" href="logo/logo-principal/original_sem_fundo_64.png" />
+        <link rel="apple-touch-icon" href="logo/logo-principal/original_sem_fundo_64.png" />
 
-      <div className="fixed bottom-6 right-6 flex flex-col gap-3 z-50">
-        {/* Botão de Idioma */}
-        <button
-          onClick={toggleLanguage}
-          className="p-3 rounded-full bg-gradient-to-r from-blue-500 to-teal-600 text-white shadow-lg hover:from-green-600 hover:to-teal-700 transition-all duration-300 hover:scale-110 flex items-center justify-center"
-          aria-label={language === 'en' ? 'Mudar para Português' : 'Change to English'}
-        >
-          <div className="flex items-center gap-1">
-            <MdLanguage size={20} />
-            {/* <span className="text-xs font-bold">{language === 'en' ? 'PT' : 'EN'}</span> */}
-          </div>
-        </button>
+        {/* Estrutura do menu para o Google*/}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "name": "BC Tech Solution & Adivisory",
+              "url": "https://bctechsolutionsadvisory.com/",
+              "logo": "https://bctechsolutionsadvisory.com/logo/logo-principal/original_sem_fundo.png",
+              "description": "Soluções em Tecnologia - Desenvolvimento Web, Aplicativos, Sistemas e Consultoria",
+              "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "+55-11-95875-7740",
+                "contactType": "Customer Service"
+              },
+              "sameAs": [
+                "https://www.instagram.com/bctech.solutions/",
+                "https://www.linkedin.com/in/claudiosbispo/"
+              ]
+            })
+          }}
+        />
 
-        {/* Botão de Tema */}
-        <button
-          onClick={toggleTheme}
-          className="p-3 rounded-full bg-gradient-to-r from-yellow-400 to-orange-500 text-white shadow-lg hover:from-yellow-500 hover:to-orange-600 transition-all duration-300 hover:scale-110"
-          aria-label={isDarkMode ? 'Mudar para tema claro' : 'Mudar para tema escuro'}
-        >
-          {isDarkMode ? <FaSun size={20} /> : <FaMoon size={20} />}
-        </button>
+        {/* Breadcrumb para melhorar os Sitelinks */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "ItemList",
+              "itemListElement": [
+                {
+                  "@type": "SiteNavigationElement",
+                  "position": 1,
+                  "name": "Desenvolvimento Web",
+                  "description": "Sites, Landing Pages e E-commerce",
+                  "url": "https://bctechsolutionsadvisory.com/desenvolvimento-web"
+                },
+                {
+                  "@type": "SiteNavigationElement",
+                  "position": 2,
+                  "name": "Aplicativos Mobile",
+                  "description": "Apps para Android e iOS",
+                  "url": "https://bctechsolutionsadvisory.com/aplicativos-mobile"
+                },
+                {
+                  "@type": "SiteNavigationElement",
+                  "position": 3,
+                  "name": "Sistemas",
+                  "description": "Sistemas personalizados para seu negócio",
+                  "url": "https://bctechsolutionsadvisory.com/sistemas"
+                },
+                {
+                  "@type": "SiteNavigationElement",
+                  "position": 4,
+                  "name": "Power BI",
+                  "description": "Dashboards e análise de dados",
+                  "url": "https://bctechsolutionsadvisory.com/power-bi"
+                },
+                {
+                  "@type": "SiteNavigationElement",
+                  "position": 5,
+                  "name": "Consultoria",
+                  "description": "Consultoria em TI e Transformação Digital",
+                  "url": "https://bctechsolutionsadvisory.com/consultoria"
+                },
+                {
+                  "@type": "SiteNavigationElement",
+                  "position": 6,
+                  "name": "Redes Sociais",
+                  "description": "Gestão de Mídias Sociais",
+                  "url": "https://bctechsolutionsadvisory.com/redes-sociais"
+                }
+              ]
+            })
+          }}
+        />
+      </Head>
+    
+      <div className="flex flex-col min-h-screen relative">
+        <Navbar />
+        <main className="flex-1">
+          <Component {...pageProps} />
+        </main>
+        <Footer />
 
-        {/* Botão WhatsApp */}
-        <a
-          href="https://wa.me/+11958757740"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="p-3 rounded-full bg-green-500 text-white shadow-lg hover:bg-green-400 transition"
-          aria-label="Fale conosco no WhatsApp"
-        >
-          <FaWhatsapp size={20} />
-        </a>
-
-        {/* Botão Voltar ao Topo */}
-        {showScrollTop && (
+        <div className="fixed bottom-6 right-6 flex flex-col gap-3 z-50">
+          {/* Botão de Idioma */}
           <button
-            onClick={scrollToTop}
-            className="p-3 rounded-full bg-blue-600 text-white shadow-lg hover:bg-blue-500 transition"
-            aria-label="Voltar ao topo"
+            onClick={toggleLanguage}
+            className="p-3 rounded-full bg-gradient-to-r from-blue-500 to-teal-600 text-white shadow-lg hover:from-green-600 hover:to-teal-700 transition-all duration-300 hover:scale-110 flex items-center justify-center"
+            aria-label={language === 'en' ? 'Mudar para Português' : 'Change to English'}
           >
-            <FaArrowUp size={20} />
+            <div className="flex items-center gap-1">
+              <MdLanguage size={20} />
+              {/* <span className="text-xs font-bold">{language === 'en' ? 'PT' : 'EN'}</span> */}
+            </div>
           </button>
-        )}
+
+          {/* Botão de Tema */}
+          <button
+            onClick={toggleTheme}
+            className="p-3 rounded-full bg-gradient-to-r from-yellow-400 to-orange-500 text-white shadow-lg hover:from-yellow-500 hover:to-orange-600 transition-all duration-300 hover:scale-110"
+            aria-label={isDarkMode ? 'Mudar para tema claro' : 'Mudar para tema escuro'}
+          >
+            {isDarkMode ? <FaSun size={20} /> : <FaMoon size={20} />}
+          </button>
+
+          {/* Botão WhatsApp */}
+          <a
+            href="https://wa.me/+11958757740"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="p-3 rounded-full bg-green-500 text-white shadow-lg hover:bg-green-400 transition"
+            aria-label="Fale conosco no WhatsApp"
+          >
+            <FaWhatsapp size={20} />
+          </a>
+
+          {/* Botão Voltar ao Topo */}
+          {showScrollTop && (
+            <button
+              onClick={scrollToTop}
+              className="p-3 rounded-full bg-blue-600 text-white shadow-lg hover:bg-blue-500 transition"
+              aria-label="Voltar ao topo"
+            >
+              <FaArrowUp size={20} />
+            </button>
+          )}
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 
