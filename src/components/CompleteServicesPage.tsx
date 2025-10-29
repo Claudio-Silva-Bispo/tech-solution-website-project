@@ -1,5 +1,5 @@
 import React from 'react';
-import { Database, BarChart3, Globe, BookOpen, ArrowRight, CheckCircle, Zap, Shield, TrendingUp, MapPin, Share2 } from 'lucide-react';
+import { Database, BarChart3, Globe, BookOpen, ArrowRight, CheckCircle, Zap, Shield, TrendingUp, MapPin, Share2, Smartphone } from 'lucide-react';
 import { useTheme } from '../contexts/ThemeContext';
 
 const CompleteServicesPage = () => {
@@ -7,20 +7,36 @@ const CompleteServicesPage = () => {
 
   const mainServices = [
     {
-      icon: <Database className="w-12 h-12" />,
-      title: "Engenharia de Dados",
-      subtitle: "Fundação Sólida para Decisões Inteligentes",
-      description: "Construímos toda a infraestrutura necessária para coletar, processar e organizar seus dados de forma eficiente e escalável.",
+      icon: <Globe className="w-12 h-12" />,
+      title: "Desenvolvimento Web",
+      subtitle: "Presença Digital Profissional",
+      description: "Criamos sites modernos, rápidos e responsivos que elevam a presença online da sua empresa com tecnologia de ponta.",
       features: [
-        "Pipeline de dados automatizado",
-        "Integração com múltiplas fontes (Excel, APIs, Bancos de Dados)",
-        "ETL/ELT personalizado",
-        "Data Warehouse estruturado",
-        "Governança e qualidade de dados"
+        "Design moderno e responsivo",
+        "Performance otimizada (SEO)",
+        "Integração com sistemas",
+        "Segurança avançada",
+        "Hospedagem e manutenção"
       ],
-      color: "from-purple-500 to-pink-500",
-      borderColor: "border-purple-500/30",
-      link: "/DataEngineering"
+      color: "from-green-500 to-teal-500",
+      borderColor: "border-green-500/30",
+      link: "/WebDevelopment"
+    },
+    {
+      icon: <Smartphone className="w-12 h-12" />,
+      title: "Aplicativos e Sistemas",
+      subtitle: "Soluções Sob Medida Para Seu Negócio",
+      description: "Desenvolvemos aplicativos mobile e sistemas personalizados que automatizam processos e impulsionam o crescimento da sua empresa.",
+      features: [
+        "Apps nativos para Android e iOS",
+        "Sistemas web personalizados",
+        "Automação de processos",
+        "Integração com outras plataformas",
+        "Suporte e manutenção contínua"
+      ],
+      color: "from-cyan-500 to-blue-500",
+      borderColor: "border-cyan-500/30",
+      link: "/AppSystems"
     },
     {
       icon: <BarChart3 className="w-12 h-12" />,
@@ -39,36 +55,36 @@ const CompleteServicesPage = () => {
       link: "/PowerBIArchitecture"
     },
     {
-      icon: <Globe className="w-12 h-12" />,
-      title: "Desenvolvimento Web",
-      subtitle: "Presença Digital Profissional",
-      description: "Criamos sites modernos, rápidos e responsivos que elevam a presença online da sua empresa com tecnologia de ponta.",
+      icon: <Database className="w-12 h-12" />,
+      title: "Engenharia de Dados",
+      subtitle: "Fundação Sólida para Decisões Inteligentes",
+      description: "Construímos toda a infraestrutura necessária para coletar, processar e organizar seus dados de forma eficiente e escalável.",
       features: [
-        "Design moderno e responsivo",
-        "Performance otimizada (SEO)",
-        "Integração com sistemas",
-        "Segurança avançada",
-        "Hospedagem e manutenção"
+        "Pipeline de dados automatizado",
+        "Integração com múltiplas fontes (Excel, APIs, Bancos de Dados)",
+        "ETL/ELT personalizado",
+        "Data Warehouse estruturado",
+        "Governança e qualidade de dados"
       ],
-      color: "from-green-500 to-teal-500",
-      borderColor: "border-green-500/30",
-      link: "/WebDevelopment"
+      color: "from-purple-500 to-pink-500",
+      borderColor: "border-purple-500/30",
+      link: "/DataEngineering"
     },
     {
-      icon: <MapPin className="w-12 h-12" />,
-      title: "Google Meu Negócio",
-      subtitle: "Apareça no Google e no Maps",
-      description: "Configuramos e otimizamos seu perfil no Google para que clientes locais encontrem sua empresa facilmente nas buscas e no Google Maps.",
+      icon: <BookOpen className="w-12 h-12" />,
+      title: "Documentação & Treinamento",
+      subtitle: "Autonomia para Sua Equipe",
+      description: "Garantimos que sua equipe tenha todo conhecimento e documentação necessária para gerenciar e evoluir as soluções implementadas.",
       features: [
-        "Criação e configuração completa do perfil",
-        "Otimização para buscas locais (SEO Local)",
-        "Gerenciamento de avaliações",
-        "Postagens",
-        "Atualizações regulares"
+        "Documentação técnica completa",
+        "Treinamento prático da equipe",
+        "Manuais de uso e boas práticas",
+        "Suporte contínuo",
+        "Planos de manutenção"
       ],
-      color: "from-red-500 to-yellow-500",
-      borderColor: "border-red-500/30",
-      link: "/GoogleBusiness"
+      color: "from-orange-500 to-red-500",
+      borderColor: "border-orange-500/30",
+      link: "/DocumentationTrainingSection"
     },
     {
       icon: <Share2 className="w-12 h-12" />,
@@ -87,20 +103,20 @@ const CompleteServicesPage = () => {
       link: "/SocialMedia"
     },
     {
-      icon: <BookOpen className="w-12 h-12" />,
-      title: "Documentação & Treinamento",
-      subtitle: "Autonomia para Sua Equipe",
-      description: "Garantimos que sua equipe tenha todo conhecimento e documentação necessária para gerenciar e evoluir as soluções implementadas.",
+      icon: <MapPin className="w-12 h-12" />,
+      title: "Google Meu Negócio",
+      subtitle: "Apareça no Google e no Maps",
+      description: "Configuramos e otimizamos seu perfil no Google para que clientes locais encontrem sua empresa facilmente nas buscas e no Google Maps.",
       features: [
-        "Documentação técnica completa",
-        "Treinamento prático da equipe",
-        "Manuais de uso e boas práticas",
-        "Suporte contínuo",
-        "Planos de manutenção"
+        "Criação e configuração completa do perfil",
+        "Otimização para buscas locais (SEO Local)",
+        "Gerenciamento de avaliações",
+        "Postagens regulares",
+        "Atualizações e monitoramento"
       ],
-      color: "from-orange-500 to-red-500",
-      borderColor: "border-orange-500/30",
-      link: "/DocumentationTrainingSection"
+      color: "from-red-500 to-yellow-500",
+      borderColor: "border-red-500/30",
+      link: "/GoogleBusiness"
     }
   ];
 

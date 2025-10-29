@@ -138,7 +138,7 @@ export default function AppSystemsSection() {
                 </div>
                 <p className="text-gray-400 mb-4">Plataformas web sob medida para seu negócio</p>
                 <ul className="space-y-2 text-gray-300 text-sm">
-                  <li>🔹 Sistema de gestão (ERP/CRM)</li>
+                  <li>🔹 Sistema de gestão online ou local</li>
                   <li>🔹 Controle de estoque</li>
                   <li>🔹 Gestão de clientes e vendas</li>
                   <li>🔹 Automação de processos</li>
