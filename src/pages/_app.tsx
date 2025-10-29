@@ -32,18 +32,21 @@ function AppContent({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
-        <title>BC Tech Solution & Adivisory</title>
-        <link rel="icon" type="image/jpeg" href="logo/logo-principal/original_sem_fundo_64.png" />
+        {/* Favicon */}
+        <link rel="icon" type="image/png" href="logo/logo-principal/original_sem_fundo_64.png" />
         <link rel="apple-touch-icon" href="logo/logo-principal/original_sem_fundo_64.png" />
+        
+        {/* Viewport */}
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        {/* Estrutura do menu para o Google*/}
+        {/* Schema da Organização (Global) */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Organization",
-              "name": "BC Tech Solution & Adivisory",
+              "name": "BC Tech Solution & Advisory",
               "url": "https://bctechsolutionsadvisory.com/",
               "logo": "https://bctechsolutionsadvisory.com/logo/logo-principal/original_sem_fundo.png",
               "description": "Soluções em Tecnologia - Desenvolvimento Web, Aplicativos, Sistemas e Consultoria",
@@ -60,7 +63,7 @@ function AppContent({ Component, pageProps }: AppProps) {
           }}
         />
 
-        {/* Breadcrumb para melhorar os Sitelinks */}
+        {/* Sitelinks Navigation */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -73,42 +76,35 @@ function AppContent({ Component, pageProps }: AppProps) {
                   "position": 1,
                   "name": "Desenvolvimento Web",
                   "description": "Sites, Landing Pages e E-commerce",
-                  "url": "https://bctechsolutionsadvisory.com/desenvolvimento-web"
+                  "url": "https://bctechsolutionsadvisory.com/#web-development"
                 },
                 {
                   "@type": "SiteNavigationElement",
                   "position": 2,
-                  "name": "Aplicativos Mobile",
-                  "description": "Apps para Android e iOS",
-                  "url": "https://bctechsolutionsadvisory.com/aplicativos-mobile"
+                  "name": "Power BI",
+                  "description": "Dashboards e análise de dados",
+                  "url": "https://bctechsolutionsadvisory.com/#power-bi"
                 },
                 {
                   "@type": "SiteNavigationElement",
                   "position": 3,
-                  "name": "Sistemas",
-                  "description": "Sistemas personalizados para seu negócio",
-                  "url": "https://bctechsolutionsadvisory.com/sistemas"
+                  "name": "Engenharia de Dados",
+                  "description": "Pipeline e arquitetura de dados",
+                  "url": "https://bctechsolutionsadvisory.com/#engenharia-dados"
                 },
                 {
                   "@type": "SiteNavigationElement",
                   "position": 4,
-                  "name": "Power BI",
-                  "description": "Dashboards e análise de dados",
-                  "url": "https://bctechsolutionsadvisory.com/power-bi"
+                  "name": "Google Meu Negócio",
+                  "description": "Presença no Google Maps",
+                  "url": "https://bctechsolutionsadvisory.com/#google-negocio"
                 },
                 {
                   "@type": "SiteNavigationElement",
                   "position": 5,
-                  "name": "Consultoria",
-                  "description": "Consultoria em TI e Transformação Digital",
-                  "url": "https://bctechsolutionsadvisory.com/consultoria"
-                },
-                {
-                  "@type": "SiteNavigationElement",
-                  "position": 6,
                   "name": "Redes Sociais",
                   "description": "Gestão de Mídias Sociais",
-                  "url": "https://bctechsolutionsadvisory.com/redes-sociais"
+                  "url": "https://bctechsolutionsadvisory.com/#redes-sociais"
                 }
               ]
             })
