@@ -63,7 +63,7 @@ function AppContent({ Component, pageProps }: AppProps) {
           }}
         />
 
-        {/* Sitelinks Navigation */}
+        {/* Sitelinks Navigation - Ajudar na navegação */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

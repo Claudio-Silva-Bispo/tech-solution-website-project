@@ -30,7 +30,7 @@ const ClientsMarquee = () => {
   };
 
   return (
-    <section className={`py-20 ${
+    <section id='clients-marquee' className={`py-20 ${
       isDarkMode ? 'bg-gray-900' : 'bg-gray-100'
     } overflow-hidden`}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 mb-12">

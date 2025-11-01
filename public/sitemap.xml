@@ -1,38 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Página Principal -->
   <url>
     <loc>https://bctechsolutionsadvisory.com/</loc>
+    <lastmod>2025-01-01</lastmod>
     <priority>1.0</priority>
     <changefreq>weekly</changefreq>
   </url>
+  
+  <!-- Páginas de Serviços -->
   <url>
-    <loc>https://bctechsolutionsadvisory.com/desenvolvimento-web</loc>
+    <loc>https://bctechsolutionsadvisory.com/WebDevelopment</loc>
+    <lastmod>2025-01-01</lastmod>
     <priority>0.9</priority>
     <changefreq>monthly</changefreq>
   </url>
+  
   <url>
-    <loc>https://bctechsolutionsadvisory.com/aplicativos-mobile</loc>
+    <loc>https://bctechsolutionsadvisory.com/AppSystems</loc>
+    <lastmod>2025-01-01</lastmod>
     <priority>0.9</priority>
     <changefreq>monthly</changefreq>
   </url>
+  
   <url>
-    <loc>https://bctechsolutionsadvisory.com/sistemas</loc>
+    <loc>https://bctechsolutionsadvisory.com/PowerBIArchitecture</loc>
+    <lastmod>2025-01-01</lastmod>
     <priority>0.9</priority>
     <changefreq>monthly</changefreq>
   </url>
+  
   <url>
-    <loc>https://bctechsolutionsadvisory.com/power-bi</loc>
+    <loc>https://bctechsolutionsadvisory.com/DataEngineering</loc>
+    <lastmod>2025-01-01</lastmod>
     <priority>0.9</priority>
     <changefreq>monthly</changefreq>
   </url>
+  
   <url>
-    <loc>https://bctechsolutionsadvisory.com/consultoria</loc>
+    <loc>https://bctechsolutionsadvisory.com/SocialMedia</loc>
+    <lastmod>2025-01-01</lastmod>
     <priority>0.9</priority>
     <changefreq>monthly</changefreq>
   </url>
+  
   <url>
-    <loc>https://bctechsolutionsadvisory.com/redes-sociais</loc>
-    <priority>0.9</priority>
+    <loc>https://bctechsolutionsadvisory.com/GoogleBusiness</loc>
+    <lastmod>2025-01-01</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  
+  <url>
+    <loc>https://bctechsolutionsadvisory.com/DocumentationTrainingSection</loc>
+    <lastmod>2025-01-01</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  
+  <!-- Páginas Institucionais -->
+  <url>
+    <loc>https://bctechsolutionsadvisory.com/About</loc>
+    <lastmod>2025-01-01</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  
+  <url>
+    <loc>https://bctechsolutionsadvisory.com/FeedbackForm</loc>
+    <lastmod>2025-01-01</lastmod>
+    <priority>0.7</priority>
     <changefreq>monthly</changefreq>
   </url>
 </urlset>

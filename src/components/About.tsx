@@ -96,7 +96,7 @@ const About = () => {
               ? 'bg-gradient-to-r from-white to-blue-400'
               : 'bg-gradient-to-r from-gray-900 to-blue-600'
           } bg-clip-text text-transparent pt-10 text-start lg:text-center`}>
-            Transformando Dados e Soluções em valor há mais de 12 Anos
+            Transformando Dados e Soluções Tecnológica em valor há mais de 12 Anos
           </h2>
           
           <p className={`text-lg lg:text-xl ${
