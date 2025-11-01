@@ -38,7 +38,7 @@ function AppContent({ Component, pageProps }: AppProps) {
         
         {/* Viewport */}
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+    
         {/* Schema da Organização (Global) */}
         <script
           type="application/ld+json"
@@ -76,35 +76,56 @@ function AppContent({ Component, pageProps }: AppProps) {
                   "position": 1,
                   "name": "Desenvolvimento Web",
                   "description": "Sites, Landing Pages e E-commerce",
-                  "url": "https://bctechsolutionsadvisory.com/#web-development"
+                  "url": "https://bctechsolutionsadvisory.com/WebDevelopment"
                 },
                 {
                   "@type": "SiteNavigationElement",
                   "position": 2,
-                  "name": "Power BI",
-                  "description": "Dashboards e análise de dados",
-                  "url": "https://bctechsolutionsadvisory.com/#power-bi"
+                  "name": "Desenvolvimento de Sistemas e APlicativos",
+                  "description": "Crie seus aplicativos ou Sistemas para serviços ou para vender seus produtos",
+                  "url": "https://bctechsolutionsadvisory.com/AppSystems"
                 },
                 {
                   "@type": "SiteNavigationElement",
                   "position": 3,
-                  "name": "Engenharia de Dados",
-                  "description": "Pipeline e arquitetura de dados",
-                  "url": "https://bctechsolutionsadvisory.com/#engenharia-dados"
+                  "name": "Power BI",
+                  "description": "Dashboards e análise de dados",
+                  "url": "https://bctechsolutionsadvisory.com/PowerBIArchitecture"
                 },
                 {
                   "@type": "SiteNavigationElement",
                   "position": 4,
-                  "name": "Google Meu Negócio",
-                  "description": "Presença no Google Maps",
-                  "url": "https://bctechsolutionsadvisory.com/#google-negocio"
+                  "name": "Engenharia de Dados",
+                  "description": "Pipeline e arquitetura de dados",
+                  "url": "https://bctechsolutionsadvisory.com/DataEngineering"
                 },
                 {
                   "@type": "SiteNavigationElement",
                   "position": 5,
+                  "name": "Documentação e Treinamento",
+                  "description": "Documente seus projetos e processos, além de capacitar sua equipe para usar o Power BI e uma melhor gestão dos Dados",
+                  "url": "https://bctechsolutionsadvisory.com/DocumentationTrainingSection"
+                },
+                {
+                  "@type": "SiteNavigationElement",
+                  "position": 6,
+                  "name": "Google Meu Negócio",
+                  "description": "Presença no Google Maps",
+                  "url": "https://bctechsolutionsadvisory.com/GoogleBusiness"
+                },
+                {
+                  "@type": "SiteNavigationElement",
+                  "position": 7,
                   "name": "Redes Sociais",
                   "description": "Gestão de Mídias Sociais",
-                  "url": "https://bctechsolutionsadvisory.com/#redes-sociais"
+                  "url": "https://bctechsolutionsadvisory.com/SocialMedia"
+                },
+                {
+                  "@type": "SiteNavigationElement",
+                  "position": 8,
+                  "name": "Sobre nós",
+                  "description": "Conheça um pouco dos membros e veja suas experiências que podem contribuir para o seu negócio",
+                  "url": "https://bctechsolutionsadvisory.com/About"
                 }
               ]
             })
