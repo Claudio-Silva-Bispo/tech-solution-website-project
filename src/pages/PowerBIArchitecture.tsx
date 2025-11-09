@@ -162,11 +162,11 @@ const PowerBIArchitecture = () => {
         {/* Open Graph */}
         <meta property="og:title" content="Power BI - Dashboards Inteligentes | BC Tech Solution" />
         <meta property="og:description" content="Dashboards profissionais e relatórios personalizados em Power BI para análise estratégica de dados" />
-        <meta property="og:url" content="https://bctechsolutionsadvisory.com/power-bi" />
+        <meta property="og:url" content="https://bctechsolutionsadvisory.com/PowerBIArchitecture" />
         <meta property="og:type" content="website" />
         
         {/* Canonical */}
-        <link rel="canonical" href="https://bctechsolutionsadvisory.com/power-bi" />
+        <link rel="canonical" href="https://bctechsolutionsadvisory.com/PowerBIArchitecture" />
         
         <script
           type="application/ld+json"

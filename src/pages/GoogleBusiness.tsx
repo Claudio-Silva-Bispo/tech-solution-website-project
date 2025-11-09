@@ -19,11 +19,11 @@ export default function GoogleBusinessSection() {
         {/* Open Graph */}
         <meta property="og:title" content="Google Meu Negócio - Apareça no Maps | BC Tech Solution" />
         <meta property="og:description" content="Cadastro completo e otimização no Google Meu Negócio para sua empresa aparecer no Maps e atrair clientes locais" />
-        <meta property="og:url" content="https://bctechsolutionsadvisory.com/google-meu-negocio" />
+        <meta property="og:url" content="https://bctechsolutionsadvisory.com/GoogleBusiness" />
         <meta property="og:type" content="website" />
         
         {/* Canonical */}
-        <link rel="canonical" href="https://bctechsolutionsadvisory.com/google-meu-negocio" />
+        <link rel="canonical" href="https://bctechsolutionsadvisory.com/GoogleBusiness" />
         
         <script
           type="application/ld+json"

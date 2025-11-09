@@ -64,11 +64,11 @@ const DataEngineering = () => {
         {/* Open Graph */}
         <meta property="og:title" content="Engenharia de Dados - Pipeline ETL | BC Tech Solution" />
         <meta property="og:description" content="Pipeline de dados automatizado e arquitetura de dados profissional para análise estratégica" />
-        <meta property="og:url" content="https://bctechsolutionsadvisory.com/engenharia-dados" />
+        <meta property="og:url" content="https://bctechsolutionsadvisory.com/DataEngineering" />
         <meta property="og:type" content="website" />
         
         {/* Canonical */}
-        <link rel="canonical" href="https://bctechsolutionsadvisory.com/engenharia-dados" />
+        <link rel="canonical" href="https://bctechsolutionsadvisory.com/DataEngineering" />
         
         <script
           type="application/ld+json"

@@ -20,11 +20,11 @@ export default function WebDevelopmentSection() {
         {/* Open Graph */}
         <meta property="og:title" content="Desenvolvimento Web Profissional | BC Tech Solution" />
         <meta property="og:description" content="Sites, landing pages e lojas virtuais para pequenas empresas" />
-        <meta property="og:url" content="https://bctechsolutionsadvisory.com/desenvolvimento-web" />
+        <meta property="og:url" content="https://bctechsolutionsadvisory.com/WebDevelopment" />
         <meta property="og:type" content="website" />
         
         {/* Canonical */}
-        <link rel="canonical" href="https://bctechsolutionsadvisory.com/desenvolvimento-web" />
+        <link rel="canonical" href="https://bctechsolutionsadvisory.com/WebDevelopment" />
         
         <script
           type="application/ld+json"

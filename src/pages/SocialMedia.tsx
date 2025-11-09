@@ -19,11 +19,11 @@ export default function SocialMedia() {
         {/* Open Graph */}
         <meta property="og:title" content="Gestão de Redes Sociais | BC Tech Solution" />
         <meta property="og:description" content="Criação de perfis profissionais e gestão estratégica de Instagram e Facebook" />
-        <meta property="og:url" content="https://bctechsolutionsadvisory.com/redes-sociais" />
+        <meta property="og:url" content="https://bctechsolutionsadvisory.com/SocialMedia" />
         <meta property="og:type" content="website" />
         
         {/* Canonical */}
-        <link rel="canonical" href="https://bctechsolutionsadvisory.com/redes-sociais" />
+        <link rel="canonical" href="https://bctechsolutionsadvisory.com/SocialMedia" />
         
         <script
           type="application/ld+json"

@@ -57,11 +57,11 @@ const DocumentationTrainingSection = () => {
         {/* Open Graph */}
         <meta property="og:title" content="Documentação Técnica e Treinamento em TI | BC Tech Solution" />
         <meta property="og:description" content="Documentação completa e treinamento personalizado para capacitar sua equipe em Power BI e Engenharia de Dados" />
-        <meta property="og:url" content="https://bctechsolutionsadvisory.com/documentacao-treinamento" />
+        <meta property="og:url" content="https://bctechsolutionsadvisory.com/DocumentationTrainingSection" />
         <meta property="og:type" content="website" />
         
         {/* Canonical */}
-        <link rel="canonical" href="https://bctechsolutionsadvisory.com/documentacao-treinamento" />
+        <link rel="canonical" href="https://bctechsolutionsadvisory.com/DocumentationTrainingSection" />
         
         <script
           type="application/ld+json"
