@@ -5,8 +5,26 @@ export default function WebDevelopmentSection() {
 
     <>
       <Head>
-        <title>Desenvolvimento Web - Tech Solution</title>
-        <meta name="description" content="Criação de sites profissionais, landing pages e lojas virtuais para pequenas empresas. A partir de R$ 499,00" />
+        <title>Desenvolvimento Web | Sites e Landing Pages | BC Tech Solution</title>
+        <meta 
+          name="description" 
+          content="Criação de sites profissionais, landing pages e lojas virtuais para pequenas empresas. Design responsivo, SEO otimizado. A partir de R$ 499,00" 
+        />
+        
+        {/* Palavras-chave */}
+        <meta 
+          name="keywords" 
+          content="desenvolvimento web, criação de sites, landing page, site institucional, loja virtual, e-commerce, site responsivo, site profissional, web design"
+        />
+        
+        {/* Open Graph */}
+        <meta property="og:title" content="Desenvolvimento Web Profissional | BC Tech Solution" />
+        <meta property="og:description" content="Sites, landing pages e lojas virtuais para pequenas empresas" />
+        <meta property="og:url" content="https://bctechsolutionsadvisory.com/desenvolvimento-web" />
+        <meta property="og:type" content="website" />
+        
+        {/* Canonical */}
+        <link rel="canonical" href="https://bctechsolutionsadvisory.com/desenvolvimento-web" />
         
         <script
           type="application/ld+json"
@@ -17,9 +35,11 @@ export default function WebDevelopmentSection() {
               "serviceType": "Desenvolvimento Web",
               "provider": {
                 "@type": "Organization",
-                "name": "Tech Solution"
+                "name": "BC Tech Solution & Advisory",
+                "url": "https://bctechsolutionsadvisory.com"
               },
               "areaServed": "BR",
+              "description": "Criação de sites profissionais, landing pages e lojas virtuais para pequenas empresas. Design responsivo e SEO otimizado",
               "hasOfferCatalog": {
                 "@type": "OfferCatalog",
                 "name": "Serviços de Desenvolvimento Web",
@@ -29,7 +49,7 @@ export default function WebDevelopmentSection() {
                     "itemOffered": {
                       "@type": "Service",
                       "name": "Landing Page",
-                      "description": "Página focada em divulgar seu trabalho"
+                      "description": "Página focada em divulgar seu trabalho com design impactante e carregamento rápido"
                     },
                     "price": "499.00",
                     "priceCurrency": "BRL"
@@ -39,7 +59,7 @@ export default function WebDevelopmentSection() {
                     "itemOffered": {
                       "@type": "Service",
                       "name": "Site Institucional",
-                      "description": "Presença digital profissional para sua empresa"
+                      "description": "Presença digital profissional para sua empresa com SEO otimizado"
                     },
                     "price": "2500.00",
                     "priceCurrency": "BRL"
@@ -49,12 +69,19 @@ export default function WebDevelopmentSection() {
                     "itemOffered": {
                       "@type": "Service",
                       "name": "Loja Virtual",
-                      "description": "E-commerce completo para vender online"
+                      "description": "E-commerce completo para vender online com pagamento integrado"
                     },
                     "price": "4500.00",
                     "priceCurrency": "BRL"
                   }
                 ]
+              },
+              "offers": {
+                "@type": "AggregateOffer",
+                "lowPrice": "499.00",
+                "highPrice": "4500.00",
+                "priceCurrency": "BRL",
+                "availability": "https://schema.org/InStock"
               }
             })
           }}

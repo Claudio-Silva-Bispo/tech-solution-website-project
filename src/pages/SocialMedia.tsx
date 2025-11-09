@@ -4,22 +4,23 @@ export default function SocialMedia() {
   return (
     <>
       <Head>
-        <title>Gestão de Redes Sociais | BC Tech Solution</title>
+        <title>Gestão de Redes Sociais | Instagram e Facebook | BC Tech Solution</title>
         <meta 
           name="description" 
-          content="Criação e gestão de perfis profissionais no Instagram e Facebook. Criamos sua presença digital com posts estratégicos, design profissional e planejamento de conteúdo." 
+          content="Criação e gestão profissional de perfis no Instagram e Facebook para pequenas empresas. Identidade visual, posts estratégicos, feeds harmoniosos, reels e planejamento de conteúdo completo." 
         />
         
         {/* Palavras-chave */}
         <meta 
           name="keywords" 
-          content="gestão redes sociais, instagram empresarial, facebook empresarial, posts profissionais, feeds, reels, social media, marketing digital"
+          content="gestão redes sociais, instagram empresarial, facebook empresarial, posts profissionais, feeds, reels, social media, marketing digital, identidade visual, design posts, planejamento conteúdo, gestão instagram"
         />
         
         {/* Open Graph */}
         <meta property="og:title" content="Gestão de Redes Sociais | BC Tech Solution" />
-        <meta property="og:description" content="Criação de perfis profissionais e gestão de redes sociais" />
+        <meta property="og:description" content="Criação de perfis profissionais e gestão estratégica de Instagram e Facebook" />
         <meta property="og:url" content="https://bctechsolutionsadvisory.com/redes-sociais" />
+        <meta property="og:type" content="website" />
         
         {/* Canonical */}
         <link rel="canonical" href="https://bctechsolutionsadvisory.com/redes-sociais" />
@@ -37,7 +38,7 @@ export default function SocialMedia() {
                 "url": "https://bctechsolutionsadvisory.com"
               },
               "areaServed": "BR",
-              "description": "Criação de perfis profissionais no Instagram e Facebook com identidade visual, primeiros posts estratégicos e planejamento de conteúdo",
+              "description": "Criação profissional de perfis no Instagram e Facebook com identidade visual consistente, primeiros posts estratégicos, feeds harmoniosos, reels de apresentação e planejamento editorial completo",
               "hasOfferCatalog": {
                 "@type": "OfferCatalog",
                 "name": "Serviços de Redes Sociais",
@@ -46,32 +47,48 @@ export default function SocialMedia() {
                     "@type": "Offer",
                     "itemOffered": {
                       "@type": "Service",
-                      "name": "Criação de Perfis",
-                      "description": "Instagram e Facebook profissionais com bio e fotos otimizadas"
+                      "name": "Criação de Perfis Profissionais",
+                      "description": "Instagram e Facebook empresariais com bio otimizada, fotos personalizadas e configurações profissionais completas"
                     }
                   },
                   {
                     "@type": "Offer",
                     "itemOffered": {
                       "@type": "Service",
-                      "name": "Identidade Visual",
-                      "description": "Design consistente para sua marca nas redes sociais"
+                      "name": "Identidade Visual para Redes Sociais",
+                      "description": "Design consistente e profissional para sua marca nas redes sociais com templates personalizados"
                     }
                   },
                   {
                     "@type": "Offer",
                     "itemOffered": {
                       "@type": "Service",
-                      "name": "Primeiros Posts",
-                      "description": "Conteúdo estratégico para iniciar sua presença digital"
+                      "name": "Conteúdo Inicial Estratégico",
+                      "description": "Primeiros 5-10 posts criados com feed harmonioso, textos persuasivos e planejamento editorial"
                     }
                   },
                   {
                     "@type": "Offer",
                     "itemOffered": {
                       "@type": "Service",
-                      "name": "Gestão Continuada",
-                      "description": "Acompanhamento e gestão contínua das redes sociais"
+                      "name": "Produção de Reels",
+                      "description": "Reels de apresentação e conteúdo em vídeo para engajamento nas redes sociais"
+                    }
+                  },
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "Planejamento de Conteúdo",
+                      "description": "Estratégia de conteúdo definida com calendário editorial e diretrizes para posts futuros"
+                    }
+                  },
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "Gestão Continuada de Redes Sociais",
+                      "description": "Acompanhamento mensal com posts regulares, gestão de comentários e relatórios de desempenho"
                     }
                   }
                 ]
@@ -102,6 +119,50 @@ export default function SocialMedia() {
             </h2>
             <p className="text-lg lg:text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed text-start lg:text-center">
               Criamos seu perfil profissional no Instagram e Facebook com identidade visual, primeiros posts estratégicos e planejamento de conteúdo
+            </p>
+          </div>
+
+          {/* Texto Explicativo Introdutório */}
+          <div className="bg-gradient-to-r from-pink-500/10 via-purple-500/10 to-blue-500/10 ring-1 border-pink-500/20 rounded-xl p-8 mb-16">
+            <h3 className="text-2xl font-bold text-pink-300 mb-4 flex items-center gap-3">
+              <span>🎯</span>
+              <span>Por Que Sua Empresa Precisa Estar nas Redes Sociais?</span>
+            </h3>
+            <p className='text-base text-gray-300 leading-relaxed mb-4'>
+              Hoje em dia, <strong className="text-white">não estar nas redes sociais é perder clientes</strong> todos os dias. Mas criar um perfil profissional vai muito além de apenas ter uma conta:
+            </p>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="bg-red-500/10 ring-1 border-red-500/20 rounded-lg p-5">
+                <div className="text-red-400 font-bold mb-3 flex items-center gap-2">
+                  <span>❌</span>
+                  <span>Perfil Amador (Feito Sem Estratégia):</span>
+                </div>
+                <ul className="space-y-2 text-sm text-gray-300">
+                  <li>• Posts sem padrão visual</li>
+                  <li>• Bio confusa e desorganizada</li>
+                  <li>• Fotos de baixa qualidade</li>
+                  <li>• Sem identidade da marca</li>
+                  <li>• Conteúdo aleatório sem estratégia</li>
+                  <li>• Pouco ou nenhum engajamento</li>
+                </ul>
+              </div>
+              <div className="bg-green-500/10 ring-1 border-green-500/20 rounded-lg p-5">
+                <div className="text-green-400 font-bold mb-3 flex items-center gap-2">
+                  <span>✅</span>
+                  <span>Perfil Profissional (Nossa Abordagem):</span>
+                </div>
+                <ul className="space-y-2 text-sm text-gray-300">
+                  <li>• Feed harmonioso e atrativo</li>
+                  <li>• Bio otimizada que converte</li>
+                  <li>• Identidade visual consistente</li>
+                  <li>• Branding forte da empresa</li>
+                  <li>• Conteúdo estratégico planejado</li>
+                  <li>• Maior credibilidade e vendas</li>
+                </ul>
+              </div>
+            </div>
+            <p className='text-sm text-pink-300 mt-6 italic'>
+              💡 <strong>A Verdade:</strong> Seu cliente pesquisa sua empresa nas redes sociais ANTES de comprar. Um perfil profissional transmite confiança!
             </p>
           </div>
 
@@ -149,11 +210,65 @@ export default function SocialMedia() {
             </div>
           </div>
 
+          {/* O Que Você Recebe - Detalhamento */}
+          <div className="mb-16 bg-blue-500/10 ring-1 border-blue-500/20 rounded-xl p-8">
+            <h3 className="text-2xl font-bold text-blue-300 mb-6 text-center flex items-center justify-center gap-3">
+              <span>📦</span>
+              <span>O Que Está Incluído no Pacote</span>
+            </h3>
+            
+            <div className="grid md:grid-cols-3 gap-6">
+              <div className="bg-white/5 rounded-lg p-6 hover:bg-white/10 transition-all">
+                <div className="text-4xl mb-4 text-center">🎨</div>
+                <h4 className="text-lg font-bold text-white mb-3 text-center">Design Profissional</h4>
+                <ul className="text-gray-300 text-sm space-y-2">
+                  <li>✅ Logo e cores da marca aplicados</li>
+                  <li>✅ Templates personalizados</li>
+                  <li>✅ Fotos de capa e perfil</li>
+                  <li>✅ Destaques organizados (Stories)</li>
+                  <li>✅ Feed com identidade visual única</li>
+                </ul>
+              </div>
+
+              <div className="bg-white/5 rounded-lg p-6 hover:bg-white/10 transition-all">
+                <div className="text-4xl mb-4 text-center">📝</div>
+                <h4 className="text-lg font-bold text-white mb-3 text-center">Conteúdo Estratégico</h4>
+                <ul className="text-gray-300 text-sm space-y-2">
+                  <li>✅ 5-10 posts prontos para publicar</li>
+                  <li>✅ Textos que geram engajamento</li>
+                  <li>✅ Hashtags estratégicas</li>
+                  <li>✅ Call-to-actions eficazes</li>
+                  <li>✅ Calendário de publicações</li>
+                </ul>
+              </div>
+
+              <div className="bg-white/5 rounded-lg p-6 hover:bg-white/10 transition-all">
+                <div className="text-4xl mb-4 text-center">🎯</div>
+                <h4 className="text-lg font-bold text-white mb-3 text-center">Estratégia Definida</h4>
+                <ul className="text-gray-300 text-sm space-y-2">
+                  <li>✅ Análise do público-alvo</li>
+                  <li>✅ Pilares de conteúdo definidos</li>
+                  <li>✅ Tom de voz da marca</li>
+                  <li>✅ Frequência de posts sugerida</li>
+                  <li>✅ Objetivos e metas claras</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
           {/* Opções de Continuidade */}
           <div className="bg-white/5 ring-1 border-white/10 rounded-xl p-10 backdrop-blur">
-            <h3 className="text-2xl font-bold text-blue-400 text-center mb-10">
+            <h3 className="text-2xl font-bold text-blue-400 text-center mb-6">
               🚀 E Depois? Você Decide!
             </h3>
+            
+            {/* Texto Explicativo */}
+            <div className="bg-purple-500/10 ring-1 border-purple-500/20 rounded-lg p-6 mb-8">
+              <p className="text-gray-300 text-center leading-relaxed">
+                Depois de criar seu perfil profissional e publicar os primeiros posts, <strong className="text-white">você escolhe</strong> como quer continuar:
+              </p>
+            </div>
+
             <div className="grid lg:grid-cols-2 gap-8">
               
               {/* Opção 1: Autonomia */}
@@ -163,11 +278,15 @@ export default function SocialMedia() {
                 <p className="text-gray-300 text-sm mb-4">
                   Com tudo estruturado e os primeiros posts publicados, você pode dar continuidade ao seu perfil de forma independente
                 </p>
-                <div className="bg-white/5 rounded-lg p-4 text-left text-sm">
+                <div className="bg-white/5 rounded-lg p-4 text-left text-sm space-y-2">
                   <p className="text-gray-400">✅ Perfil profissional criado</p>
                   <p className="text-gray-400">✅ Identidade visual definida</p>
                   <p className="text-gray-400">✅ Primeiros posts estratégicos</p>
                   <p className="text-gray-400">✅ Planejamento de conteúdo</p>
+                  <p className="text-gray-400">✅ Templates para usar</p>
+                </div>
+                <div className="mt-6 text-blue-300 text-sm italic">
+                  💡 Ideal para quem tem tempo e quer economizar!
                 </div>
               </div>
 
@@ -178,11 +297,15 @@ export default function SocialMedia() {
                 <p className="text-gray-300 text-sm mb-4">
                   Prefere focar no seu negócio? Nossa equipe cuida de tudo para você crescer nas redes sociais
                 </p>
-                <div className="bg-white/5 rounded-lg p-4 text-left text-sm">
+                <div className="bg-white/5 rounded-lg p-4 text-left text-sm space-y-2">
                   <p className="text-gray-400">📅 Posts regulares e programados</p>
-                  <p className="text-gray-400">💬 Gestão de comentários</p>
-                  <p className="text-gray-400">📊 Relatórios de desempenho</p>
+                  <p className="text-gray-400">💬 Gestão de comentários e DMs</p>
+                  <p className="text-gray-400">📊 Relatórios mensais de performance</p>
                   <p className="text-gray-400">🎯 Estratégias de crescimento</p>
+                  <p className="text-gray-400">📈 Aumento de seguidores e vendas</p>
+                </div>
+                <div className="mt-6 text-purple-300 text-sm italic">
+                  💡 Ideal para quem quer resultados sem preocupação!
                 </div>
               </div>
 

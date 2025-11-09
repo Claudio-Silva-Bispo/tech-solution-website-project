@@ -150,19 +150,20 @@ const PowerBIArchitecture = () => {
         <title>Power BI - Dashboards e Relatórios Inteligentes | BC Tech Solution</title>
         <meta 
           name="description" 
-          content="Criação de dashboards profissionais em Power BI, relatórios personalizados e análise de dados para pequenas empresas. Transforme dados em insights estratégicos." 
+          content="Criação de dashboards profissionais em Power BI, relatórios personalizados, análise de dados e arquitetura otimizada para pequenas empresas. Transforme dados em insights estratégicos com economia de licenças." 
         />
         
         {/* Palavras-chave */}
         <meta 
           name="keywords" 
-          content="power bi, dashboard, relatórios, análise de dados, business intelligence, visualização de dados, kpis, métricas"
+          content="power bi, dashboard, relatórios, análise de dados, business intelligence, visualização de dados, kpis, métricas, bi, data analytics, microsoft power bi, relatórios gerenciais"
         />
         
         {/* Open Graph */}
         <meta property="og:title" content="Power BI - Dashboards Inteligentes | BC Tech Solution" />
-        <meta property="og:description" content="Dashboards profissionais e relatórios personalizados em Power BI" />
+        <meta property="og:description" content="Dashboards profissionais e relatórios personalizados em Power BI para análise estratégica de dados" />
         <meta property="og:url" content="https://bctechsolutionsadvisory.com/power-bi" />
+        <meta property="og:type" content="website" />
         
         {/* Canonical */}
         <link rel="canonical" href="https://bctechsolutionsadvisory.com/power-bi" />
@@ -180,7 +181,7 @@ const PowerBIArchitecture = () => {
                 "url": "https://bctechsolutionsadvisory.com"
               },
               "areaServed": "BR",
-              "description": "Criação de dashboards inteligentes e relatórios personalizados em Power BI para análise de dados e tomada de decisões estratégicas",
+              "description": "Criação de dashboards inteligentes e relatórios personalizados em Power BI para análise de dados e tomada de decisões estratégicas, com arquitetura otimizada e economia de licenças",
               "hasOfferCatalog": {
                 "@type": "OfferCatalog",
                 "name": "Serviços de Power BI e Business Intelligence",
@@ -189,16 +190,24 @@ const PowerBIArchitecture = () => {
                     "@type": "Offer",
                     "itemOffered": {
                       "@type": "Service",
-                      "name": "Dashboard Executivo",
-                      "description": "Relatórios personalizados com KPIs e métricas importantes"
+                      "name": "Dashboard Executivo Power BI",
+                      "description": "Relatórios personalizados com KPIs, métricas estratégicas e visualizações interativas para tomada de decisão"
                     }
                   },
                   {
                     "@type": "Offer",
                     "itemOffered": {
                       "@type": "Service",
-                      "name": "Análise de Dados",
-                      "description": "Transformação de dados em insights estratégicos"
+                      "name": "Arquitetura Power BI Otimizada",
+                      "description": "Estrutura de workspaces (desenvolvimento, homologação e produção) com gateway configurado e datasets otimizados"
+                    }
+                  },
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "Análise de Dados e BI",
+                      "description": "Transformação de dados brutos em insights estratégicos com visualizações profissionais e análises avançadas"
                     }
                   },
                   {
@@ -206,15 +215,23 @@ const PowerBIArchitecture = () => {
                     "itemOffered": {
                       "@type": "Service",
                       "name": "Treinamento Power BI",
-                      "description": "Capacitação da equipe para conduzir projetos após a entrega"
+                      "description": "Capacitação da equipe interna para autonomia na condução de projetos após a entrega"
                     }
                   },
                   {
                     "@type": "Offer",
                     "itemOffered": {
                       "@type": "Service",
-                      "name": "Documentação e Conceitos",
-                      "description": "Documentação completa do projeto e conceitos aplicados"
+                      "name": "Otimização de Performance",
+                      "description": "Compressão de datasets, refresh inteligente, RLS estratégico e economia de até 70% em licenças"
+                    }
+                  },
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "Documentação Técnica Completa",
+                      "description": "Documentação detalhada do projeto, conceitos aplicados, modelagem de dados e melhores práticas"
                     }
                   }
                 ]
@@ -266,6 +283,25 @@ const PowerBIArchitecture = () => {
                 🏢 Estrutura de Workspaces
               </h3>
 
+              {/* Texto Explicativo */}
+              <div className="bg-blue-500/10 ring-1 border-blue-500/20 rounded-xl p-6 mb-8">
+                <h4 className="text-lg font-bold text-blue-300 mb-4 flex items-center gap-2">
+                  <span>💡</span>
+                  <span>O Que Vamos Fazer Aqui?</span>
+                </h4>
+                <p className='text-base text-gray-300 leading-relaxed mb-3'>
+                  Vamos criar <strong className="text-white">3 ambientes separados e seguros</strong> para organizar todo o trabalho de BI da sua empresa:
+                </p>
+                <ul className="space-y-2 text-sm text-gray-300 ml-5">
+                  <li>✅ <strong className="text-blue-300">Desenvolvimento:</strong> Onde criamos e testamos novos relatórios sem medo de quebrar nada</li>
+                  <li>✅ <strong className="text-blue-300">Homologação:</strong> Onde sua equipe valida e aprova as mudanças antes de publicar</li>
+                  <li>✅ <strong className="text-blue-300">Produção:</strong> Os relatórios finais que toda a empresa usa no dia a dia</li>
+                </ul>
+                <p className='text-sm text-blue-300 mt-4 italic'>
+                  🎯 Resultado: Sua equipe trabalha com segurança, sem afetar os relatórios que estão em uso!
+                </p>
+              </div>
+
               <p className='text-lg lg:text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed text-start lg:text-center mb-5'>Imagine ter espaços seguros onde você e sua equipe podem trabalhar sem afetar os Relatórios que estão em Produção e garantindo as alterações necessárias conforme a solicitação da sua área de Negócio</p>
               
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
@@ -305,6 +341,42 @@ const PowerBIArchitecture = () => {
               <h3 className="text-xl lg:text-2xl font-bold text-blue-400 mb-8 text-center">
                 🗃️ Arquitetura de Dados
               </h3>
+
+              {/* Texto Explicativo */}
+              <div className="bg-gradient-to-br from-purple-500/10 to-green-500/10 ring-1 border-purple-500/20 rounded-xl p-6 mb-8">
+                <h4 className="text-lg font-bold text-purple-300 mb-4 flex items-center gap-2">
+                  <span>🎯</span>
+                  <span>Da Bagunça à Organização Total</span>
+                </h4>
+                <p className='text-base text-gray-300 leading-relaxed mb-4'>
+                  Hoje seus dados estão <strong className="text-red-400">espalhados</strong> em vários lugares:
+                </p>
+                <div className="grid md:grid-cols-2 gap-4 mb-4">
+                  <div className="bg-red-500/10 ring-1 border-red-500/20 rounded-lg p-4">
+                    <div className="text-red-400 font-bold mb-2">❌ Situação Atual (Caótica):</div>
+                    <ul className="space-y-1 text-sm text-gray-300">
+                      <li>📊 Planilhas Excel soltas</li>
+                      <li>📓 Cadernos e anotações</li>
+                      <li>📝 Bloco de notas do computador</li>
+                      <li>💾 Arquivos no WhatsApp/E-mail</li>
+                      <li>🗄️ Sistemas antigos desconectados</li>
+                    </ul>
+                  </div>
+                  <div className="bg-green-500/10 ring-1 border-green-500/20 rounded-lg p-4">
+                    <div className="text-green-400 font-bold mb-2">✅ Depois (Organizado):</div>
+                    <ul className="space-y-1 text-sm text-gray-300">
+                      <li>☁️ Tudo centralizado na nuvem</li>
+                      <li>🔄 Atualização automática</li>
+                      <li>🔒 Seguro e confiável</li>
+                      <li>📱 Acesso de qualquer lugar</li>
+                      <li>⚡ Rápido e eficiente</li>
+                    </ul>
+                  </div>
+                </div>
+                <p className='text-sm text-purple-300 italic'>
+                  🚀 <strong>Vamos fazer isso por você:</strong> Pegamos todos os seus dados desorganizados e colocamos em um banco de dados profissional na nuvem, conectado ao Power BI através de um Gateway seguro!
+                </p>
+              </div>
               
               <div className="flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-12">
                 
@@ -357,6 +429,58 @@ const PowerBIArchitecture = () => {
               <h3 className="text-xl lg:text-2xl font-bold text-blue-400 mb-8 text-center">
                 📋 Catálogo de Relatórios
               </h3>
+
+              {/* Texto Explicativo */}
+              <div className="bg-gradient-to-r from-amber-500/10 via-blue-500/10 to-emerald-500/10 ring-1 border-amber-500/20 rounded-xl p-6 mb-8">
+                <h4 className="text-lg font-bold text-amber-300 mb-4 flex items-center gap-2">
+                  <span>📊</span>
+                  <span>Relatórios Certos Para Cada Pessoa</span>
+                </h4>
+                <p className='text-base text-gray-300 leading-relaxed mb-4'>
+                  Vamos criar <strong className="text-white">relatórios específicos</strong> para cada nível da sua empresa, com <strong className="text-white">segurança</strong> e <strong className="text-white">economia de licenças</strong>:
+                </p>
+                <div className="grid md:grid-cols-3 gap-4">
+                  <div className="bg-amber-500/10 ring-1 border-amber-500/20 rounded-lg p-4">
+                    <div className="text-amber-400 font-bold mb-2 flex items-center gap-2">
+                      <span>👔</span>
+                      <span>Executivo</span>
+                    </div>
+                    <p className="text-xs text-gray-300 mb-2">Para CEOs e Diretores</p>
+                    <ul className="space-y-1 text-xs text-gray-400">
+                      <li>• Visão estratégica do negócio</li>
+                      <li>• KPIs em tempo real</li>
+                      <li>• Acesso total aos dados</li>
+                    </ul>
+                  </div>
+                  <div className="bg-blue-500/10 ring-1 border-blue-500/20 rounded-lg p-4">
+                    <div className="text-blue-400 font-bold mb-2 flex items-center gap-2">
+                      <span>⚙️</span>
+                      <span>Operacional</span>
+                    </div>
+                    <p className="text-xs text-gray-300 mb-2">Para Gerentes e Coordenadores</p>
+                    <ul className="space-y-1 text-xs text-gray-400">
+                      <li>• Análises detalhadas</li>
+                      <li>• Drill-through avançado</li>
+                      <li>• Controle de metas</li>
+                    </ul>
+                  </div>
+                  <div className="bg-emerald-500/10 ring-1 border-emerald-500/20 rounded-lg p-4">
+                    <div className="text-emerald-400 font-bold mb-2 flex items-center gap-2">
+                      <span>🔍</span>
+                      <span>Self-Service</span>
+                    </div>
+                    <p className="text-xs text-gray-300 mb-2">Para Usuários Finais</p>
+                    <ul className="space-y-1 text-xs text-gray-400">
+                      <li>• Visualizações simples</li>
+                      <li>• Sem licença paga</li>
+                      <li>• Acesso via mobile</li>
+                    </ul>
+                  </div>
+                </div>
+                <p className='text-sm text-amber-300 mt-4 italic'>
+                  💰 <strong>Economia inteligente:</strong> Com essa estrutura, você economiza até 70% em licenças do Power BI, dando acesso Premium apenas para quem realmente precisa!
+                </p>
+              </div>
               
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
                 {reportCategories.map((category, index) => (

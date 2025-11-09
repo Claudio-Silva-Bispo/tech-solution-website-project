@@ -7,19 +7,20 @@ export default function GoogleBusinessSection() {
         <title>Google Meu Negócio - Apareça no Google Maps | BC Tech Solution</title>
         <meta 
           name="description" 
-          content="Cadastro e otimização completa do Google Meu Negócio. Deixe sua empresa visível no Google Maps e nos resultados de busca local. Atraia mais clientes da sua região." 
+          content="Cadastro completo e otimização do Google Meu Negócio. Deixe sua empresa visível no Google Maps e nos resultados de busca local. Verificação da conta, fotos profissionais, configuração de horários e categorias. Atraia mais clientes da sua região com SEO local." 
         />
         
         {/* Palavras-chave */}
         <meta 
           name="keywords" 
-          content="google meu negócio, google maps, busca local, seo local, perfil empresarial google, aparecer no google, cadastro google, visibilidade local"
+          content="google meu negócio, google maps, busca local, seo local, perfil empresarial google, aparecer no google, cadastro google, visibilidade local, google business profile, otimização google maps, verificação google"
         />
         
         {/* Open Graph */}
         <meta property="og:title" content="Google Meu Negócio - Apareça no Maps | BC Tech Solution" />
-        <meta property="og:description" content="Cadastro completo no Google Meu Negócio para sua empresa aparecer no Maps" />
+        <meta property="og:description" content="Cadastro completo e otimização no Google Meu Negócio para sua empresa aparecer no Maps e atrair clientes locais" />
         <meta property="og:url" content="https://bctechsolutionsadvisory.com/google-meu-negocio" />
+        <meta property="og:type" content="website" />
         
         {/* Canonical */}
         <link rel="canonical" href="https://bctechsolutionsadvisory.com/google-meu-negocio" />
@@ -37,7 +38,7 @@ export default function GoogleBusinessSection() {
                 "url": "https://bctechsolutionsadvisory.com"
               },
               "areaServed": "BR",
-              "description": "Cadastro completo e otimização do perfil no Google Meu Negócio para aumentar a visibilidade local da sua empresa no Google Maps e resultados de busca",
+              "description": "Cadastro completo e otimização do perfil no Google Meu Negócio para aumentar a visibilidade local da sua empresa no Google Maps e resultados de busca. Inclui verificação da conta, upload de fotos profissionais, configuração de horários e categorias.",
               "hasOfferCatalog": {
                 "@type": "OfferCatalog",
                 "name": "Serviços de Google Meu Negócio",
@@ -46,32 +47,48 @@ export default function GoogleBusinessSection() {
                     "@type": "Offer",
                     "itemOffered": {
                       "@type": "Service",
-                      "name": "Cadastro Completo",
-                      "description": "Criação e verificação da conta no Google Meu Negócio"
+                      "name": "Cadastro Completo no Google Meu Negócio",
+                      "description": "Criação da conta empresarial no Google com preenchimento completo de informações e dados"
                     }
                   },
                   {
                     "@type": "Offer",
                     "itemOffered": {
                       "@type": "Service",
-                      "name": "Otimização do Perfil",
-                      "description": "Preenchimento completo com informações, fotos e categorias"
+                      "name": "Verificação e Ativação da Conta",
+                      "description": "Processo completo de verificação com o Google para ativar sua empresa no Maps"
                     }
                   },
                   {
                     "@type": "Offer",
                     "itemOffered": {
                       "@type": "Service",
-                      "name": "Configuração de Horários",
-                      "description": "Horários de funcionamento e informações de contato"
+                      "name": "Otimização de Perfil Empresarial",
+                      "description": "Preenchimento estratégico com fotos profissionais, categorias corretas e descrições otimizadas"
                     }
                   },
                   {
                     "@type": "Offer",
                     "itemOffered": {
                       "@type": "Service",
-                      "name": "Visibilidade no Maps",
-                      "description": "Sua empresa visível no Google Maps e buscas locais"
+                      "name": "Configuração de Horários e Localização",
+                      "description": "Configuração precisa de horários de funcionamento, localização no mapa e informações de contato"
+                    }
+                  },
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "SEO Local e Visibilidade no Maps",
+                      "description": "Otimização para aparecer nas buscas locais do Google e aumentar visibilidade no Google Maps"
+                    }
+                  },
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "Gestão de Avaliações",
+                      "description": "Configuração para receber e gerenciar avaliações de clientes no Google"
                     }
                   }
                 ]
@@ -102,6 +119,50 @@ export default function GoogleBusinessSection() {
             </h2>
             <p className="text-lg lg:text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed text-start lg:text-center">
               Cadastramos e otimizamos seu perfil no Google Meu Negócio para sua empresa ser encontrada facilmente por clientes da sua região
+            </p>
+          </div>
+
+          {/* Texto Explicativo Introdutório */}
+          <div className="bg-gradient-to-r from-red-500/10 via-orange-500/10 to-green-500/10 ring-1 border-red-500/20 rounded-xl p-8 mb-16">
+            <h3 className="text-2xl font-bold text-orange-300 mb-4 flex items-center gap-3">
+              <span>⚠️</span>
+              <span>Você Sabia? 76% das Pessoas Buscam no Google Antes de Comprar</span>
+            </h3>
+            <p className='text-base text-gray-300 leading-relaxed mb-4'>
+              Quando alguém procura <strong className="text-white">"restaurante perto de mim"</strong>, <strong className="text-white">"salão de beleza"</strong> ou <strong className="text-white">"oficina mecânica"</strong>, o Google mostra primeiro as empresas cadastradas no <strong className="text-white">Google Meu Negócio</strong>.
+            </p>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="bg-red-500/10 ring-1 border-red-500/20 rounded-lg p-5">
+                <div className="text-red-400 font-bold mb-3 flex items-center gap-2">
+                  <span>❌</span>
+                  <span>Sem Google Meu Negócio:</span>
+                </div>
+                <ul className="space-y-2 text-sm text-gray-300">
+                  <li>• Sua empresa é <strong>invisível</strong> no Google Maps</li>
+                  <li>• Perde clientes para concorrentes</li>
+                  <li>• Sem avaliações não há confiança</li>
+                  <li>• Dificulta o contato direto</li>
+                  <li>• Cliente não encontra horários/localização</li>
+                  <li>• Aparência de empresa desatualizada</li>
+                </ul>
+              </div>
+              <div className="bg-green-500/10 ring-1 border-green-500/20 rounded-lg p-5">
+                <div className="text-green-400 font-bold mb-3 flex items-center gap-2">
+                  <span>✅</span>
+                  <span>Com Google Meu Negócio Otimizado:</span>
+                </div>
+                <ul className="space-y-2 text-sm text-gray-300">
+                  <li>• <strong>Destaque</strong> no topo das buscas locais</li>
+                  <li>• Aparece no Google Maps da região</li>
+                  <li>• Clientes ligam direto pelo Google</li>
+                  <li>• Avaliações aumentam credibilidade</li>
+                  <li>• Informações sempre atualizadas</li>
+                  <li>• Mais visitas e vendas garantidas</li>
+                </ul>
+              </div>
+            </div>
+            <p className='text-sm text-orange-300 mt-6 italic'>
+              📊 <strong>Estatística:</strong> Empresas com perfil completo no Google recebem em média 70% mais visitas do que as sem perfil!
             </p>
           </div>
 
@@ -150,9 +211,17 @@ export default function GoogleBusinessSection() {
 
           {/* O Que Fazemos */}
           <div className="mb-16 bg-white/5 ring-1 border-white/10 rounded-xl p-10 backdrop-blur">
-            <h3 className="text-2xl font-bold text-blue-400 text-center mb-10">
+            <h3 className="text-2xl font-bold text-blue-400 text-center mb-6">
               ✨ O Que Fazemos Por Você
             </h3>
+
+            {/* Texto Explicativo */}
+            <div className="bg-blue-500/10 ring-1 border-blue-500/20 rounded-lg p-6 mb-8">
+              <p className="text-gray-300 text-center leading-relaxed">
+                Criamos e otimizamos <strong className="text-white">completamente</strong> seu perfil no Google Meu Negócio, garantindo que sua empresa seja <strong className="text-white">encontrada facilmente</strong> por clientes locais e tenha uma <strong className="text-white">presença profissional</strong> no maior buscador do mundo.
+              </p>
+            </div>
+
             <div className="grid lg:grid-cols-2 gap-8">
 
               {/* Coluna 1 */}
@@ -225,6 +294,52 @@ export default function GoogleBusinessSection() {
                 </div>
               </div>
 
+            </div>
+          </div>
+
+          {/* Como Funciona na Prática */}
+          <div className="bg-purple-500/10 ring-1 border-purple-500/20 rounded-xl p-8 mb-16">
+            <h3 className="text-2xl font-bold text-purple-300 mb-6 text-center flex items-center justify-center gap-3">
+              <span>🎬</span>
+              <span>Como Funciona na Prática Para o Cliente?</span>
+            </h3>
+            
+            <div className="space-y-4">
+              <div className="bg-white/5 rounded-lg p-5 hover:bg-white/10 transition-all">
+                <div className="flex items-start gap-4">
+                  <div className="text-3xl">1️⃣</div>
+                  <div>
+                    <h4 className="text-lg font-bold text-white mb-2">Cliente Busca no Google</h4>
+                    <p className="text-gray-300 text-sm">
+                      Exemplo: "salão de beleza perto de mim" ou "oficina mecânica em [sua cidade]"
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-white/5 rounded-lg p-5 hover:bg-white/10 transition-all">
+                <div className="flex items-start gap-4">
+                  <div className="text-3xl">2️⃣</div>
+                  <div>
+                    <h4 className="text-lg font-bold text-white mb-2">Sua Empresa Aparece em Destaque</h4>
+                    <p className="text-gray-300 text-sm">
+                      Com fotos, avaliações, horário de funcionamento e botão de contato direto
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-white/5 rounded-lg p-5 hover:bg-white/10 transition-all">
+                <div className="flex items-start gap-4">
+                  <div className="text-3xl">3️⃣</div>
+                  <div>
+                    <h4 className="text-lg font-bold text-white mb-2">Cliente Liga, Visita ou Acessa Seu Site</h4>
+                    <p className="text-gray-300 text-sm">
+                      Botões facilitam: "Ligar agora", "Como chegar", "Visitar site", "Enviar mensagem"
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
