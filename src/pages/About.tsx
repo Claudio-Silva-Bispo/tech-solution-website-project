@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import Head from 'next/head';
+import { useTheme } from '../contexts/ThemeContext';
 
 const About = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const { isDarkMode } = useTheme();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -268,13 +270,21 @@ const About = () => {
 
       <section 
         id="About" 
-        className="relative bg-gradient-to-br from-gray-800 to-gray-900 text-white py-20 lg:py-32 overflow-hidden"
+        className={`relative ${
+          isDarkMode 
+            ? 'bg-gradient-to-br from-gray-800 to-gray-900 text-white' 
+            : 'bg-gradient-to-br from-gray-50 to-gray-100 text-gray-900'
+        } py-20 lg:py-32 overflow-hidden`}
       >
         {/* Background Effects */}
         <div className="absolute inset-0">
           <div className="absolute top-0 left-0 w-full h-full opacity-10">
-            <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl"></div>
-            <div className="absolute bottom-1/4 left-1/4 w-80 h-80 bg-blue-500/15 rounded-full blur-3xl"></div>
+            <div className={`absolute top-1/4 right-1/4 w-96 h-96 ${
+              isDarkMode ? 'bg-blue-500/20' : 'bg-blue-400/30'
+            } rounded-full blur-3xl`}></div>
+            <div className={`absolute bottom-1/4 left-1/4 w-80 h-80 ${
+              isDarkMode ? 'bg-blue-500/15' : 'bg-blue-400/25'
+            } rounded-full blur-3xl`}></div>
           </div>
         </div>
 
@@ -282,22 +292,36 @@ const About = () => {
           
           {/* Section Header */}
           <div className="text-center mb-16 lg:mb-20">
-            <div className="inline-flex items-center gap-2 bg-blue-500/15 ring-1 border-blue-500/30 rounded-full px-4 py-2 text-sm text-blue-400 font-medium mb-6">
+            <div className={`inline-flex items-center gap-2 ${
+              isDarkMode 
+                ? 'bg-blue-500/15 border-blue-500/30 text-blue-400' 
+                : 'bg-blue-100 border-blue-300 text-blue-600'
+            } ring-1 rounded-full px-4 py-2 text-sm font-medium mb-6`}>
               <span>👨‍💼</span>
               <span>Sobre Mim</span>
             </div>
             
-            <h2 className="text-3xl md:text-5xl lg:text-4xl xl:text-5xl font-extrabold mb-6 bg-gradient-to-r from-white to-blue-400 bg-clip-text text-transparent pt-10 text-start lg:text-center">
+            <h2 className={`text-3xl md:text-5xl lg:text-4xl xl:text-5xl font-extrabold mb-6 ${
+              isDarkMode
+                ? 'bg-gradient-to-r from-white to-blue-400'
+                : 'bg-gradient-to-r from-gray-900 to-blue-600'
+            } bg-clip-text text-transparent pt-10 text-start lg:text-center`}>
               Transformando Dados e Soluções em valor há mais de 12 Anos
             </h2>
             
-            <p className="text-lg lg:text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed text-start lg:text-center">
+            <p className={`text-lg lg:text-xl ${
+              isDarkMode ? 'text-gray-400' : 'text-gray-600'
+            } max-w-3xl mx-auto leading-relaxed text-start lg:text-center`}>
               Desenvolvedor Full Stack e Engenheiro de Dados especializado em criar soluções end-to-end para empresas
             </p>
           </div>
 
           {/* Personal Intro */}
-          <div className={`bg-white/5 backdrop-blur-sm ring-1 border-white/10 rounded-2xl p-8 lg:p-12 mb-16 transition-all duration-700 ${
+          <div className={`${
+            isDarkMode 
+              ? 'bg-white/5 border-white/10' 
+              : 'bg-white border-gray-200'
+          } backdrop-blur-sm ring-1 rounded-2xl p-8 lg:p-12 mb-16 transition-all duration-700 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}>
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12 items-center">
@@ -307,19 +331,33 @@ const About = () => {
                 <div className="w-32 h-32 lg:w-40 lg:h-40 mx-auto lg:mx-0 mb-6 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center text-5xl lg:text-6xl">
                   👨‍💻
                 </div>
-                <div className="text-blue-400 font-medium mb-4">Senior BI Analyst & Full Stack Developer</div>
-                <div className="text-gray-400 text-sm">São Paulo, Brasil</div>
+                <div className={`${
+                  isDarkMode ? 'text-blue-400' : 'text-blue-600'
+                } font-medium mb-4`}>
+                  Senior BI Analyst & Full Stack Developer
+                </div>
+                <div className={`${
+                  isDarkMode ? 'text-gray-400' : 'text-gray-600'
+                } text-sm`}>
+                  São Paulo, Brasil
+                </div>
               </div>
 
               {/* Bio */}
               <div className="lg:col-span-2 space-y-4">
-                <p className="text-gray-300 leading-relaxed">
-                  Sou Desenvolvedor Full Stack e Engenheiro de Dados, com experiência em criar sistemas e trabalhar com dados. Transformo informações em soluções práticas, como sites, aplicativos e relatórios que ajudam empresas a tomar decisões.
+                <p className={`${
+                  isDarkMode ? 'text-gray-300' : 'text-gray-700'
+                } leading-relaxed`}>
+                  Desenvolvedor Full Stack e Engenheiro de Dados, com experiência em criar sistemas e trabalhar com dados. Transformo informações em soluções práticas, como sites, aplicativos e relatórios que ajudam empresas a tomar decisões.
                 </p>
-                <p className="text-gray-300 leading-relaxed">
+                <p className={`${
+                  isDarkMode ? 'text-gray-300' : 'text-gray-700'
+                } leading-relaxed`}>
                   Já trabalhei em análises de dados, integração de sistemas e desenvolvimento de aplicações completas. Tenho formação em Desenvolvimento Full Stack e especializações em Big Data, BI e Gestão Financeira, o que me permite unir conhecimento técnico com visão de negócio.
                 </p>
-                <p className="text-gray-300 leading-relaxed">
+                <p className={`${
+                  isDarkMode ? 'text-gray-300' : 'text-gray-700'
+                } leading-relaxed`}>
                   Abaixo eu conto um pouco sobre minha experiência profissional.
                 </p>
               </div>
@@ -330,7 +368,9 @@ const About = () => {
           <div className={`mb-16 transition-all duration-700 delay-300 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}>
-            <h3 className="text-2xl lg:text-3xl font-bold text-center mb-12 text-white">
+            <h3 className={`text-2xl lg:text-3xl font-bold text-center mb-12 ${
+              isDarkMode ? 'text-white' : 'text-gray-900'
+            }`}>
               Experiência Profissional
             </h3>
             
@@ -351,24 +391,46 @@ const About = () => {
                     </div>
                     
                     {/* Content */}
-                    <div className="flex-1 bg-white/5 backdrop-blur-sm ring-1 border-white/10 rounded-xl p-6 lg:p-8">
+                    <div className={`flex-1 ${
+                      isDarkMode 
+                        ? 'bg-white/5 border-white/10' 
+                        : 'bg-white border-gray-200'
+                    } backdrop-blur-sm ring-1 rounded-xl p-6 lg:p-8`}>
                       <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-4">
                         <div>
-                          <h4 className="text-xl lg:text-2xl font-bold text-white mb-1">{exp.role}</h4>
-                          <p className="text-blue-400 font-medium">{exp.company}</p>
+                          <h4 className={`text-xl lg:text-2xl font-bold mb-1 ${
+                            isDarkMode ? 'text-white' : 'text-gray-900'
+                          }`}>
+                            {exp.role}
+                          </h4>
+                          <p className={`${
+                            isDarkMode ? 'text-blue-400' : 'text-blue-600'
+                          } font-medium`}>
+                            {exp.company}
+                          </p>
                         </div>
                         <div className="mt-2 lg:mt-0">
-                          <span className="bg-blue-500/20 text-blue-400 px-3 py-1 rounded-full text-sm font-medium">
+                          <span className={`${
+                            isDarkMode 
+                              ? 'bg-blue-500/20 text-blue-400' 
+                              : 'bg-blue-100 text-blue-600'
+                          } px-3 py-1 rounded-full text-sm font-medium`}>
                             {exp.period}
                           </span>
                         </div>
                       </div>
                       
-                      <p className="text-gray-300 mb-4 leading-relaxed">{exp.description}</p>
+                      <p className={`${
+                        isDarkMode ? 'text-gray-300' : 'text-gray-700'
+                      } mb-4 leading-relaxed`}>
+                        {exp.description}
+                      </p>
                       
                       <div className="space-y-2">
                         {exp.achievements.map((achievement, idx) => (
-                          <div key={idx} className="flex items-center gap-3 text-sm text-gray-400">
+                          <div key={idx} className={`flex items-center gap-3 text-sm ${
+                            isDarkMode ? 'text-gray-400' : 'text-gray-600'
+                          }`}>
                             <div className="w-1.5 h-1.5 bg-blue-400 rounded-full"></div>
                             <span>{achievement}</span>
                           </div>
@@ -385,10 +447,16 @@ const About = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 mb-16">
             
             {/* Skills */}
-            <div className={`bg-white/5 backdrop-blur-sm ring-1 border-white/10 rounded-2xl p-6 lg:p-8 transition-all duration-700 delay-500 ${
+            <div className={`${
+              isDarkMode 
+                ? 'bg-white/5 border-white/10' 
+                : 'bg-white border-gray-200'
+            } backdrop-blur-sm ring-1 rounded-2xl p-6 lg:p-8 transition-all duration-700 delay-500 ${
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
             }`}>
-              <h3 className="text-xl lg:text-2xl font-bold text-white mb-8 text-center">
+              <h3 className={`text-xl lg:text-2xl font-bold mb-8 text-center ${
+                isDarkMode ? 'text-white' : 'text-gray-900'
+              }`}>
                 Principais Habilidades
               </h3>
               
@@ -396,10 +464,20 @@ const About = () => {
                 {skills.map((skill, index) => (
                   <div key={index}>
                     <div className="flex justify-between items-center mb-2">
-                      <span className="text-gray-300 font-medium">{skill.name}</span>
-                      <span className="text-blue-400 text-sm">{skill.level}%</span>
+                      <span className={`${
+                        isDarkMode ? 'text-gray-300' : 'text-gray-700'
+                      } font-medium`}>
+                        {skill.name}
+                      </span>
+                      <span className={`${
+                        isDarkMode ? 'text-blue-400' : 'text-blue-600'
+                      } text-sm`}>
+                        {skill.level}%
+                      </span>
                     </div>
-                    <div className="w-full bg-gray-700 rounded-full h-2">
+                    <div className={`w-full ${
+                      isDarkMode ? 'bg-gray-700' : 'bg-gray-200'
+                    } rounded-full h-2`}>
                       <div 
                         className="bg-gradient-to-r from-blue-500 to-blue-400 h-2 rounded-full transition-all duration-1000 ease-out"
                         style={{ 
@@ -408,30 +486,60 @@ const About = () => {
                         }}
                       ></div>
                     </div>
-                    <div className="text-xs text-gray-500 mt-1">{skill.category}</div>
+                    <div className={`text-xs mt-1 ${
+                      isDarkMode ? 'text-gray-500' : 'text-gray-500'
+                    }`}>
+                      {skill.category}
+                    </div>
                   </div>
                 ))}
               </div>
             </div>
 
             {/* Education */}
-            <div className={`bg-white/5 backdrop-blur-sm ring-1 border-white/10 rounded-2xl p-6 lg:p-8 transition-all duration-700 delay-700 ${
+            <div className={`${
+              isDarkMode 
+                ? 'bg-white/5 border-white/10' 
+                : 'bg-white border-gray-200'
+            } backdrop-blur-sm ring-1 rounded-2xl p-6 lg:p-8 transition-all duration-700 delay-700 ${
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
             }`}>
-              <h3 className="text-xl lg:text-2xl font-bold text-white mb-8 text-center">
+              <h3 className={`text-xl lg:text-2xl font-bold mb-8 text-center ${
+                isDarkMode ? 'text-white' : 'text-gray-900'
+              }`}>
                 Formação Acadêmica
               </h3>
               
               <div className="space-y-4">
                 {education.map((edu, index) => (
-                  <div key={index} className="bg-white/5 ring-1 border-white/10 rounded-xl p-4 hover:bg-white/10 transition-all duration-300">
+                  <div key={index} className={`${
+                    isDarkMode 
+                      ? 'bg-white/5 border-white/10 hover:bg-white/10' 
+                      : 'bg-gray-50 border-gray-200 hover:bg-gray-100'
+                  } ring-1 rounded-xl p-4 transition-all duration-300`}>
                     <div className="flex items-start gap-4">
                       <div className="text-2xl">{edu.icon}</div>
                       <div className="flex-1 mb-5">
-                        <h4 className="font-semibold text-white mb-1">{edu.degree}</h4>
-                        <p className="text-blue-400 text-sm mb-1">{edu.institution}</p>
-                        <p className="text-gray-400 text-xs mb-1">{edu.period}</p>
-                        <p className="text-gray-500 text-xs">{edu.focus}</p>
+                        <h4 className={`font-semibold mb-1 ${
+                          isDarkMode ? 'text-white' : 'text-gray-900'
+                        }`}>
+                          {edu.degree}
+                        </h4>
+                        <p className={`text-sm mb-1 ${
+                          isDarkMode ? 'text-blue-400' : 'text-blue-600'
+                        }`}>
+                          {edu.institution}
+                        </p>
+                        <p className={`text-xs mb-1 ${
+                          isDarkMode ? 'text-gray-400' : 'text-gray-600'
+                        }`}>
+                          {edu.period}
+                        </p>
+                        <p className={`text-xs ${
+                          isDarkMode ? 'text-gray-500' : 'text-gray-500'
+                        }`}>
+                          {edu.focus}
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -441,20 +549,38 @@ const About = () => {
           </div>
 
           {/* Tech Stack */}
-          <div className={`bg-white/5 backdrop-blur-sm ring-1 border-white/10 rounded-2xl p-6 lg:p-8 mb-16 transition-all duration-700 delay-900 ${
+          <div className={`${
+            isDarkMode 
+              ? 'bg-white/5 border-white/10' 
+              : 'bg-white border-gray-200'
+          } backdrop-blur-sm ring-1 rounded-2xl p-6 lg:p-8 mb-16 transition-all duration-700 delay-900 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}>
-            <h3 className="text-2xl lg:text-3xl font-bold text-white mb-8 text-center">
+            <h3 className={`text-2xl lg:text-3xl font-bold mb-8 text-center ${
+              isDarkMode ? 'text-white' : 'text-gray-900'
+            }`}>
               Stack Tecnológica
             </h3>
             
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
               {Object.entries(techStack).map(([category, technologies], index) => (
-                <div key={index} className="bg-white/5 ring-1 border-white/10 rounded-xl p-6">
-                  <h4 className="text-lg font-bold text-blue-400 mb-4">{category}</h4>
+                <div key={index} className={`${
+                  isDarkMode 
+                    ? 'bg-white/5 border-white/10' 
+                    : 'bg-gray-50 border-gray-200'
+                } ring-1 rounded-xl p-6`}>
+                  <h4 className={`text-lg font-bold mb-4 ${
+                    isDarkMode ? 'text-blue-400' : 'text-blue-600'
+                  }`}>
+                    {category}
+                  </h4>
                   <div className="flex flex-wrap gap-2">
                     {technologies.map((tech, techIndex) => (
-                      <span key={techIndex} className="bg-blue-500/20 text-white px-3 py-1 rounded-full text-sm font-medium">
+                      <span key={techIndex} className={`${
+                        isDarkMode 
+                          ? 'bg-blue-500/20 text-white' 
+                          : 'bg-blue-100 text-blue-700'
+                      } px-3 py-1 rounded-full text-sm font-medium`}>
                         {tech}
                       </span>
                     ))}
@@ -468,7 +594,9 @@ const About = () => {
           <div className={`text-center transition-all duration-700 delay-1000 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}>
-            <h3 className="text-2xl lg:text-3xl font-bold text-white mb-8">
+            <h3 className={`text-2xl lg:text-3xl font-bold mb-8 ${
+              isDarkMode ? 'text-white' : 'text-gray-900'
+            }`}>
               Vamos nos Conectar?
             </h3>
             
@@ -479,14 +607,28 @@ const About = () => {
                   href={link.url}
                   target={link.platform !== 'E-mail' ? '_blank' : '_self'}
                   rel={link.platform !== 'E-mail' ? 'noopener noreferrer' : ''}
-                  className="group bg-white/5 backdrop-blur-sm ring-1 border-white/10 rounded-xl p-6 hover:bg-white/10 hover:border-blue-500/30 hover:scale-105 transition-all duration-300"
+                  className={`group ${
+                    isDarkMode 
+                      ? 'bg-white/5 border-white/10 hover:bg-white/10 hover:border-blue-500/30' 
+                      : 'bg-white border-gray-200 hover:bg-gray-50 hover:border-blue-400'
+                  } backdrop-blur-sm ring-1 rounded-xl p-6 hover:scale-105 transition-all duration-300`}
                 >
                   <div className="text-3xl mb-4 group-hover:scale-110 transition-transform duration-300">
                     {link.icon}
                   </div>
-                  <h4 className="text-lg font-bold text-white mb-2">{link.platform}</h4>
-                  <p className="text-gray-400 text-sm">{link.description}</p>
-                  <div className="mt-4 text-blue-400 text-sm font-medium group-hover:text-blue-300">
+                  <h4 className={`text-lg font-bold mb-2 ${
+                    isDarkMode ? 'text-white' : 'text-gray-900'
+                  }`}>
+                    {link.platform}
+                  </h4>
+                  <p className={`text-sm ${
+                    isDarkMode ? 'text-gray-400' : 'text-gray-600'
+                  }`}>
+                    {link.description}
+                  </p>
+                  <div className={`mt-4 text-sm font-medium ${
+                    isDarkMode ? 'text-blue-400 group-hover:text-blue-300' : 'text-blue-600 group-hover:text-blue-500'
+                  }`}>
                     Conectar →
                   </div>
                 </a>
